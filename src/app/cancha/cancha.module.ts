@@ -10,6 +10,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {CanchaListComponent} from './cancha-list/cancha-list.component';
 import {CanchaDetailComponent} from './cancha-detail/cancha-detail.component';
+import {CanchaService} from './cancha.service';
 
 @NgModule({
     imports: [
@@ -23,9 +24,9 @@ import {CanchaDetailComponent} from './cancha-detail/cancha-detail.component';
         NgxPermissionsModule
     ],
     declarations: [
-        BookListComponent, BookDetailComponent, BookReviewComponent, BookCreateComponent, BookAddReviewComponent, BookEditComponent
+        CanchaListComponent, CanchaDetailComponent
     ],
-    providers: [BookService],
-    exports: [CanchaListComponent, CanchaEditComponent]
+    providers: [CanchaService],
+    exports: [CanchaListComponent]
 })
 export class CanchaModule {}

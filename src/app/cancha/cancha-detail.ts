@@ -1,14 +1,13 @@
-import { Author } from '../author/author';
-import { Book } from './cancha';
-
+    
+import { Cancha } from './cancha';
 
 /**
 * This class represents a book of the BookStore. 
 * It contains all the information relevant to the book.
 */
-export class BookDetail extends Book {
+export class CanchaDetail extends Cancha {
    
-    propietario: Propierario;
+   // authors: Author[];
     
-    reviews: Review[];
+    //reviews: Review[];
 }

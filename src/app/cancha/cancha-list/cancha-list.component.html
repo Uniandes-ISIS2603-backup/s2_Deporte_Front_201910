@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" *ngFor = "let cancha of canchas">
+            <figure class="figure" routerLink="/canchas/{{cancha.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{cancha.direccion}}' alt="{{book.zona}}" />                                     
+                </div>
+                <figcaption class="title-caption text-center">{{cancha.zona}}</figcaption>
+                <div *ngFor = "let author of book.authors">
+                    <figcaption class="author-caption text-center" routerLink="/authors/{{author.id}}">{{author.name}}</figcaption>
+                </div>
+            </figure>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,11 @@ import {CanchaService} from '../cancha.service';
 import {Cancha} from '../cancha';
 import { CanchaDetail } from '../cancha-detail';
 
+@Component({
+    selector: 'app-cancha-detail',
+    templateUrl: './cancha-detail.component.html',
+    styleUrls: ['./cancha-detail.component.css']
+})
 export class CanchaDetailComponent implements OnInit, OnDestroy {
 
     /**
@@ -85,7 +90,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.cancha_id = +this.route.snapshot.paramMap.get('id');
         this.canchaDetail = new CanchaDetail();
         this.getCanchaDetail();
-        this.getOtherCanchas();
+        //this.getOtherCanchas();
     }
 
     /**

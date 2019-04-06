@@ -5,9 +5,9 @@ import 'rxjs/add/operator/filter';
 import {Cancha} from '../../cancha/cancha';
 import {CanchaService} from '../../cancha/cancha.service';
 @Component({
-    selector: 'app-book-list',
-    templateUrl: './book-list.component.html',
-    styleUrls: ['./book-list.component.css']
+    selector: 'app-cancha-list',
+    templateUrl: './cancha-list.component.html',
+    styleUrls: ['./cancha-list.component.css']
 })
 
 export class CanchaListComponent implements OnInit {
@@ -31,24 +31,15 @@ export class CanchaListComponent implements OnInit {
             .subscribe(canchas => {
                 this.canchas = canchas;
             });
+            
+            
+            
     }
 
     /**
     * The method which initializes the component
     */
     ngOnInit() {
-        this.route.queryParams
-            .filter(params => params.allcanchas)
-            .subscribe(params => {
-                console.log(params);
-
-                this.allcanchas = params.allcanchas;
-                console.log(this.allcanchas);
-            });
-        if (this.allcanchas == 'yes') {
-            console.log("allcanchas");
-
-            this.getCanchas();
-        }
+       this.getCanchas();
     }
 }

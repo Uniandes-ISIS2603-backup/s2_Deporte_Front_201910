@@ -1,40 +1,61 @@
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <div class="form-inline">
-                <h2 class="mainTitle">s2_deporte-Front</h2>
+                <h2 class="mainTitle">SportSpot</h2>
             </div>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a id="booksTag" class="nav-link" [routerLink]="['/canchas/list']"
+                    [queryParams]="{allbooks: 'yes'}" style="color:white">Canchas</a>
+            </li>
+            <li class="nav-item">
+                <a id="authorsTag" class="nav-link" routerLink="/propietarios/list" style="color:white">Propietarios</a>
+            </li>
+        </ul>
+
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button>-->
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <div class="navbar-nav mr-auto mt-0">
-                
             </div>
             <div class="navbar-nav ml-auto flex-column">
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
+
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up">
+                                <span class="fa fa-user"></span>
                                 Sign Up</a></li>
-                        <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
+
+                        <li><a id="login-navbar-item" routerLink="/auth/login">
+                                <span class="fa fa-sign-in"></span>Login</a></li>
+
                     </div>
                 </div>
                 <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
                     <div class="form-inline">
-                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                        <li><a id="logout-navbar-item" (click)="logout()" href="#">
+                                <span class="fa fa-sign-out"></span>Logout</a></li>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
+
     <div>
         <router-outlet></router-outlet>
         <br>
         <br>
     </div>
+
+
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">

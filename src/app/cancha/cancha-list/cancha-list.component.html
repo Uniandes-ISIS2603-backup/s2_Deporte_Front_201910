@@ -1,14 +1,18 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2" *ngFor = "let cancha of canchas">
-            <figure class="figure" routerLink="/canchas/{{cancha.id}}" style="cursor: pointer;"> 
-                <div class="img-thumbnail border-0">                        
-                    <img class="img-fluid" src='{{cancha.direccion}}' alt="{{book.zona}}" />                                     
+
+        <div class="col-md-2" *ngFor="let cancha of canchas">
+
+            <div class="card">
+                <h5 class="card-header">{{cancha.id}}</h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{cancha.tipoCancha}}</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="nav-link" [routerLink]="['/canchas/1']" class="btn btn-primary">Detalles</a>
                 </div>
-                <figcaption class="title-caption text-center">{{cancha.zona}}</figcaption>
-                <div *ngFor = "let author of book.authors">
-                    <figcaption class="author-caption text-center" routerLink="/authors/{{author.id}}">{{author.name}}</figcaption>
-                </div>
+            </div>
+            <figure >
+
             </figure>
         </div>
     </div>

@@ -5,6 +5,9 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { CanchaListComponent } from '../cancha/cancha-list/cancha-list.component';
+import { PropietarioListComponent } from '../propietario/propietario-list/propietario-list.component';
+import { CanchaDetailComponent } from '../cancha/cancha-detail/cancha-detail.component';
 
 const routes: Routes = [
 
@@ -30,6 +33,28 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
+            }
+        ]
+    },
+    {
+        path:'canchas',
+        children:[
+            {
+                path: 'list',
+                component: CanchaListComponent
+            },
+            {
+                path: ':id',
+                component: CanchaDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'propietarios',
+        children:[
+            {
+                path: 'list',
+                component: PropietarioListComponent
             }
         ]
     },

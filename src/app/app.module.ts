@@ -13,6 +13,8 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {CanchaModule} from './cancha/cancha.module';
+import {PropietarioModule} from './propietario/propietario.module';
 
 
 
@@ -30,6 +32,8 @@ import {AuthModule} from './auth/auth.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        PropietarioModule,
+        CanchaModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

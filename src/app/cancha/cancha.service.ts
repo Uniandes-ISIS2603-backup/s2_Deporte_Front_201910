@@ -34,4 +34,7 @@ export class CanchaService {
         return this.http.get<CanchaDetail>(API_URL + canchas + '/' + canchaId);
     }
 
+    createCancha(cancha:Cancha){
+        //this.http.post
+    }
 }

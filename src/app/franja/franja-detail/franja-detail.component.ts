@@ -3,27 +3,27 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 
-import {AgendaService} from '../agenda.service';
-import {Agenda} from '../agenda';
-import { AgendaDetail } from '../agenda-detail';
+import {FranjaService} from '../franja.service';
+import {Franja} from '../franja';
+import { FranjaDetail } from '../franja-detail';
 
 @Component({
-    selector: 'app-agenda-detail',
-    templateUrl: './agenda-detail.component.html',
-    styleUrls: ['./agenda-detail.component.css']
+    selector: 'app-franja-detail',
+    templateUrl: './franja-detail.component.html',
+    styleUrls: ['./franja-detail.component.css']
 })
 
-export class AgendaDetailComponent implements OnInit, OnDestroy {
+export class FranjaDetailComponent implements OnInit, OnDestroy {
 
     /**
     * The constructor of the component
-    * @param agendaService The agenda service which communicates with the API
+    * @param franjaService The agenda service which communicates with the API
     * @param route The route which helps to retrieves the id of the agenda to be shown
     * @param router The router which is needed to know when the component needs to reload
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private agendaService: AgendaService,
+        private franjaService: FranjaService,
         private route: ActivatedRoute,
         private modalDialogService: ModalDialogService,
         private router: Router,
@@ -42,17 +42,17 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     /**
     * The book's id retrieved from the path
     */
-    agenda_id: number;
+    franja_id: number;
 
     /**
     * The book whose details are shown
     */
-    agendaDetail: AgendaDetail;
+    franjaDetail: FranjaDetail;
 
     /**
     * The other books shown in the sidebar
     */
-    other_agendas: Agenda[];
+    other_franjas: Franja[];
 
     /**
     * The suscription which helps to know when a new book
@@ -64,21 +64,21 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     * The method which retrieves the details of the book that
     * we want to show
     */
-    getAgendaDetail(): void {
-        this.agendaService.getAgendaDetail(this.agenda_id)
-            .subscribe(agendaDetail => {
-                this.agendaDetail = agendaDetail;
+    getFranjaDetail(): void {
+        this.franjaService.getFranjaDetail(this.franja_id)
+            .subscribe(franjaDetail => {
+                this.franjaDetail = franjaDetail;
             });
     }
 
     /**
     * This method retrieves all the books in the Bookstore to show them in the list
     */
-    getOtherAgendas(): void {
-        this.agendaService.getAgendas()
-            .subscribe(agendas => {
-                this.other_agendas = agendas;
-                this.other_agendas = this.other_agendas.filter(agenda => agenda.id !== this.agenda_id);
+    getOtherFranjas(): void {
+        this.franjaService.getFranjas()
+            .subscribe(franjas => {
+                this.other_franjas = franjas;
+                this.other_franjas = this.other_franjas.filter(franja => franja.id !== this.franja_id);
             });
     }
 
@@ -88,9 +88,9 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     * they are never considered undefined
     */
     ngOnInit() {
-        this.agenda_id = +this.route.snapshot.paramMap.get('id');
-        this.agendaDetail = new AgendaDetail();
-        this.getAgendaDetail();
+        this.franja_id = +this.route.snapshot.paramMap.get('id');
+        this.franjaDetail = new FranjaDetail();
+        this.getFranjaDetail();
         //this.getOtherAgendas();
     }
 

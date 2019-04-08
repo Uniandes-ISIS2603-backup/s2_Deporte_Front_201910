@@ -1,8 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
@@ -12,11 +8,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 
-import {AgendaListComponent} from './agenda-list/agenda-list.component';
-import {AgendaDetailComponent} from './agenda-detail/agenda-detail.component';
-import {AgendaService} from './agenda.service';
-
-import {FranjaModule} from './../franja/franja.module';
+import {FranjaListComponent} from './franja-list/franja-list.component';
+import {FranjaDetailComponent} from './franja-detail/franja-detail.component';
+import {FranjaService} from './franja.service';
 
 @NgModule({
     imports: [
@@ -27,16 +21,15 @@ import {FranjaModule} from './../franja/franja.module';
         FormsModule,
         NgbModule,
         ReactiveFormsModule,
-        NgxPermissionsModule,
-        FranjaModule
+        NgxPermissionsModule
     ],
     declarations: [
-        AgendaListComponent, AgendaDetailComponent
+        FranjaListComponent, FranjaDetailComponent
     ],
-    providers: [AgendaService],
-    exports: [AgendaListComponent]
+    providers: [FranjaService],
+    exports: [FranjaListComponent]
 })
-export class AgendaModule {
+export class FranjaModule {
 }
 
 

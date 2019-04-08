@@ -2,8 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-import {Agenda} from '../../agenda/agenda';
-import {AgendaService} from '../../agenda/agenda.service';
+import {Agenda} from '../agenda';
+import {AgendaService} from '../agenda.service';
 
 @Component({
     selector: 'app-agenda-list',
@@ -16,21 +16,22 @@ export class AgendaListComponent implements OnInit {
     /**
     * The list of agendas to display
     */
-    @Input() agendas: Agenda[];
+    agendas: Agenda[];
 
     /**
     * The component's constructor
     */
-    constructor(private agendaService: AgendaService, private route: ActivatedRoute) {}
+    constructor(private agendaService: AgendaService) {}
 
+    allcanchas: string = 'no';
 
     /**
     * This method retrieves all the agendas in the cancha to show them in the list
     */
     getAgendas(): void {
         this.agendaService.getAgendas()
-            .subscribe(canchas => {
-                this.agendas = canchas;
+            .subscribe(agendas => {
+                this.agendas = agendas;
             });
             
             

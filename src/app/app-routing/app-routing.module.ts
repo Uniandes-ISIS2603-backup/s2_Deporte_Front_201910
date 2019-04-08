@@ -60,9 +60,25 @@ const routes: Routes = [
             }
         ]
     },
+    
     {
         path: 'home',
         component: AuthLoginComponent
+    },
+    {
+        path: 'agendas',
+        children:[
+            {
+                path: ':id',
+                component: AgendaDetailComponent
+            },
+            {
+                path: 'list',
+                component: AgendaListComponent
+            }
+            
+        ]
+    
     },
     {
         path: '**',

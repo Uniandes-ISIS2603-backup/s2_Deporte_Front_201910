@@ -8,6 +8,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CanchaListComponent } from '../cancha/cancha-list/cancha-list.component';
 import { PropietarioListComponent } from '../propietario/propietario-list/propietario-list.component';
 import { CanchaDetailComponent } from '../cancha/cancha-detail/cancha-detail.component';
+import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 
 const routes: Routes = [
 
@@ -55,6 +56,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropietarioListComponent
+            },
+            {
+                path: ':id',
+                component: PropietarioDetailComponent
             }
         ]
     },

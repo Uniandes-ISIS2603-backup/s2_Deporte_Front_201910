@@ -19,4 +19,6 @@ export class Propietario {
      */
 
     numCanchas: number;
+
+    imagen: string;
 }

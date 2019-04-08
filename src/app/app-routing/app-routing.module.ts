@@ -8,6 +8,8 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CanchaListComponent } from '../cancha/cancha-list/cancha-list.component';
 import { PropietarioListComponent } from '../propietario/propietario-list/propietario-list.component';
 import { CanchaDetailComponent } from '../cancha/cancha-detail/cancha-detail.component';
+import {AgendaListComponent} from '../agenda/agenda-list/agenda-list.component';
+import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 
 const routes: Routes = [
 

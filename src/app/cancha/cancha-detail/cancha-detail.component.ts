@@ -48,6 +48,8 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
     */
     canchaDetail: CanchaDetail;
 
+    numeros:number[];
+
     /**
     * The other books shown in the sidebar
     */
@@ -67,6 +69,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.canchaService.getCanchaDetail(this.cancha_id)
             .subscribe(canchaDetail => {
                 this.canchaDetail = canchaDetail;
+                this.numeros=this.canchaDetail.contactos;
             });
     }
 
@@ -77,7 +80,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.canchaService.getCanchas()
             .subscribe(canchas => {
                 this.other_canchas = canchas;
-                this.other_canchas = this.other_canchas.filter(cancha => cancha.id !== this.cancha_id);
+                this.other_canchas = this.other_canchas.filter(cancha => cancha.tipoCancha !== this.canchaDetail.tipoCancha);
             });
     }
 
@@ -90,7 +93,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.cancha_id = +this.route.snapshot.paramMap.get('id');
         this.canchaDetail = new CanchaDetail();
         this.getCanchaDetail();
-        //this.getOtherCanchas();
+        this.getOtherCanchas();
     }
 
     /**

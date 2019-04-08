@@ -21,4 +21,8 @@ export class Cancha {
     contactos: number[];
 
     propietario:Propietario;
+
+    imagen:string;
+
+    nombre:string;
 }

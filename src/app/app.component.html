@@ -8,16 +8,11 @@
 
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a id="booksTag" class="nav-link" [routerLink]= "['/canchas/list']"
-                    [queryParams]="{allbooks: 'yes'}" style="color:white">Canchas</a>
+                <a id="booksTag" class="nav-link" routerLink="/canchas/list" style="color:white">Canchas</a>
             </li>
             <li class="nav-item">
                 <a id="authorsTag" class="nav-link" routerLink="/propietarios/list" style="color:white">Propietarios</a>
             </li>
-            <li class = "nav-item">
-                <a id = "agendas" class = "nav-link" routerLink = "/agendas/list" style = "color:white">Agendas</a>
-            </li>
-            
         </ul>
 
         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -54,6 +49,7 @@
 
 
     <div>
+        <br>
         <router-outlet></router-outlet>
         <br>
         <br>

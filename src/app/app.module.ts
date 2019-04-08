@@ -15,7 +15,6 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {CanchaModule} from './cancha/cancha.module';
 import {PropietarioModule} from './propietario/propietario.module';
-import {AgendaModule} from './agenda/agenda.module';
 
 
 
@@ -35,7 +34,6 @@ import {AgendaModule} from './agenda/agenda.module';
         AuthModule,
         PropietarioModule,
         CanchaModule,
-        AgendaModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

@@ -12,7 +12,7 @@ export class Propietario {
     /**
     * The editorial's name
     */
-    name: string;
+    nombre: string;
 
     /**
      * The editorial's books

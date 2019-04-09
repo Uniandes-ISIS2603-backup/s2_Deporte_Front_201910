@@ -1,26 +1,19 @@
 <div class="container-fluid">
     <div class="row">
-
-        <div class="col-md-2" *ngFor="let cancha of canchas">
-            <!--
-            <div class="card">
-                <h5 class="card-header">{{cancha.nombre}}</h5>
-                <div class="card-body">
-                    <h5 class="card-title">{{cancha.tipoCancha}}</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="nav-link" routerLink="/canchas/{{cancha.id}}" class="btn btn-primary">Detalles</a>
-                </div>
-            </div>-->
-            <div class="card" style="width: 18rem;">
-                <img src="{{cancha.imagen}}" class="card-img-top" style="height: 18rem;" >
-                <div class="card-body">
-                    <h5 class="card-title">{{cancha.tipoCancha}}</h5>
-                    <p class="card-text">{{cancha.ciudad}}</p>
-                    <p class="card-text">{{cancha.direccion}}</p>
-                    <a routerLink="/canchas/{{cancha.id}}" class="btn btn-primary">Detalles</a>
-                </div>
+        <div class="card" style="width: 18rem;" *ngFor="let cancha of canchas">
+            <img src="{{cancha.imagen}}" class="card-img-top" height=250>
+            <div class="card-body">
+                <h5 class="card-title">{{cancha.nombre}}</h5>
             </div>
-            <br>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{cancha.tipoCancha}}</li>
+                <li class="list-group-item">{{cancha.ciudad}}</li>
+                <li class="list-group-item">{{cancha.zona}}</li>
+            </ul>
+            <div class="card-body">
+                <button type="button" class="btn btn-dark"
+                    routerLink="/canchas/{{cancha.id}}">Detalles</button>
+            </div>
         </div>
     </div>
 </div>

@@ -15,6 +15,9 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {CanchaModule} from './cancha/cancha.module';
 import {PropietarioModule} from './propietario/propietario.module';
+import {CampeonatoModule} from './campeonato/campeonato.module';
+import {PostModule} from './post/post.module';
+import {BlogModule} from './blog/blog.module';
 
 
 
@@ -34,6 +37,9 @@ import {PropietarioModule} from './propietario/propietario.module';
         AuthModule,
         PropietarioModule,
         CanchaModule,
+        CampeonatoModule,
+        PostModule,
+        BlogModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

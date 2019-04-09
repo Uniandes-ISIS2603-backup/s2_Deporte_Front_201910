@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container-fluid">
+    <div class="col">
+            <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                                    <th>Nombre</th>
+      <
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor="let i of blogs">
+      <td>
+      <a class="figure-caption"> {{i.nombre}}</a>
+      </td>
+                            </tr>
+                    </tbody>
+            </table>
+         <div class="col-md-8">
+            <div *ngIf="showCreate">
+                <app-blog-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-blog-create>
+            </div>
+        </div>
+    </div>
+</div>
+

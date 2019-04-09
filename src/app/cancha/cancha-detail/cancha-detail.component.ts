@@ -6,6 +6,7 @@ import {ToastrService} from 'ngx-toastr';
 import {CanchaService} from '../cancha.service';
 import {Cancha} from '../cancha';
 import { CanchaDetail } from '../cancha-detail';
+import { Propietario } from 'src/app/propietario/propietario';
 
 @Component({
     selector: 'app-cancha-detail',
@@ -48,7 +49,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
     */
     canchaDetail: CanchaDetail;
 
-    numeros:number[];
+    propietario:Propietario;
 
     /**
     * The other books shown in the sidebar
@@ -69,7 +70,6 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.canchaService.getCanchaDetail(this.cancha_id)
             .subscribe(canchaDetail => {
                 this.canchaDetail = canchaDetail;
-                this.numeros=this.canchaDetail.contactos;
             });
     }
 

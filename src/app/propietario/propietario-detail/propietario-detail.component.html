@@ -1,6 +1,44 @@
-<div class="col-md-12">
-        <div class="container-fluid">   
-            <p class="h3 p-3">Propietario: {{propietarioDetail.name}}</p>
-            <br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h4>Detalles del Propietario:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td><img src={{propietarioDetail.imagen}} width=200 height=200></td>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>{{propietarioDetail.nombre}}</td>
+                    </tr>
+                    <tr>
+                        <td>Numero de Canchas que administrta:</td>
+                        <td>{{propietarioDetail.numCanchas}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col">
+            <h4>Canchas administradas</h4>
+            <div class="scroll">
+                <div class="list-group" *ngFor="let cancha of canchas">
+                    <a class="list-group-item" routerLink="/canchas/{{cancha.id}}" style="color:black">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{cancha.nombre}}</h6>
+                            <small>{{cancha.ciudad}}</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <h4>Otras canchas:</h4>
+
         </div>
     </div>
+</div>

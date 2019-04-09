@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PropietarioService } from '../propietario.service';
 import { Propietario } from '../propietario';
 import { PropietarioDetail } from '../propietario-detail';
+import { CanchaService } from '../../cancha/cancha.service';
+import { Cancha } from '../../cancha/cancha'
 
 @Component({
     selector: 'app-propietario-detail',
@@ -21,6 +23,7 @@ export class PropietarioDetailComponent implements OnInit {
     */
     constructor(
         private propietarioService: PropietarioService,
+        private canchaService:CanchaService,
         private route: ActivatedRoute
     ) { }
 
@@ -29,13 +32,12 @@ export class PropietarioDetailComponent implements OnInit {
     */
    propietarioDetail: PropietarioDetail;
 
-
+    canchas: Cancha[];
 
     /**
     * The editorial's id retrieved from the address
     */
     propietario_id: number;
-
     /**
     * The method which retrieves the books of an editorial
     */
@@ -46,6 +48,15 @@ export class PropietarioDetailComponent implements OnInit {
             });
     }
 
+    getCanchasPropietario(){
+        
+        this.canchaService.getCanchas()
+        .subscribe(canchas => {
+            this.canchas = canchas;
+            this.canchas = this.canchas.filter(cancha => cancha.propietario.id == this.propietarioDetail.id);
+        });
+    }
+
     /**
     * The method which initializes the component
     * We need to initialize the editorial so it is never considered as undefined
@@ -54,6 +65,7 @@ export class PropietarioDetailComponent implements OnInit {
         this.propietario_id = +this.route.snapshot.paramMap.get('id');
         this.propietarioDetail = new PropietarioDetail();
         this.getPropietarioDetail();
+        this.getCanchasPropietario();
     }
 
 }

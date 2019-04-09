@@ -14,6 +14,7 @@ import {PostListComponent} from '../post/post-list/post-list.component';
 import {CampeonatoCreateComponent} from '../campeonato/campeonato-create/campeonato-create.component';
 import {BlogCreateComponent} from '../blog/blog-create/blog-create.component';
 //import {CampeonatoDetailComponent} from '../campeonato/campeonato-detail/campeonato-detail.component';
+import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 
 const routes: Routes = [
   
@@ -61,6 +62,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropietarioListComponent
+            },
+            {
+                path: ':id',
+                component: PropietarioDetailComponent
             }
         ]
     },

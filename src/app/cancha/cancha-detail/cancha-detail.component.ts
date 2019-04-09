@@ -6,7 +6,7 @@ import {ToastrService} from 'ngx-toastr';
 import {CanchaService} from '../cancha.service';
 import {Cancha} from '../cancha';
 import { CanchaDetail } from '../cancha-detail';
-import { Propietario } from 'src/app/propietario/propietario';
+import { Propietario } from '../../propietario/propietario';
 
 @Component({
     selector: 'app-cancha-detail',

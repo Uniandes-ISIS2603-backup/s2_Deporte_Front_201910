@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PropietarioService } from '../propietario.service';
 import { Propietario } from '../propietario';
 import { PropietarioDetail } from '../propietario-detail';
+import { CanchaService } from '../../cancha/cancha.service';
+import { Cancha } from '../../cancha/cancha'
 
 @Component({
     selector: 'app-propietario-detail',
@@ -21,6 +23,7 @@ export class PropietarioDetailComponent implements OnInit {
     */
     constructor(
         private propietarioService: PropietarioService,
+        private canchaService:CanchaService,
         private route: ActivatedRoute
     ) { }
 
@@ -29,7 +32,7 @@ export class PropietarioDetailComponent implements OnInit {
     */
    propietarioDetail: PropietarioDetail;
 
-
+    canchas: Cancha[];
 
     /**
     * The editorial's id retrieved from the address
@@ -45,12 +48,13 @@ export class PropietarioDetailComponent implements OnInit {
             });
     }
 
-    getCanchasPropietario(){/*
+    getCanchasPropietario(){
+        
         this.canchaService.getCanchas()
         .subscribe(canchas => {
             this.canchas = canchas;
-           // this.canchas = this.canchas.filter(cancha => cancha.id this.canchaDetail.tipoCancha);
-        });*/
+            this.canchas = this.canchas.filter(cancha => cancha.propietario.id == this.propietarioDetail.id);
+        });
     }
 
     /**
@@ -61,6 +65,7 @@ export class PropietarioDetailComponent implements OnInit {
         this.propietario_id = +this.route.snapshot.paramMap.get('id');
         this.propietarioDetail = new PropietarioDetail();
         this.getPropietarioDetail();
+        this.getCanchasPropietario();
     }
 
 }

@@ -18,7 +18,7 @@ export class Cancha {
 
     tipoCancha: string;
 
-    contactos: number[];
+    contactos: number;
 
     propietario:Propietario;
 

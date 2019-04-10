@@ -10,6 +10,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import {CanchaListComponent} from './cancha-list/cancha-list.component';
 import {CanchaDetailComponent} from './cancha-detail/cancha-detail.component';
 import {CanchaService} from './cancha.service';
+import {CanchaCreateComponent} from './cancha-create/cancha-create.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,7 @@ import {CanchaService} from './cancha.service';
         NgxPermissionsModule
     ],
     declarations: [
-        CanchaListComponent, CanchaDetailComponent
+        CanchaListComponent, CanchaDetailComponent, CanchaCreateComponent
     ],
     providers: [CanchaService],
     exports: [CanchaListComponent]

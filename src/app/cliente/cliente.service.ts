@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {Cliente} from './cliente';
 import {ClienteDetail} from './cliente-detail';
-
-const API_URL = '../../assets/clientes/';
-const clientes = 'clientes.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const clientes = '/clientes';
 
 @Injectable()
 export class ClienteService {
@@ -18,7 +18,7 @@ export class ClienteService {
 
   getClienteDetail(clienteId): Observable<ClienteDetail> {
       console.log(clienteId+" "+API_URL + "cliente-" + clienteId+".json");
-        return this.http.get<ClienteDetail>(API_URL + "cliente-" + clienteId+".json");
+        return this.http.get<ClienteDetail>(API_URL + clientes+'/' + clienteId);
   }
 
   deleteCliente(clienteId): Observable<boolean> {

@@ -1,3 +1,19 @@
-<p>
-equipo-list works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let equipo of equipos">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <p>
+                        Nombre: {{equipo.nombre}}
+                    </p>
+                    <p>
+                        Nombre Representante: {{equipo.representante.name}}
+                    </p>
+                </h5>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-dark" routerLink="/equipos/{{equipo.id}}">Detalles</button>
+            </div>
+        </div>
+    </div>
+</div>

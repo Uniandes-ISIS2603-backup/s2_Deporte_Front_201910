@@ -1,7 +1,9 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
-import {ClienteService} from '../cliente.service';
-import {Cliente} from '../cliente';
+import { ClienteService } from '../cliente.service';
+import { Cliente } from '../cliente';
 
 @Component({
   selector: 'app-cliente-create',
@@ -11,28 +13,26 @@ import {Cliente} from '../cliente';
 export class ClienteCreateComponent implements OnInit {
   
   constructor(private clienteService: ClienteService,
-              private toastrService: ToastrService) { }
+              private toastrService: ToastrService,
+              private router: Router) { }
 
   cliente:Cliente;
 
-  @Output() cancel = new EventEmitter();
-
-  @Output() create = new EventEmitter();
-  
-  createCliente(): Cliente {
-    console.log(this.cliente);
-    this.clienteService.createCliente(this.cliente)
-      .subscribe((cliente) => {
-        this.cliente = cliente;
-        this.create.emit();
-        this.toastrService.success("The cliente was created", "Cliente creation");
-      });
-    return this.cliente;
-  }
-
   cancelCreation(): void {
-        this.cancel.emit();
-  }
+        this.toastrService.warning('The cliente wasn\'t created', 'Cliente creation');
+        this.router.navigate(['/clientes/list']);
+    }
+
+    createCancha(): Cliente {
+        this.clienteService.createCliente(this.cliente)
+            .subscribe(cliente => {
+                this.cliente.id = cliente.id;
+                this.router.navigate(['/clientes/' + cliente.id]);
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+        return this.cliente;
+    }
 
   ngOnInit() 
   {

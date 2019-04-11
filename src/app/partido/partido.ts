@@ -1,9 +1,10 @@
-//import {Campeonato} from '../campeonato/campeonato';
+import {Campeonato} from '../campeonato/campeonato';
 //import {Amistoso} from '../amistoso/amistoso';
 export class Partido
 {
   puntaje:number[];
   fecha: Date;
-  //campeonato:Campeonato;
+  id:number;
+  campeonato:Campeonato;
   //amistoso:Amistoso;
 }

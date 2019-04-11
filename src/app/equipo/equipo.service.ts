@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {Equipo} from './equipo';
 import {EquipoDetail} from './equipo-detail';
-
-const API_URL = '../../assets/equipos/';
-const equipos = 'equipos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const equipos = '/equipos';
 
 @Injectable()
 export class EquipoService {

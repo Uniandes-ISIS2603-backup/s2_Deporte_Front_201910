@@ -18,7 +18,9 @@ import {PropietarioModule} from './propietario/propietario.module';
 import {CampeonatoModule} from './campeonato/campeonato.module';
 import {PostModule} from './post/post.module';
 import {BlogModule} from './blog/blog.module';
-
+import {ClienteModule} from './cliente/cliente.module';
+import {EquipoModule} from './equipo/equipo.module';
+import {PartidoModule} from './partido/partido.module';
 
 
 
@@ -40,6 +42,9 @@ import {BlogModule} from './blog/blog.module';
         CampeonatoModule,
         PostModule,
         BlogModule,
+        PartidoModule,
+        ClienteModule,
+        EquipoModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

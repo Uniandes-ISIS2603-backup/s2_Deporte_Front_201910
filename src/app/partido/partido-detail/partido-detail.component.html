@@ -1,3 +1,36 @@
-<p>
-partido-detail works!
-</p>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h4>Detalles del Cliente</h4>
+            <table class="table">
+                br>
+                <tbody>
+                    <tr>
+                        <td>Fecha:</td>
+                        <td>{{partidoDetail.fecha}}</td>
+                    </tr>
+                    <tr>
+                        <td>Puntaje:</td>
+                        <td>{{partidoDetail.puntaje}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col">
+            <h4>Equipos</h4>
+            <div class="scroll">
+                <div class="list-group" *ngFor= "let equipo of participantes">
+                    <a class="list-group-item" routerLink="/equipos/{{equipo.id}}" style="color:black">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{equipo.nombre}}</h6>
+                            <small>{{equipo.representante}}</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

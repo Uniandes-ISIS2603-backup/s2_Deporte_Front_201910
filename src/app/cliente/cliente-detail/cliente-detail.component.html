@@ -1,49 +1,39 @@
-<div class ='container-fluid'>
-  <h1>
-    <dd>
-      {{clienteDetail.name}}
-    </dd>
-  </h1>
-  <h2>
-    Representa:
-    <p>
-      <dd>
-        {{clienteDetail.representa.nombre}}
-      </dd>
-    </p>
-  </h2>
-  <body>
-    <h3>
-      Equipos
-    </h3>
-    <div class= 'responsive-table'>
-      <thead>
-        Nombre
-      </thead>
-      <tbody>
-        <tr mdbTableCol *ngFor="let equipo of equipos">
-          <td>
-            {{equipo.nombre}}
-          </td>
-        </tr>
-      </tbody>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h4>Detalles del Cliente</h4>
+            <table class="table">
+                <br>
+                <tbody>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>{{clienteDetail.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Equipo que representa:</td>
+                        <td>{{clienteDetail.representa.nombre}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col">
+            <h4>Equipos</h4>
+            <div class="scroll">
+                <div class="list-group" *ngFor="let equipo of equipos">
+                    <a class="list-group-item" routerLink="/equipos/{{equipo.id}}" style="color:black">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{equipo.nombre}}</h6>
+                            <small>{{equipo.representante.name}}</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <h4>Otras canchas:</h4>
+
+        </div>
     </div>
-    <div class = 'responsive-table'>
-      <thead>
-        Campeonatos Organizados
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Eventualmente junto a favoritos
-          </td>
-        </tr>        
-      </tbody>
-    </div>
-    <div class='responsive-table'>
-      <p>
-        hacer posts favoritos
-      </p>
-    </div>
-  </body>
 </div>

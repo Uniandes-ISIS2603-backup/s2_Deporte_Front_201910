@@ -1,3 +1,36 @@
-<p>
-equipo-detail works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h4>Detalles del Propietario:</h4>
+            <table class="table">
+                
+                <br>
+                <tbody>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>{{equipoDetail.nombre}}</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre representante:</td>
+                        <td>{{equipoDetail.representante.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col">
+            <h4>Jugadores</h4>
+            <div class="scroll">
+                <div class="list-group" *ngFor="let cliente of jugadores">
+                    <a class="list-group-item" routerLink="/clientes/{{cliente.id}}" style="color:black">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{cliente.name}}</h6>
+                            
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

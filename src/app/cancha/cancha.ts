@@ -14,11 +14,11 @@ export class Cancha {
 
     caracteristicas: string;
 
-    alquilada: boolean;
+    reservada: boolean;
 
     tipoCancha: string;
 
-    contactos: number;
+    contacto: number;
 
     propietario:Propietario;
 

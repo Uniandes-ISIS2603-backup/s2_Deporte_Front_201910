@@ -36,7 +36,15 @@
                     </tr>
                     <tr>
                         <td>Propietario:</td>
-                        <td><a routerLink="/propietarios/{{canchaDetail.propietario.id}}">{{canchaDetail.propietario.nombre}}</a></td>
+                        <td><a
+                                routerLink="/propietarios/{{canchaDetail.propietario?.id}}">{{canchaDetail.propietario?.nombre}}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Numero de contacto:</td>
+                        <td>
+                            {{canchaDetail.contacto}}
+                        </td>
                     </tr>
                 </tbody>
             </table>

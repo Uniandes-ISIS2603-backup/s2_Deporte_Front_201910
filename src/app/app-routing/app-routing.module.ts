@@ -19,6 +19,21 @@ import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.com
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
 
+import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
+import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
+import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component';
+import {ClienteEditComponent} from '../cliente/cliente-edit/cliente-edit.component';
+
+import {EquipoListComponent} from '../equipo/equipo-list/equipo-list.component';
+import {EquipoCreateComponent} from '../equipo/equipo-create/equipo-create.component';
+import {EquipoDetailComponent} from '../equipo/equipo-detail/equipo-detail.component';
+import {EquipoEditComponent} from '../equipo/equipo-edit/equipo-edit.component';
+
+import {PartidoListComponent} from '../partido/partido-list/partido-list.component';
+import {PartidoCreateComponent} from '../partido/partido-create/partido-create.component';
+import {PartidoDetailComponent} from '../partido/partido-detail/partido-detail.component';
+import {PartidoEditComponent} from '../partido/partido-edit/partido-edit.component';
+
 const routes: Routes = [
   
     {
@@ -130,7 +145,60 @@ const routes: Routes = [
 //            },
         ]
     },
-    
+    {
+        path: 'clientes',
+        children:[
+            {
+                path: 'list',
+                component: ClienteListComponent
+            },
+            {
+                path: 'add',
+                component: ClienteCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'id',
+                component: ClienteDetailComponent,
+            },
+        ]
+    },
+    {
+        path: 'partidos',
+        children:[
+            {
+                path: 'list',
+                component: PartidoListComponent
+            },
+            {
+                path: 'add',
+                component: PartidoCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'id',
+                component: PartidoDetailComponent,
+            },
+        ]
+    },
+    {
+        path: 'equipos',
+        children:[
+            {
+                path: 'list',
+                component: EquipoListComponent
+            },
+            {
+                path: 'add',
+                component: EquipoCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'id',
+                component: EquipoDetailComponent,
+            },
+        ]
+    },
     {
         path: 'home',
         component: AuthLoginComponent

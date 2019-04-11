@@ -20,8 +20,8 @@ export class CampeonatoDetailComponent implements OnInit {
 
   /**
   * The component's constructor
-  * @param campeonatoService The editorial's service
-  * @param route The route element which helps to obtain the editorial's id
+  * @param campeonatoService The campeonato's service
+  * @param route The route element which helps to obtain the campeonato's id
   * @param toastrService The toastr to show messages to the user
   */
   constructor(
@@ -30,41 +30,43 @@ export class CampeonatoDetailComponent implements OnInit {
   ) { }
 
   /**
-  * The editorial whose details we want to show
+  * The campeonato whose details we want to show
   */
    campeonatoDetail: CampeonatoDetail;
 
 
 
   /**
-  * The editorial's id retrieved from the address
+  * The campeonato's id retrieved from the address
   */
-  @Input() campeonato_name: string;
+  @Input() campeonato_id: number;
   
   loader: any;
 
   /**
-  * The method which retrieves the books of an editorial
+  * The method which retrieves the books of an campeonato
   */
-//  getCampeonatoDetail(): void {
-//    this.campeonatoService.getCampeonatoDetail(this.campeonato_name)
-//      .subscribe(o => {
-//        this.campeonatoDetail = o
-//      });
-//  }
+  getCampeonatoDetail(): void {
+    this.campeonatoService.getCampeonatoDetail(this.campeonato_id)
+      .subscribe(o => {
+        this.campeonatoDetail = o
+      });
+  }
 
 onLoad(params) {
 
-//    this.campeonato_name = parseInt(params['name']);
-    console.log(" en detail " + this.campeonato_name);
+    this.campeonato_id = parseInt(params['id']);
+    console.log(" en detail " + this.campeonato_id);
     this.campeonatoDetail = new CampeonatoDetail();
-//    this.getCampeonatoDetail();
+    this.getCampeonatoDetail();
   }
   /**
   * The method which initializes the component
-  * We need to initialize the editorial so it is never considered as undefined
+  * We need to initialize the campeonato so it is never considered as undefined
   */
  ngOnInit() {
+  this.campeonato_id = +this.route.snapshot.paramMap.get('id');
+
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
 

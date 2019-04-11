@@ -14,6 +14,7 @@ import {CampeonatoService} from './campeonato.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { CampeonatoDetailComponent } from './campeonato-detail/campeonato-detail.component';
 import {CampeonatoCreateComponent} from './campeonato-create/campeonato-create.component';
+import {CampeonatoEditComponent} from './campeonato-edit/campeonato-edit.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import {CampeonatoCreateComponent} from './campeonato-create/campeonato-create.c
         CommonModule,
         FormsModule
     ],
-    declarations: [CampeonatoListComponent, CampeonatoDetailComponent, CampeonatoCreateComponent],
+    declarations: [CampeonatoListComponent, CampeonatoDetailComponent, CampeonatoCreateComponent, CampeonatoEditComponent],
     exports: [CampeonatoListComponent],
     providers: [CampeonatoService]
     

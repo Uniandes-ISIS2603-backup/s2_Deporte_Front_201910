@@ -16,6 +16,8 @@ export class Campeonato {
     
     nombre: string;
 
+    id: number;
+
 
 }
 

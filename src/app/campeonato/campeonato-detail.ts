@@ -8,7 +8,7 @@ import {Campeonato} from "./campeonato";
     /**
     * The editorial's id
     */
-  descripcion: string;
+  descripcion: String;
     
    
 

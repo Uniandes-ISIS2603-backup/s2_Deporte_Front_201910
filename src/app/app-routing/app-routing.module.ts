@@ -13,7 +13,7 @@ import {BlogListComponent} from '../blog/blog-list/blog-list.component';
 import {PostListComponent} from '../post/post-list/post-list.component';
 import {CampeonatoCreateComponent} from '../campeonato/campeonato-create/campeonato-create.component';
 import {BlogCreateComponent} from '../blog/blog-create/blog-create.component';
-//import {CampeonatoDetailComponent} from '../campeonato/campeonato-detail/campeonato-detail.component';
+import {CampeonatoDetailComponent} from '../campeonato/campeonato-detail/campeonato-detail.component';
 import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.component';
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
@@ -21,6 +21,12 @@ import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component
 import { CanchaEditComponent } from '../cancha/cancha-edit/cancha-edit.component';
 import { PropietarioCreateComponent } from '../propietario/propietario-create/propietario-create.component';
 import { PropietarioEditComponent } from '../propietario/propietario-edit/propietario-edit.component';
+import { BlogDetailComponent } from '../blog/blog-detail/blog-detail.component';
+import {CampeonatoEditComponent} from '../campeonato/campeonato-edit/campeonato-edit.component';
+import {BlogEditComponent} from '../blog/blog-edit/blog-edit.component';
+import {PostDetailComponent} from '../post/post-detail/post-detail.component';
+import {PostCreateComponent} from '../post/post-create/post-create.component';
+import {PostEditComponent} from '../post/post-edit/post-edit.component';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
@@ -142,17 +148,38 @@ const routes: Routes = [
         ]
     },
      {
+                path: 'detail/:id',
+                component: PostDetailComponent,
+            },
+            {
+                path: 'add',
+                component: PostCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+	                path: ':id/edit',
+	                component: PostEditComponent
+	            },
+     {
         path: 'blogs',
         children:[
             {
                 path: 'list',
                 component: BlogListComponent
             },
-             {
+            {
                 path: 'add',
                 component: BlogCreateComponent,
                 runGuardsAndResolvers: 'always'
             },
+            {
+                path: 'detail/:id',
+                component: BlogDetailComponent,
+            },
+            {
+	                path: ':id/edit',
+	                component: BlogEditComponent
+	            },
         ]
     },
      {
@@ -167,10 +194,14 @@ const routes: Routes = [
                 component: CampeonatoCreateComponent,
                 runGuardsAndResolvers: 'always'
             },
-//            {
-//                path: 'detail',
-//                component: CampeonatoDetailComponent,
-//            },
+            {
+                path: 'detail/:id',
+                component: CampeonatoDetailComponent,
+            },
+             {
+	                path: ':id/edit',
+	                component: CampeonatoEditComponent
+	            },
         ]
     },
     {

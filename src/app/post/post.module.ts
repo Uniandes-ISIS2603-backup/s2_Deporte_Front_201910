@@ -17,6 +17,9 @@ import {FormsModule} from '@angular/forms';
 import {PostListComponent } from './post-list/post-list.component';
 import {PostService} from './post.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {PostDetailComponent} from './post-detail/post-detail.component';
+import {PostCreateComponent} from './post-create/post-create.component';
+import {PostEditComponent} from './post-edit/post-edit.component';
 
 @NgModule({
     imports: [
@@ -26,7 +29,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         CommonModule,
         FormsModule
     ],
-    declarations: [PostListComponent],
+    declarations: [PostListComponent,PostDetailComponent,PostCreateComponent,PostEditComponent],
     exports: [PostListComponent],
     providers: [PostService]
 })

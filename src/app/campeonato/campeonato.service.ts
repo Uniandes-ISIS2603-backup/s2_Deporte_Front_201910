@@ -8,10 +8,11 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Campeonato} from './campeonato';
-import {CampeonatoDetailComponent} from './campeonato-detail/campeonato-detail.component';
+import {CampeonatoDetail} from './campeonato-detail';
+import {environment} from '../../environments/environment';
 
-const API_URL = "../../assets/";
-const campeonatos = '/campeonatos.json';
+const API_URL = environment.apiURL;
+const campeonatos = '/campeonato';
 
 /**
 * The service provider for everything related to editorials
@@ -33,15 +34,22 @@ getCampeonatos(): Observable<Campeonato[]> {
     return this.http.get<Campeonato[]>(API_URL + campeonatos);
 }
 
-getCampeonatoDetail(campeonatoName): Observable<CampeonatoDetailComponent> {
-  console.log(campeonatoName+" "+API_URL + "campeonato-" + campeonatoName+".json");
-    return this.http.get<CampeonatoDetailComponent>(API_URL + "campeonato-" + campeonatoName +".json");
+getCampeonatoDetail(campeonatoName): Observable<CampeonatoDetail> {
+    return this.http.get<CampeonatoDetail>(API_URL + campeonatos + "/" + campeonatoName);
 }
 
-createCampeonato(campeonato): Observable<CampeonatoDetailComponent> {
-    return this.http.post<CampeonatoDetailComponent>(API_URL + campeonatos, campeonato);
+createCampeonato(campeonato): Observable<Campeonato> {
+    return this.http.post<Campeonato>(API_URL + campeonatos, campeonato);
 }
 
+ updateCampeonato(campeonato): Observable<CampeonatoDetail> {
+        return this.http.put<CampeonatoDetail>(API_URL + campeonatos + '/' + campeonato.id, campeonato);
+    }
+
+    deleteCampeonato(campeonatoId): Observable<CampeonatoDetail> {
+        return this.http.delete<CampeonatoDetail>(API_URL + campeonatos + '/' + campeonatoId);
+    }
+    
 }
 
 

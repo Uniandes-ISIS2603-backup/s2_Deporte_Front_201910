@@ -22,16 +22,22 @@ and open the template in the editor.
                     <tbody>
                             <tr *ngFor="let i of blogs">
       <td>
-      <a class="figure-caption"> {{i.nombre}}</a>
+        <a class="figure-caption"
+        routerLink="/blogs/detail/{{i.id}}">
+        {{i.nombre}}</a>
       </td>
+      <td>
+       <button class="btn btn-primary" (click)="showHideEdit(blog.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteBlog(blog.id)"><span class="fa fa-trash"></span></button>
+                </td>
                             </tr>
                     </tbody>
             </table>
-         <div class="col-md-8">
-            <div *ngIf="showCreate">
-                <app-blog-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-blog-create>
-            </div>
-        </div>
+         
+        <app-blog-create></app-blog-create>
+        <app-blog-edit></app-blog-edit>
     </div>
 </div>
 

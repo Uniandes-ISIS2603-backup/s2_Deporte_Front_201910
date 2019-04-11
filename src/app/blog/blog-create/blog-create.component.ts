@@ -48,15 +48,17 @@ export class BlogCreateComponent implements OnInit {
     /**
     * Creates a new editorial
     */
-    createEditorial(): void {
-        this.blogService.createBlog(this.blog)
-            .subscribe(() => {
-                this.create.emit();
-                this.toastrService.success("The blog was created", "Blog creation");
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
-    }
+   createBlog(): Blog {
+    this.blogService.createBlog(this.blog)
+        .subscribe((blog) => {
+            this.blog = blog;
+            this.create.emit();
+            this.toastrService.success("The blog was created", "Blog creation");
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
+    return this.blog;
+}
 
     /**
     * Informs the parent component that the user no longer wants to create an editorial

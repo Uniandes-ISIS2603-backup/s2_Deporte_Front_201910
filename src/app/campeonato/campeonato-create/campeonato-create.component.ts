@@ -48,22 +48,25 @@ export class CampeonatoCreateComponent implements OnInit {
     /**
     * Creates a new editorial
     */
-    createCampeonato(): void {
-        this.campeonatoService.createCampeonato(this.campeonato)
-            .subscribe(() => {
-                this.create.emit();
-                this.toastrService.success("The Campeonato was created", "Campeonato creation");
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
-    }
+   createCampeonato(): Campeonato {
+    this.campeonatoService.createCampeonato(this.campeonato)
+        .subscribe((campeonato) => {
+            this.campeonato = campeonato;
+            this.create.emit();
+            this.toastrService.success("The campeonato was created", "Campeonato creation");
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
+    return this.campeonato;
+}
+    
 
     /**
     * Informs the parent component that the user no longer wants to create an editorial
     */
-    cancelCreation(): void {
-        this.cancel.emit();
-    }
+   cancelCreation(): void {
+    this.cancel.emit();
+}
 
     /**
     * This function will initialize the component

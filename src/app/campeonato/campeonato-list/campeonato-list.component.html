@@ -5,29 +5,30 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <div class="container-fluid">
-<div class="col">
-    <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                            <th>Nombre</th>
-
-                    </tr>
-            </thead>
-            <tbody>
-                    <tr *ngFor="let i of campeonatos">
-<td style="cursor: pointer;">
-                                        <a class="figure-caption"[routerLink] ="['/campeonatos', { outlets: { 'detail': [i.nombre] } }]"> {{i.nombre}}</a>
-
-                                </td>
-                    </tr>
-            </tbody>
-    </table>
-
-
-
-            
-    <app-campeonato-create></app-campeonato-create>
-            
-        
-</div>
+        <div class="col">
+                <table class="table table-striped">
+                        <thead class="thead-dark">
+                                <tr>
+                                        <th>Nombre</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let i of campeonatos">
+                                        <td style="cursor: pointer;">
+                                                <a class="figure-caption"
+                                                        routerLink="/campeonatos/detail/{{i.id}}">
+                                                        {{i.nombre}}</a>
+                                        </td>
+                                        <td>
+                    <button class="btn btn-primary" (click)="showHideEdit(campeonato.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteCampeonato(campeonato.id)"><span class="fa fa-trash"></span></button>
+                </td>
+                                </tr>
+                        </tbody>
+                </table>
+<app-campeonato-create></app-campeonato-create>
+            <app-campeonato-edit></app-campeonato-edit>
+        </div>
 </div>

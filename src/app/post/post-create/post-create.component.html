@@ -8,7 +8,7 @@ and open the template in the editor.
     <div class="col-3"></div>
     <div class="col-6">
         <br>
-        <h2 class="text-center">Crear un Post</h2>
+        <h2 class="text-center">Crear un post</h2>
         <br>
         <form name="post" (ngSubmit)="f.form.valid && createPost()" #f="ngForm" novalidate>
             <div class="form-group">
@@ -20,11 +20,11 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="form-group">
-                <label for="blogContenido"><b>Contenido</b></label>
+                <label for="postContenido"><b>Contenido</b></label>
                 <input type="text" name="postContenido" class="form-control" id="postContenido" [(ngModel)]="post.contenido"
-                    #postContenido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postDescripcion.invalid }" required>
+                    #postContenido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postContenido.invalid }" required>
                 <div class="invalid-feedback">
-                    <div>The post's contenido is missing</div>
+                    <div>The post's name is missing</div>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">

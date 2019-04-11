@@ -71,11 +71,11 @@ export class CampeonatoListComponent implements OnInit {
         this.showEdit = false;
          this.getCampeonatos();
     }    
-    updateEditorial(): void {
+    updateCampeonato(): void {
         this.showEdit = false;
     }
 
-    deleteEditorial(campeonatoId): void {
+    deleteCampeonato(campeonatoId): void {
         this.modalDialogService.openDialog(this.viewRef, {
             title: 'Delete a campeonato',
             childComponent: SimpleModalComponent,

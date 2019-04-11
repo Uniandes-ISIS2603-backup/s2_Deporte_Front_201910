@@ -144,10 +144,8 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PostListComponent
-            }
-        ]
-    },
-     {
+            },
+             {
                 path: 'detail/:id',
                 component: PostDetailComponent,
             },
@@ -160,7 +158,10 @@ const routes: Routes = [
 	                path: ':id/edit',
 	                component: PostEditComponent
 	            },
-     {
+
+        ]
+    },
+         {
         path: 'blogs',
         children:[
             {

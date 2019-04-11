@@ -37,8 +37,8 @@ export class PostService {
     * @returns The list of books in real time
     */
     getPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(API_URL + posts);
-    }
+    return this.http.get<Post[]>(API_URL + posts);
+}
 
 getPostDetail(postName): Observable<PostDetail> {
     return this.http.get<PostDetail>(API_URL + posts + "/" + postName);

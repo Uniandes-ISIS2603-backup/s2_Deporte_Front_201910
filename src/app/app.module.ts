@@ -18,6 +18,7 @@ import {PropietarioModule} from './propietario/propietario.module';
 import {CampeonatoModule} from './campeonato/campeonato.module';
 import {PostModule} from './post/post.module';
 import {BlogModule} from './blog/blog.module';
+import {AgendaModule} from './agenda/agenda.module';
 
 
 
@@ -37,6 +38,7 @@ import {BlogModule} from './blog/blog.module';
         AuthModule,
         PropietarioModule,
         CanchaModule,
+        AgendaModule,
         CampeonatoModule,
         PostModule,
         BlogModule,

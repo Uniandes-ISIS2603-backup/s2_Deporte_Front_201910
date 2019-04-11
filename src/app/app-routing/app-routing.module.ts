@@ -18,6 +18,9 @@ import { PropietarioDetailComponent } from '../propietario/propietario-detail/pr
 import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.component';
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
+import { CanchaEditComponent } from '../cancha/cancha-edit/cancha-edit.component';
+import { PropietarioCreateComponent } from '../propietario/propietario-create/propietario-create.component';
+import { PropietarioEditComponent } from '../propietario/propietario-edit/propietario-edit.component';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
@@ -69,8 +72,12 @@ const routes: Routes = [
                 component: CanchaListComponent
             },
             {
-                path: 'create',
+                path: 'create/:id',
                 component: CanchaCreateComponent
+            },
+            {
+                path: 'edit/:id',
+                component: CanchaEditComponent
             },
             {
                 path: ':id',
@@ -97,6 +104,14 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropietarioListComponent
+            },
+            {
+                path: 'create',
+                component: PropietarioCreateComponent
+            },
+            {
+                path: 'edit/:id',
+                component: PropietarioEditComponent
             },
             {
                 path: ':id',

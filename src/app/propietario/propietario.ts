@@ -5,20 +5,22 @@
 */
 export class Propietario {
     /**
-    * The editorial's id
+    * id
     */
     id: number;
 
     /**
-    * The editorial's name
+    * Nombre del propietario
     */
     nombre: string;
 
     /**
-     * The editorial's books
+     * Numeero de canchas de un propietario
      */
 
     numCanchas: number;
-
+    /**
+     * Url de la imagen de un usuario
+     */
     imagen: string;
 }

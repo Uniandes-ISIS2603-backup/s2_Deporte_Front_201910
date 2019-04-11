@@ -1,0 +1,30 @@
+<form name="cancha" (ngSubmit)="f.form.valid && updatePropietario()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="canhcaNombre"><b>Nombre del propietario:</b></label>
+                    <input type="text" name="canchaNombre" class="form-control" id="canchaNombre"
+                        [(ngModel)]="propietario.nombre" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaImagen"><b>Imagen del propietario:</b></label>
+                    <input type="text" name="canchaImagen" class="form-control" id="canchaImagen"
+                        [(ngModel)]="propietario.imagen" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaCiudad"><b>Ciudad:</b></label>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>

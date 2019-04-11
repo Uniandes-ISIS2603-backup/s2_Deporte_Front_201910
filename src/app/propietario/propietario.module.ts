@@ -7,7 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { PropietarioService } from './propietario.service';
 import { PropietarioDetailComponent } from './propietario-detail/propietario-detail.component';
-import { PropietarioListComponent } from './propietario-list/propietario-list.component'
+import { PropietarioListComponent } from './propietario-list/propietario-list.component';
+import { PropietarioCreateComponent } from './propietario-create/propietario-create.component';
+import { PropietarioEditComponent } from './propietario-edit/propietario-edit.component';
 
 import { CanchaModule } from '../cancha/cancha.module';
 
@@ -20,7 +22,7 @@ import { CanchaModule } from '../cancha/cancha.module';
         FormsModule,
         CanchaModule
     ],
-    declarations: [PropietarioListComponent, PropietarioDetailComponent],
+    declarations: [PropietarioListComponent, PropietarioDetailComponent, PropietarioCreateComponent, PropietarioEditComponent],
     providers: [PropietarioService]
 })
 

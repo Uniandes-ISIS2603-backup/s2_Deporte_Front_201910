@@ -23,7 +23,6 @@ export class PropietarioService {
 
     /**
     * Returns the Observable object containing the list of editorials retrieved from the API
-    * @returns The list of books in real time
     */
     getPropietarios(): Observable<Propietario[]> {
         return this.http.get<Propietario[]>(API_URL + propietarios);
@@ -31,9 +30,22 @@ export class PropietarioService {
 
     /**
     * Returns the Observable object containing the editorial retrieved from the API
-    * @returns The editorial
     */
     getPropietarioDetail(propietarioId): Observable<PropietarioDetail> {
         return this.http.get<PropietarioDetail>(API_URL + propietarios + '/' + propietarioId);
+    }
+
+    /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
+    createPropietario(propietario){
+        return this.http.post<PropietarioDetail>(API_URL + propietarios, propietario);
+    }
+
+    /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
+    updatePropietario(propietario){
+        return this.http.put<PropietarioDetail>(API_URL + propietarios + '/' + propietario.id, propietario);
     }
 }

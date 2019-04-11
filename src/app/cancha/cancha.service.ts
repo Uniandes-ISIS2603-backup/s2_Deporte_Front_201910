@@ -34,10 +34,16 @@ export class CanchaService {
         return this.http.get<CanchaDetail>(API_URL + canchas + '/' + canchaId);
     }
 
+        /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
     createCancha(cancha){
         return this.http.post<CanchaDetail>(API_URL + canchas, cancha);
     }
 
+        /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
     updateCancha(cancha){
         return this.http.put<CanchaDetail>(API_URL + canchas + '/' + cancha.id, cancha);
     }

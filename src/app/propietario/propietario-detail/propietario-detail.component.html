@@ -20,7 +20,9 @@
                         <td>{{propietarioDetail.numCanchas}}</td>
                     </tr>
                 </tbody>
+                <button type="button" class="btn btn-dark" routerLink="/propietarios/edit/{{propietarioDetail.id}}">Editar</button>
             </table>
+           
         </div>
         <div class="col">
             <h4>Canchas administradas</h4>
@@ -34,7 +36,7 @@
                     </a>
                 </div>
             </div>
-            <button type="button" class="btn btn-dark" routerLink="/canchas/create">Crear cancha</button>
+            <button type="button" class="btn btn-dark" routerLink="/canchas/create/{{propietarioDetail.id}}">Crear cancha</button>
         </div>
         <div class="col-3">
             <h4>Otras canchas:</h4>

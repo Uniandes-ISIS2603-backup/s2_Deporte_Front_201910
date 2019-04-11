@@ -37,6 +37,19 @@ import {PartidoCreateComponent} from '../partido/partido-create/partido-create.c
 import {PartidoDetailComponent} from '../partido/partido-detail/partido-detail.component';
 import {PartidoEditComponent} from '../partido/partido-edit/partido-edit.component';
 
+import {AmistosoListComponent} from '../amistoso/amistoso-list/amistoso-list.component';
+import {AmistosoCreateComponent} from '../amistoso/amistoso-create/amistoso-create.component';
+import {AmistosoDetailComponent} from '../amistoso/amistoso-detail/amistoso-detail.component';
+
+import {ReservaListComponent} from '../reserva/reserva-list/reserva-list.component';
+import {ReservaCreateComponent} from '../reserva/reserva-create/reserva-create.component';
+import {ReservaDetailComponent} from '../reserva/reserva-detail/reserva-detail.component';
+
+import {EntrenamientoListComponent} from '../entrenamiento/entrenamiento-list/entrenamiento-list.component';
+import {EntrenamientoCreateComponent} from '../entrenamiento/entrenamiento-create/entrenamiento-create.component';
+import {EntrenamientoDetailComponent} from '../entrenamiento/entrenamiento-detail/entrenamiento-detail.component';
+
+
 const routes: Routes = [
   
     {
@@ -212,6 +225,57 @@ const routes: Routes = [
                 path: 'id',
                 component: EquipoDetailComponent,
             },
+        ]
+    },
+    {
+        path:'amistosos',
+        children:[
+            {
+                path: 'list',
+                component: AmistosoListComponent
+            },
+            {
+                path: 'create',
+                component: AmistosoCreateComponent
+            },
+            {
+                path: ':id',
+                component: AmistosoDetailComponent
+            }
+        ]
+    },
+    {
+        path:'entrenamientos',
+        children:[
+            {
+                path: 'list',
+                component: EntrenamientoListComponent
+            },
+            {
+                path: 'create',
+                component: EntrenamientoCreateComponent
+            },
+            {
+                path: ':id',
+                component: EntrenamientoDetailComponent
+            }
+        ]
+    },
+    {
+        path:'reservas',
+        children:[
+            {
+                path: 'list',
+                component: ReservaListComponent
+            },
+            {
+                path: 'create',
+                component: ReservaCreateComponent
+            },
+            {
+                path: ':id',
+                component: ReservaDetailComponent
+            }
         ]
     },
     {

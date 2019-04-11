@@ -1,0 +1,78 @@
+<form name="cancha" (ngSubmit)="f.form.valid && updateCancha()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="canhcaNombre"><b>Nombre de la cancha:</b></label>
+                    <input type="text" name="canchaNombre" class="form-control" id="canchaNombre"
+                        [(ngModel)]="cancha.nombre" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaImagen"><b>Imagen de la cancha:</b></label>
+                    <input type="text" name="canchaImagen" class="form-control" id="canchaImagen"
+                        [(ngModel)]="cancha.imagen" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaCiudad"><b>Ciudad:</b></label>
+                    <input type="text" name="canchaCiudad" class="form-control" id="canchaCiudad"
+                        [(ngModel)]="cancha.ciudad" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaZona"><b>Zona:</b></label>
+                    <input type="text" name="canchaZona" class="form-control" id="canchaZona" [(ngModel)]="cancha.zona"
+                        #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col">
+                    <label for="canhcaDireccion"><b>Direccion:</b></label>
+                    <input type="text" name="canchaDireccion" class="form-control" id="canchaDireccion"
+                        [(ngModel)]="cancha.direccion" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaTipoCancha"><b>Tipo de cancha:</b></label>
+                    <input type="text" name="canchaTipoCancha" class="form-control" id="canchaTipoCancha"
+                        [(ngModel)]="cancha.tipoCancha" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaContacto"><b>Numero de contacto:</b></label>
+                    <input type="text" name="canchaContacto" class="form-control" id="canchaContacto"
+                        [(ngModel)]="cancha.contacto" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="canhcaCaracteristicas"><b>Caracteristicas:</b></label>
+                    <input type="text" name="canchaCaracteristicas" class="form-control" id="canchaCaracteristicas"
+                        [(ngModel)]="cancha.caracterizticas" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required rows=3>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>

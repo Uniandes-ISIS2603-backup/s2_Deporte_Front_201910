@@ -47,6 +47,11 @@ export class CanchaEditComponent implements OnInit {
             });
     }
     
+    cancelEdition(): void {
+        this.toastrService.warning('La cancha no fue editada', 'Cancha edition');
+        this.router.navigate(['/canchas/list']);
+    }
+
    ngOnInit() {
        this.id = +this.route.snapshot.paramMap.get('id');
        this.getCancha();

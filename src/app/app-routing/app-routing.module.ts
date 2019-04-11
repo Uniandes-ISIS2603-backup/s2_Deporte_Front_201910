@@ -55,7 +55,7 @@ const routes: Routes = [
                 component: CanchaListComponent
             },
             {
-                path: 'create',
+                path: 'create/:id',
                 component: CanchaCreateComponent
             },
             {

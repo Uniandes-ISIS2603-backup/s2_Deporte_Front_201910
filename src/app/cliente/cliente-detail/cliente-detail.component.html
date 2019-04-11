@@ -1,0 +1,49 @@
+<div class ='container-fluid'>
+  <h1>
+    <dd>
+      {{clienteDetail.name}}
+    </dd>
+  </h1>
+  <h2>
+    Representa:
+    <p>
+      <dd>
+        {{clienteDetail.representa.nombre}}
+      </dd>
+    </p>
+  </h2>
+  <body>
+    <h3>
+      Equipos
+    </h3>
+    <div class= 'responsive-table'>
+      <thead>
+        Nombre
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let equipo of equipos">
+          <td>
+            {{equipo.nombre}}
+          </td>
+        </tr>
+      </tbody>
+    </div>
+    <div class = 'responsive-table'>
+      <thead>
+        Campeonatos Organizados
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Eventualmente junto a favoritos
+          </td>
+        </tr>        
+      </tbody>
+    </div>
+    <div class='responsive-table'>
+      <p>
+        hacer posts favoritos
+      </p>
+    </div>
+  </body>
+</div>

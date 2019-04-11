@@ -11,6 +11,7 @@ import {CanchaListComponent} from './cancha-list/cancha-list.component';
 import {CanchaDetailComponent} from './cancha-detail/cancha-detail.component';
 import {CanchaService} from './cancha.service';
 import {CanchaCreateComponent} from './cancha-create/cancha-create.component';
+import {CanchaEditComponent} from './cancha-edit/cancha-edit.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import {CanchaCreateComponent} from './cancha-create/cancha-create.component';
         NgxPermissionsModule
     ],
     declarations: [
-        CanchaListComponent, CanchaDetailComponent, CanchaCreateComponent
+        CanchaListComponent, CanchaDetailComponent, CanchaCreateComponent, CanchaEditComponent
     ],
     providers: [CanchaService],
     exports: [CanchaListComponent]

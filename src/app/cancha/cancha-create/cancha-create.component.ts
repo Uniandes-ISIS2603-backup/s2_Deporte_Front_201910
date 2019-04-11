@@ -32,10 +32,11 @@ export class CanchaCreateComponent implements OnInit{
     }
 
     createCancha(): Cancha {
+        console.log(this.cancha);
         this.canchaService.createCancha(this.cancha)
             .subscribe(cancha => {
                 this.cancha.id = cancha.id;
-                this.router.navigate(['/books/' + cancha.id]);
+                this.router.navigate(['/canchas/' + cancha.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
@@ -45,5 +46,7 @@ export class CanchaCreateComponent implements OnInit{
     ngOnInit() {
     cancha:Cancha;
         this.cancha = new Cancha();
+        this.cancha.reservada=false;
     }
+    
 }

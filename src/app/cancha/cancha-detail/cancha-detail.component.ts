@@ -80,7 +80,7 @@ export class CanchaDetailComponent implements OnInit, OnDestroy {
         this.canchaService.getCanchas()
             .subscribe(canchas => {
                 this.other_canchas = canchas;
-                this.other_canchas = this.other_canchas.filter(cancha => cancha.tipoCancha !== this.canchaDetail.tipoCancha);
+                this.other_canchas = this.other_canchas.filter(cancha => cancha.tipoCancha == this.canchaDetail.tipoCancha);
             });
     }
 

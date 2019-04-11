@@ -37,4 +37,8 @@ export class CanchaService {
     createCancha(cancha){
         return this.http.post<CanchaDetail>(API_URL + canchas, cancha);
     }
+
+    updateCancha(cancha){
+        return this.http.put<CanchaDetail>(API_URL + canchas + '/' + cancha.id, cancha);
+    }
 }

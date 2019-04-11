@@ -13,6 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {AmistosoModule} from './amistoso/amistoso.module';
 import {CanchaModule} from './cancha/cancha.module';
 import {PropietarioModule} from './propietario/propietario.module';
 import {CampeonatoModule} from './campeonato/campeonato.module';
@@ -21,6 +22,8 @@ import {BlogModule} from './blog/blog.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {EquipoModule} from './equipo/equipo.module';
 import {PartidoModule} from './partido/partido.module';
+import {ReservaModule} from './reserva/reserva.module';
+import {EntrenamientoModule} from './entrenamiento/entrenamiento.module';
 
 
 
@@ -37,6 +40,7 @@ import {PartidoModule} from './partido/partido.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        AmistosoModule,
         PropietarioModule,
         CanchaModule,
         CampeonatoModule,
@@ -45,6 +49,8 @@ import {PartidoModule} from './partido/partido.module';
         PartidoModule,
         ClienteModule,
         EquipoModule,
+        EntrenamientoModule,
+        ReservaModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

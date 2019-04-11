@@ -17,6 +17,8 @@ import {BlogCreateComponent} from '../blog/blog-create/blog-create.component';
 import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.component';
 import { CanchaEditComponent } from '../cancha/cancha-edit/cancha-edit.component';
+import { PropietarioCreateComponent } from '../propietario/propietario-create/propietario-create.component';
+import { PropietarioEditComponent } from '../propietario/propietario-edit/propietario-edit.component';
 
 const routes: Routes = [
   
@@ -72,6 +74,14 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropietarioListComponent
+            },
+            {
+                path: 'create',
+                component: PropietarioCreateComponent
+            },
+            {
+                path: 'edit/:id',
+                component: PropietarioEditComponent
             },
             {
                 path: ':id',

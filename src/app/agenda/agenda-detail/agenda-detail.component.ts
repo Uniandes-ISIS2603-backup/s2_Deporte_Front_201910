@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef, Input} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
@@ -15,6 +15,7 @@ import { AgendaDetail } from '../agenda-detail';
 
 export class AgendaDetailComponent implements OnInit, OnDestroy {
 
+    @Input() agenda = AgendaDetail;
     /**
     * The constructor of the component
     * @param agendaService The agenda service which communicates with the API
@@ -49,38 +50,29 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     */
     agendaDetail: AgendaDetail;
 
-    /**
-    * The other books shown in the sidebar
-    */
-    other_agendas: Agenda[];
-
+    
     /**
     * The suscription which helps to know when a new book
     * needs to be loaded
     */
     navigationSubscription;
 
+    
+
     /**
-    * The method which retrieves the details of the book that
+    * The method which retrieves the details of the agendas that
     * we want to show
     */
     getAgendaDetail(): void {
         this.agendaService.getAgendaDetail(this.agenda_id)
             .subscribe(agendaDetail => {
                 this.agendaDetail = agendaDetail;
+                console.log(agendaDetail);
+                
             });
     }
 
-    /**
-    * This method retrieves all the books in the Bookstore to show them in the list
-    */
-    getOtherAgendas(): void {
-        this.agendaService.getAgendas()
-            .subscribe(agendas => {
-                this.other_agendas = agendas;
-                this.other_agendas = this.other_agendas.filter(agenda => agenda.id !== this.agenda_id);
-            });
-    }
+
 
     /**
     * The method which initilizes the component
@@ -89,9 +81,7 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     */
     ngOnInit() {
         this.agenda_id = +this.route.snapshot.paramMap.get('id');
-        this.agendaDetail = new AgendaDetail();
         this.getAgendaDetail();
-        //this.getOtherAgendas();
     }
 
     /**

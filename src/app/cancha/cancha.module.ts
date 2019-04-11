@@ -12,6 +12,7 @@ import {CanchaDetailComponent} from './cancha-detail/cancha-detail.component';
 import {CanchaService} from './cancha.service';
 import {CanchaCreateComponent} from './cancha-create/cancha-create.component';
 import {CanchaEditComponent} from './cancha-edit/cancha-edit.component';
+import {AgendaModule} from '../agenda/agenda.module';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import {CanchaEditComponent} from './cancha-edit/cancha-edit.component';
         FormsModule,
         NgbModule,
         ReactiveFormsModule,
-        NgxPermissionsModule
+        NgxPermissionsModule,
+        AgendaModule
     ],
     declarations: [
         CanchaListComponent, CanchaDetailComponent, CanchaCreateComponent, CanchaEditComponent

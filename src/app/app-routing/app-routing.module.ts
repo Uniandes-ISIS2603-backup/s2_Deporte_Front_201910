@@ -16,6 +16,8 @@ import {BlogCreateComponent} from '../blog/blog-create/blog-create.component';
 //import {CampeonatoDetailComponent} from '../campeonato/campeonato-detail/campeonato-detail.component';
 import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.component';
+import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
+import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
@@ -86,6 +88,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: CanchaDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'agendas',
+        children:[
+            {
+                path: 'list',
+                component: AgendaListComponent
+            },
+            {
+                path: ':id',
+                component: AgendaDetailComponent
             }
         ]
     },

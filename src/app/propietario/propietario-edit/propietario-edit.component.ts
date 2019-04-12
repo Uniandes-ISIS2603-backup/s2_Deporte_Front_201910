@@ -21,10 +21,19 @@ export class PropietarioEditComponent implements OnInit {
         private route: ActivatedRoute
     ) {}
 
+    /**
+     * Propietario que se va a editar
+     */
     propietario:PropietarioDetail;
 
+    /**
+     * Id del propietario que se va a editar
+     */
     id:number;
 
+    /**
+     * Metodo que obtiene el propietario llamando al servicio
+     */
     getPropietario(){
         this.propietarioService.getPropietarioDetail(this.id).subscribe(propietario => {
             
@@ -32,6 +41,9 @@ export class PropietarioEditComponent implements OnInit {
         });
     }
 
+    /**
+     * Metodo que llama el servicio para efectuar la edicion
+     */
     updatePropietario(): void {
         this.propietarioService.updatePropietario(this.propietario)
             .subscribe(() => {
@@ -40,11 +52,17 @@ export class PropietarioEditComponent implements OnInit {
             });
     }
 
+    /**
+     * Metodo que se llama cuando se cancela la edicion
+     */
     cancelEdition(): void {
         this.toastrService.warning('El propietario no fue editado', 'Propietario edition');
         this.router.navigate(['/propietario/list']);
     }
 
+    /**
+     * Metodo que se llama cuando se muestra el HTML
+     */
     ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
         this.getPropietario();

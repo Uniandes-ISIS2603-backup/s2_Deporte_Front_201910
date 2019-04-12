@@ -25,17 +25,32 @@ export class CanchaCreateComponent implements OnInit{
         private router: Router
     ) {}
 
+    /**
+     * Cancha que se va a crear
+     */
     cancha:Cancha;
 
+    /**
+     * Propietario de la cancha que se va a crear
+     */
     propietario:Propietario;
 
+    /**
+     * Id del propietario que se va a crear
+     */
     id_p:number;
 
+    /**
+     * Metodo que se llama cuando se cancela la creacion
+     */
     cancelCreation(): void {
         this.toastrService.warning('The book wasn\'t created', 'Book creation');
         this.router.navigate(['/canchas/list']);
     }
 
+    /**
+     * Metodo en el que se crea la cancha llamando al servicio
+     */
     createCancha(): Cancha {
         this.cancha.propietario=this.propietario;
         console.log(this.cancha);
@@ -49,6 +64,9 @@ export class CanchaCreateComponent implements OnInit{
         return this.cancha;
     }
 
+    /**
+     * Se busca al propietario dueño da la nueva cancha
+     */
     getPropietario(){
         this.porpietarioService.getPropietarioDetail(this.id_p)
             .subscribe(propietario => {
@@ -56,6 +74,9 @@ export class CanchaCreateComponent implements OnInit{
             })
     }
 
+    /**
+     * Metodo que se llama al mostrar el html
+     */
     ngOnInit() {
         this.id_p = +this.route.snapshot.paramMap.get('id');
     cancha:Cancha;

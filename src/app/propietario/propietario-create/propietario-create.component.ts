@@ -18,13 +18,22 @@ export class PropietarioCreateComponent implements OnInit{
         private router: Router
     ) {}
 
+    /**
+     * Propietario que se va a crear
+     */
     propietario:Propietario;
 
+    /**
+     * Metodo que se llama cuando se cancela la creacion
+     */
     cancelCreation(): void {
         this.toastrService.warning('The book wasn\'t created', 'Book creation');
         this.router.navigate(['/books/list']);
     }
 
+    /**
+     * Metodo que llama el servicio para efectuar la creacion del propietario
+     */
     createPropietatio(): Propietario {
         console.log(this.propietario);
         this.propietarioService.createPropietario(this.propietario)
@@ -37,6 +46,9 @@ export class PropietarioCreateComponent implements OnInit{
         return this.propietario;
     }
 
+    /**
+     * Metodo que se llama cuando se muestra el HTML
+     */
     ngOnInit() {
         propietario:Propietario;
             this.propietario = new Propietario();

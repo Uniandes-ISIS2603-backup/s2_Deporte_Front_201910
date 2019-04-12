@@ -25,12 +25,24 @@ export class CanchaEditComponent implements OnInit {
         private route: ActivatedRoute
     ) {}
 
+    /**
+     * Cancha que se va a mostrar
+     */
     cancha:CanchaDetail;
 
+    /**
+     * Id de la cancha que se va a mostrar
+     */
     id:number;
 
+    /**
+     * Propietario dueño de la cancha
+     */
     propietario:Propietario;
 
+    /**
+     * Metodo en el que se llama al servicio para encontrar la cancha
+     */
     getCancha(){
         this.canchaService.getCanchaDetail(this.id).subscribe(cancha => {
             
@@ -39,6 +51,9 @@ export class CanchaEditComponent implements OnInit {
         });
     }
 
+    /**
+     * Metodo que llama al servicio para editar una cancha
+     */
     updateCancha(): void {
         this.canchaService.updateCancha(this.cancha)
             .subscribe(() => {
@@ -47,11 +62,17 @@ export class CanchaEditComponent implements OnInit {
             });
     }
     
+    /**
+     * Metodo que se llama cuando se cancela la edicion
+     */
     cancelEdition(): void {
         this.toastrService.warning('La cancha no fue editada', 'Cancha edition');
         this.router.navigate(['/canchas/list']);
     }
 
+    /**
+     * Metodo que se llama al mostrar el HTML
+     */
    ngOnInit() {
        this.id = +this.route.snapshot.paramMap.get('id');
        this.getCancha();

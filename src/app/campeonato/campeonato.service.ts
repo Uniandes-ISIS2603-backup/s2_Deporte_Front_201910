@@ -15,7 +15,7 @@ const API_URL = environment.apiURL;
 const campeonatos = '/campeonato';
 
 /**
-* The service provider for everything related to editorials
+* The service provider for everything related to campeonatos
 */
 @Injectable()
 export class CampeonatoService {
@@ -27,7 +27,7 @@ export class CampeonatoService {
 constructor(private http: HttpClient) {}
 
 /**
-* Returns the Observable object containing the list of editorials retrieved from the API
+* Returns the Observable object containing the list of campeonatos retrieved from the API
 * @returns The list of books in real time
 */
 getCampeonatos(): Observable<Campeonato[]> {

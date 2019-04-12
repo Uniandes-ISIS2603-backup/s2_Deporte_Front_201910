@@ -4,28 +4,32 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Editar un campeonato</h2>
-        <br>
-        <form name="blog" (ngSubmit)="f.form.valid && editBlog()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="campeonatoName"><b>Name</b></label>
-                <input type="text" name="campeonatoName" class="form-control" id="campeonatoName" [(ngModel)]="campeonato.name"
-                    #campeonatoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && campeonatoName.invalid }"
-                    required>
-                <div class="invalid-feedback">
-                    <div>The blog's name is missing</div>
+<form name="campeonato" (ngSubmit)="f.form.valid && updateCampeonato()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="campeonatoNombre"><b>Nombre del campeonato</b></label>
+                    <input type="text" name="campeonatoNombre" class="form-control" id="campeonatoNombre"
+                        [(ngModel)]="campeonato.nombre" #campeonatoNombre="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && campeonatoNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="campeonatoDescripcion"><b>Descripcion del campeonato</b></label>
+                    <input type="text" name="campeonatoDescripcion" class="form-control" id="campeonatoDescripcion"
+                        [(ngModel)]="campeonato.descripcion" #campeonatoDescripcion="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && campeonatoDescripcion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
                 <div class="divider"></div>
                 <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>
-        </form>
-    </div>
-    <div class="col-3"></div>
-</div>
+        </div>
+    </form>

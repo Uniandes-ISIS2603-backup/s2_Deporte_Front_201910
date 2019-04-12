@@ -4,25 +4,43 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <div class="container-fluid">
-        <div class="col">
-                <table class="table table-striped">
-                        <thead class="thead-dark">
-                                <tr>
-                                        <th>Nombre</th>
-                                </tr>
-                        </thead>
-                        <tbody>
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create a post</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Posts</th>    
+                    </tr>
+                </thead>
+                <tbody>
                                 <tr *ngFor="let i of posts">
-                                        <td style="cursor: pointer;">
-                                                <a class="figure-caption"
-                                                        routerLink="/posts/detail/{{i.id}}">
-                                                        {{i.nombre}}</a>
-                                        </td>
-                                                                        </tr>
+      <td>
+        <a class="figure-caption"
+        routerLink="/posts/detail/{{i.id}}">
+        {{i.nombre}}</a>
+      </td>
+
+                                       <td >
+                    <button class="btn btn-primary" routerLink="/posts/edit/{{i.id}}"><span class="fa fa-pencil"></span></button>
+                </td>
+                                </tr>
                         </tbody>
                 </table>
-            <app-post-create></app-post-create>
-            <app-post-edit></app-post-edit>
+            <div *ngIf="showCreate">
+                <app-post-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-post-create>
+            </div>
+            
+           
+
+            
         </div>
 </div>

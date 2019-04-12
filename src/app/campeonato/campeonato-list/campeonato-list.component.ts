@@ -9,6 +9,7 @@ import {Campeonato} from '../campeonato';
 import {CampeonatoService} from '../campeonato.service';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
+import {CampeonatoDetail} from '../campeonato-detail';
 
 
 /**
@@ -39,6 +40,21 @@ export class CampeonatoListComponent implements OnInit {
     
     campeonato_edit_id: number;
 
+    selectedCampeonato: Campeonato;
+
+    /**
+    * Shows the author
+    */
+   onSelected(campeonato_id: number): void {
+    this.showCreate = false;
+    this.showEdit = false;
+    
+    this.campeonato_edit_id = campeonato_id;
+    this.selectedCampeonato = new CampeonatoDetail();
+    //this.getCampeonatoDetail();
+}
+
+
     /**
      * Asks the service to update the list of editorials
      */
@@ -51,14 +67,18 @@ export class CampeonatoListComponent implements OnInit {
         this.showEdit = false;
         this.showCreate = !this.showCreate!
     }
-     showHideEdit(editorial_id: number): void {
-         if (!this.showEdit || (this.showEdit && editorial_id != this.campeonato_edit_id)) {
+     showHideEdit(author_id: number): void {
+        if (!this.showEdit || (this.showEdit && author_id != this.selectedCampeonato.id)) {
+           // this.showView = false;
             this.showCreate = false;
             this.showEdit = true;
-            this.campeonato_edit_id = editorial_id;
+            this.campeonato_edit_id = author_id;
+            this.selectedCampeonato = new CampeonatoDetail();
+            //this.getAuthorDetail();
         }
         else {
             this.showEdit = false;
+           // this.showView = true;
         }
     }
 

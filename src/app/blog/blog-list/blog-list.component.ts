@@ -80,6 +80,10 @@ showHideEdit(editorial_id: number): void {
         this.showEdit = false;
          this.getBlogs();
     }    
+    updateBlog(): void {
+        this.showEdit = false;
+    }
+
 }
 
 

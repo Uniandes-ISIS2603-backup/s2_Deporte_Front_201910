@@ -4,28 +4,32 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Editar un post</h2>
-        <br>
-        <form name="post" (ngSubmit)="f.form.valid && editPost()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="PostName"><b>Nombre</b></label>
-                <input type="text" name="PostName" class="form-control" id="PostName" [(ngModel)]="post.name"
-                    #postName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postName.invalid }"
-                    required>
-                <div class="invalid-feedback">
-                    <div>The post's name is missing</div>
+<form name="campeonato" (ngSubmit)="f.form.valid && updatePost()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="postNombre"><b>Nombre del post</b></label>
+                    <input type="text" name="postNombre" class="form-control" id="postNombre"
+                        [(ngModel)]="post.nombre" #postNombre="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && postNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="campeonatoDescripcion"><b>Contenido del post</b></label>
+                    <input type="text" name="campeonatoDescripcion" class="form-control" id="campeonatoDescripcion"
+                        [(ngModel)]="post.contenido" #postContenido="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && postContenido.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
                 <div class="divider"></div>
                 <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>
-        </form>
-    </div>
-    <div class="col-3"></div>
-</div>
+        </div>
+    </form>

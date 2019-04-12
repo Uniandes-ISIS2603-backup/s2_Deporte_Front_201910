@@ -29,7 +29,7 @@ import {BlogEditComponent} from './blog-edit/blog-edit.component';
         CommonModule,
         FormsModule
     ],
-    declarations: [BlogListComponent, BlogDetailComponent,BlogCreateComponent,BlogEditComponent],
+    declarations: [BlogListComponent, BlogDetailComponent,BlogEditComponent,BlogCreateComponent],
     exports: [BlogListComponent],
     providers: [BlogService]
     

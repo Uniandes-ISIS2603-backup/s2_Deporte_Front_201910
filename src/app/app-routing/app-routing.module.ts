@@ -155,7 +155,7 @@ const routes: Routes = [
                 runGuardsAndResolvers: 'always'
             },
             {
-	                path: ':id/edit',
+	                path: 'edit/:id',
 	                component: PostEditComponent
 	            },
 
@@ -177,10 +177,10 @@ const routes: Routes = [
                 path: 'detail/:id',
                 component: BlogDetailComponent,
             },
-            {
-	                path: ':id/edit',
-	                component: BlogEditComponent
-	            },
+           {
+                path: 'edit/:id',
+                component: BlogEditComponent
+            },
         ]
     },
      {
@@ -200,9 +200,9 @@ const routes: Routes = [
                 component: CampeonatoDetailComponent,
             },
              {
-	                path: ':id/edit',
-	                component: CampeonatoEditComponent
-	            },
+                path: 'edit/:id',
+                component: CampeonatoEditComponent
+            },
         ]
     },
     {

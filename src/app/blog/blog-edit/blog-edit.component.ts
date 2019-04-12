@@ -8,8 +8,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {BlogService} from '../blog.service';
 import {BlogDetail} from '../blog-detail';
@@ -27,75 +28,41 @@ export class BlogEditComponent implements OnInit {
     * @param blogService The editorial's service
     * @param toastrService The toastr to show messages to the user 
     */
-    constructor(
+   constructor(
         private blogService: BlogService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+         private router: Router,
+        private route: ActivatedRoute
     ) {}
 
-    /**
-    * The id of the editorial that the user wants to edit
-    * This is passed as a parameter by the parent component
-    */
-    @Input() blog_id: number;
+ 
+    blog:BlogDetail;
 
-    /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an editorial
-    */
-    @Output() cancel = new EventEmitter();
+    id:number;
 
-    /**
-    * The output which tells the parent component
-    * that the user updated a new editorial
-    */
-    @Output() update = new EventEmitter();
-
-    /**
-    * The editorial to edit
-    */
-    blog: BlogDetail;
-
-    /**
-    * Retrieves the information of the editorial
-    */
-    getBlog(): void {
-        this.blogService.getBlogDetail(this.blog_id)
-            .subscribe(o => {
-                this.blog = o;
-            });
+    getBlog(){
+        this.blogService.getBlogDetail(this.id).subscribe(blog => {
+            
+            this.blog = blog;
+        });
     }
 
-    /**
-    * Updates the editorial's information
-    */
-    editBlog(): void {
+    updateBlog(): void {
         this.blogService.updateBlog(this.blog)
             .subscribe(() => {
-                this.update.emit();
-                this.toastrService.success("The blog's information was updated", "Blog edition");
+                this.router.navigate(['/blogs/detail/' + this.id]);
+                this.toastrService.success("El blog se edito correctamente", 'Blog edition');
             });
     }
 
-    /**
-    * Informs the parent component that the user no longer wants to update the editorial
-    */
     cancelEdition(): void {
-        this.cancel.emit();
+        this.toastrService.warning('El blog no fue editado', 'Blog edition');
+        this.router.navigate(['/blogs/list']);
     }
 
-    /**
-    * The function which initializes the component
-    */
     ngOnInit() {
-        this.blog = new BlogDetail();
+        this.id = +this.route.snapshot.paramMap.get('id');
         this.getBlog();
-    }
-
-    /**
-    * The function which is called every time the user chooses to edit a different editorial
-    */
-    ngOnChanges() {
-        this.ngOnInit();
     }
 }
 

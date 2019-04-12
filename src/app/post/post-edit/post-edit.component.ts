@@ -6,6 +6,8 @@
 
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
+import {Router, ActivatedRoute} from '@angular/router';
+
 
 import {PostService} from '../post.service';
 import {PostDetail} from '../post-detail';
@@ -20,77 +22,43 @@ export class PostEditComponent implements OnInit {
 
     /**
     * The component's constructor
-    * @param postService The editorial's service
+    * @param postService The post's service
     * @param toastrService The toastr to show messages to the user 
     */
     constructor(
         private postService: PostService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+         private router: Router,
+        private route: ActivatedRoute
     ) {}
 
-    /**
-    * The id of the editorial that the user wants to edit
-    * This is passed as a parameter by the parent component
-    */
-    @Input() post_id: number;
+ 
+    post:PostDetail;
 
-    /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an editorial
-    */
-    @Output() cancel = new EventEmitter();
+    id:number;
 
-    /**
-    * The output which tells the parent component
-    * that the user updated a new editorial
-    */
-    @Output() update = new EventEmitter();
-
-    /**
-    * The editorial to edit
-    */
-    post: PostDetail;
-
-    /**
-    * Retrieves the information of the editorial
-    */
-    getPost(): void {
-        this.postService.getPostDetail(this.post_id)
-            .subscribe(post => {
-                this.post = post;
-            });
+    getPost(){
+        this.postService.getPostDetail(this.id).subscribe(post => {
+            
+            this.post = post;
+        });
     }
 
-    /**
-    * Updates the editorial's information
-    */
-    editPost(): void {
+    updatePost(): void {
         this.postService.updatePost(this.post)
             .subscribe(() => {
-                this.update.emit();
-                this.toastrService.success("The post's information was updated", "Post edition");
+                this.router.navigate(['/posts/detail/' + this.id]);
+                this.toastrService.success("El post se edito correctamente", 'Post edition');
             });
     }
 
-    /**
-    * Informs the parent component that the user no longer wants to update the editorial
-    */
     cancelEdition(): void {
-        this.cancel.emit();
+        this.toastrService.warning('El post no fue editado', 'Post edition');
+        this.router.navigate(['/posts/list']);
     }
 
-    /**
-    * The function which initializes the component
-    */
     ngOnInit() {
-        this.post = new PostDetail();
+        this.id = +this.route.snapshot.paramMap.get('id');
         this.getPost();
-    }
-
-    /**
-    * The function which is called every time the user chooses to edit a different editorial
-    */
-    ngOnChanges() {
-        this.ngOnInit();
     }
 }

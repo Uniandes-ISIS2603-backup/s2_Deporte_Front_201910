@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<form name="campeonato" (ngSubmit)="f.form.valid && updatePost()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="postNombre"><b>Nombre del post</b></label>
+                    <input type="text" name="postNombre" class="form-control" id="postNombre"
+                        [(ngModel)]="post.nombre" #postNombre="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && postNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="campeonatoDescripcion"><b>Contenido del post</b></label>
+                    <input type="text" name="campeonatoDescripcion" class="form-control" id="campeonatoDescripcion"
+                        [(ngModel)]="post.contenido" #postContenido="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && postContenido.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>

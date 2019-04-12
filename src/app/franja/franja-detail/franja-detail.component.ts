@@ -75,7 +75,7 @@ export class FranjaDetailComponent implements OnInit, OnDestroy {
     * This method retrieves all the books in the Bookstore to show them in the list
     */
     getOtherFranjas(): void {
-        this.franjaService.getFranjas()
+        this.franjaService.getFranjas(this.franja_id)
             .subscribe(franjas => {
                 this.other_franjas = franjas;
                 this.other_franjas = this.other_franjas.filter(franja => franja.id !== this.franja_id);

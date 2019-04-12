@@ -23,8 +23,8 @@ export class AgendaService {
     * Returns the Observable object containing the list of agendas retrieved from the API
     * @returns The list of agendas in real time
     */
-    getAgendas(): Observable<Agenda[]> {
-        return this.http.get<Agenda[]>(API_URL + agendas);
+    getAgendas(canchaId: number): Observable<AgendaDetail[]> {
+        return this.http.get<AgendaDetail[]>(API_URL + agendas+ '/filtroCancha/' + canchaId);
     }
 
     /**

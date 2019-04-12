@@ -1,6 +1,4 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
-import {ToastrService} from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
 
 import {ClienteService} from '../cliente.service';
 import {Cliente} from '../cliente';
@@ -13,12 +11,16 @@ import {ClienteDetail} from '../cliente-detail';
 })
 export class ClienteListComponent implements OnInit {
 
-  constructor(private clienteService: ClienteService,
-              private modalDialogService: ModalDialogService,
-              private viewRef: ViewContainerRef,
-              private toastrService: ToastrService) { }
-
+  constructor(private clienteService: ClienteService) { }
+  clientes:Cliente[];
+  getClientes(): void {
+        this.clienteService.getClientes()
+            .subscribe(clientes => {
+                this.clientes = clientes;
+            });
+    }
   ngOnInit() {
+      this.getClientes();
   }
 
 }

@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {Partido} from './partido';
 import {PartidoDetail} from './partido-detail';
-
-const API_URL = '../../assets/partidos/';
-const partidos = 'partidos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const partidos = '/partidos';
 
 @Injectable()
 export class PartidoService {

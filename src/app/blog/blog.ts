@@ -18,6 +18,8 @@ export class Blog {
     */
     
     nombre: string;
+    
+    id:number;
 
 
 }

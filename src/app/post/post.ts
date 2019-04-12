@@ -12,13 +12,13 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export interface Post {
+export class Post {
     /**
     * The editorial's id
     */
-    cuerpo: string;
+    nombre: string;
     
-
+    id: number;
 
 }
 

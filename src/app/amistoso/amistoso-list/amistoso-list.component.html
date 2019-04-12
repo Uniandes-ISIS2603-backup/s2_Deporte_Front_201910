@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<table class="table- table-stripped">
+				<thead class="thead-dark">
+					<tr>
+						<th> Amistosos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let i of amistosos">
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.id}}</a>
+						</td>
+            <td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.fecha}}</a>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+  	<div class="border row">
+		<div class="col">
+			<div *ngIf="selectedAmistoso">
+				<app-amistoso-detail [amistosoDetail]="selectedAmistoso"> </app-amistoso-detail>
+			</div>
+		</div>
+	</div>
+</div>

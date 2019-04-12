@@ -1,3 +1,5 @@
+import { Cancha } from "../cancha/cancha";
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +10,6 @@ export class Agenda {
     * El id de la agenda
     */
     id: number;
-
     
     /**
      * El año de la agenda
@@ -20,4 +21,8 @@ export class Agenda {
      * El mes de la agenda
      */
     mes: number;
+
+    mesString: string;
+
+    cancha: Cancha;
 }

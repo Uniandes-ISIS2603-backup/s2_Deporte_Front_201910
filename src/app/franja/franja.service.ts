@@ -7,7 +7,7 @@ import { FranjaDetail } from './franja-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
-const franjas = '/franjas';
+const franjas = '/franjas/filtroAgenda/';
 
 
 @Injectable()
@@ -23,8 +23,8 @@ export class FranjaService {
     * Returns the Observable object containing the list of agendas retrieved from the API
     * @returns The list of agendas in real time
     */
-    getFranjas(): Observable<Franja[]> {
-        return this.http.get<Franja[]>(API_URL + franjas);
+    getFranjas(idAgenda: number): Observable<Franja[]> {
+        return this.http.get<Franja[]>(API_URL + franjas + idAgenda);
     }
 
     /**

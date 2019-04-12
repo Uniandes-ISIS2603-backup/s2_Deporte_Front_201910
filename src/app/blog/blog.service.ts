@@ -14,9 +14,11 @@ import {HttpClient} from '@angular/common/http';
 
 import {Blog} from './blog';
 import {BlogDetailComponent} from './blog-detail/blog-detail.component';
+import { BlogDetail } from './blog-detail';
+import {environment} from '../../environments/environment';
 
-const API_URL = "../../assets/";
-const blogs = '/blogs.json';
+const API_URL = environment.apiURL;
+const blogs = '/blog';
 
 /**
 * The service provider for everything related to editorials
@@ -38,11 +40,16 @@ export class BlogService {
         return this.http.get<Blog[]>(API_URL + blogs);
     }
     
-     getBlogDetail(blogName): Observable<BlogDetailComponent> {
-        return this.http.get<BlogDetailComponent>(API_URL + "data-" + blogName+".json");
-    }
+     getBlogDetail(blogName): Observable<BlogDetail> {
+        return this.http.get<BlogDetail>(API_URL + blogs + "/" + blogName);    }
 
- createBlog(blog): Observable<BlogDetailComponent> {
-        return this.http.post<BlogDetailComponent>(API_URL + blogs, blog);
+        createBlog(blog): Observable<Blog> {
+            return this.http.post<Blog>(API_URL + blogs, blog);
+        }
+    updateBlog(blog): Observable<BlogDetail> {
+        return this.http.put<BlogDetail>(API_URL + blogs + '/' + blog.id, blog);
+    }
+    deleteBlog(blogId): Observable<BlogDetail> {
+        return this.http.delete<BlogDetail>(API_URL + blogs + '/' + blogId);
     }
 }

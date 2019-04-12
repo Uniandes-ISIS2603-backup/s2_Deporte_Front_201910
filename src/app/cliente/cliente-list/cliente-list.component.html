@@ -1,16 +1,17 @@
-<div class = 'container-fluid'>
-  <div class = 'responsive-table'>
-    <thead style='font-size: 20'>
-      <tr>
-        Nombre
-      </tr>
-    </thead>
-    <tbody>
-      <tr mdbTableCol *ngFor="let el of elements">
-        <td>
-          
-        </td>
-      </tr>
-    </tbody>
-  </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let cliente of clientes">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Nombre:{{cliente.name}}
+                </h5>
+                <h6 class="card-title">
+                    Representa:{{cliente.representa}}
+                </h6>                
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-dark" routerLink="/clientes/{{cliente.id}}">Detalles</button>
+            </div>
+        </div>
+    </div>
 </div>

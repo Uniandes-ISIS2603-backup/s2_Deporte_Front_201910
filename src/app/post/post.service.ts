@@ -11,11 +11,14 @@
  import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {PostDetail} from './post-detail';
+
 
 import {Post} from './post';
+import {environment} from '../../environments/environment';
 
-const API_URL = "../../assets/";
-const posts = '/posts.json';
+const API_URL = environment.apiURL;
+const posts = '/post';
 
 /**
 * The service provider for everything related to editorials
@@ -34,12 +37,23 @@ export class PostService {
     * @returns The list of books in real time
     */
     getPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(API_URL + posts);
+    return this.http.get<Post[]>(API_URL + posts);
+}
+
+getPostDetail(postName): Observable<PostDetail> {
+    return this.http.get<PostDetail>(API_URL + posts + "/" + postName);
+}
+
+createPost(post): Observable<Post> {
+    return this.http.post<Post>(API_URL + posts, post);
+}
+
+updatePost(post): Observable<PostDetail> {
+        return this.http.put<PostDetail>(API_URL + posts + '/' + post.id, post);
+    }
+
+    deletePost(postId): Observable<PostDetail> {
+        return this.http.delete<PostDetail>(API_URL + posts + '/' + postId);
     }
 
 }
-
-
-
-
-

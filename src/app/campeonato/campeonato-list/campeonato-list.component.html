@@ -5,29 +5,41 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <div class="container-fluid">
-<div class="col">
-    <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                            <th>Nombre</th>
-
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create a campeonato</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Campeonatos</th>    
                     </tr>
-            </thead>
-            <tbody>
-                    <tr *ngFor="let i of campeonatos">
-<td style="cursor: pointer;">
-                                        <a class="figure-caption"[routerLink] ="['/campeonatos', { outlets: { 'detail': [i.nombre] } }]"> {{i.nombre}}</a>
+                </thead>
+                <tbody>
+                                <tr *ngFor="let i of campeonatos">
+      <td>
+        <a class="figure-caption"
+        routerLink="/campeonatos/detail/{{i.id}}">
+        {{i.nombre}}</a>
+      </td>
 
-                                </td>
-                    </tr>
-            </tbody>
-    </table>
-
-
+                                       <td >
+                    <button class="btn btn-primary" routerLink="/campeonatos/edit/{{i.id}}"><span class="fa fa-pencil"></span></button>
+                </td>
+                                </tr>
+                        </tbody>
+                </table>
+            <div *ngIf="showCreate">
+                <app-campeonato-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-campeonato-create>
+            </div>
+            
+           
 
             
-    <app-campeonato-create></app-campeonato-create>
-            
-        
-</div>
+        </div>
 </div>

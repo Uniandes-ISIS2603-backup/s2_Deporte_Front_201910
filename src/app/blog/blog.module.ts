@@ -19,6 +19,7 @@ import {BlogService} from './blog.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {BlogDetailComponent} from './blog-detail/blog-detail.component';
 import {BlogCreateComponent} from './blog-create/blog-create.component';
+import {BlogEditComponent} from './blog-edit/blog-edit.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,7 @@ import {BlogCreateComponent} from './blog-create/blog-create.component';
         CommonModule,
         FormsModule
     ],
-    declarations: [BlogListComponent, BlogDetailComponent,BlogCreateComponent],
+    declarations: [BlogListComponent, BlogDetailComponent,BlogEditComponent,BlogCreateComponent],
     exports: [BlogListComponent],
     providers: [BlogService]
     

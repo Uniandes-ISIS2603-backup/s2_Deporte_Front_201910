@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<form name="campeonato" (ngSubmit)="f.form.valid && updateBlog()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="blogNombre"><b>Nombre del blog</b></label>
+                    <input type="text" name="blogNombre" class="form-control" id="blogNombre"
+                        [(ngModel)]="blog.nombre" #blogNombre="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && blogNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="blogDescripcion"><b>Descripcion del blog</b></label>
+                    <input type="text" name="blogDescripcion" class="form-control" id="blogDescripcion"
+                        [(ngModel)]="blog.descripcion" #blogDescripcion="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && blogDescripcion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>
+

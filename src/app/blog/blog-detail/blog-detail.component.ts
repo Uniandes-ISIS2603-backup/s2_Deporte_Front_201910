@@ -23,29 +23,34 @@ export class BlogDetailComponent implements OnInit {
   blogDetail: BlogDetail;
 
 
-  @Input() blog_name: string;
+  @Input() blog_id: number;
 
   loader: any;
   /**
   * The method which retrieves the books of an editorial
   */
-//  getBlogDetail(): void {
-//
-//      this.blogService.getBlogDetail(this.blog_name)
-//      .subscribe(o => {
-//        this.blogDetail = o
-//      });
-//  }
+  getBlogDetail(): void {
+
+      this.blogService.getBlogDetail(this.blog_id)
+      .subscribe(o => {
+        this.blogDetail = o
+      });
+  }
 
   onLoad(params) {
 
-//      this.blog_name = parseInt(params['name']);
-      console.log(" en detail " + this.blog_name);
+    this.blog_id = parseInt(params['id']);
+    console.log(" en detail " + this.blog_id);
     this.blogDetail = new BlogDetail();
-//    this.getBlogDetail();
+    this.getBlogDetail();
   }
+  /**
+  * The method which initializes the component
+  * We need to initialize the editorial so it is never considered as undefined
+  */
+ ngOnInit() {
+  this.blog_id = +this.route.snapshot.paramMap.get('id');
 
-  ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
 

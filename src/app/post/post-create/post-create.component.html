@@ -4,13 +4,35 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un post</h2>
+        <br>
+        <form name="post" (ngSubmit)="f.form.valid && createPost()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="postNombre"><b>Nombre</b></label>
+                <input type="text" name="postNombre" class="form-control" id="postNombre" [(ngModel)]="post.nombre"
+                    #postNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The post's name is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="postContenido"><b>Contenido</b></label>
+                <input type="text" name="postContenido" class="form-control" id="postContenido" [(ngModel)]="post.contenido"
+                    #postContenido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postContenido.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The post's name is missing</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

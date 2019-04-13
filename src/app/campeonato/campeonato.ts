@@ -15,6 +15,10 @@ export class Campeonato {
     
     
     nombre: string;
+    
+ rutaImagen: string;
+     
+    deporte: string;
 
     id: number;
 

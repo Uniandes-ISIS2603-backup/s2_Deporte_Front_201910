@@ -19,6 +19,8 @@ export class Blog {
     
     nombre: string;
     
+    rutaImagen: string;
+    
     id:number;
 
 

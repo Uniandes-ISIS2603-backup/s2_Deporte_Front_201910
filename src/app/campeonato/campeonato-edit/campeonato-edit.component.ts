@@ -39,7 +39,7 @@ export class CampeonatoEditComponent implements OnInit {
     updateCampeonato(): void {
         this.campeonatoService.updateCampeonato(this.campeonato)
             .subscribe(() => {
-                this.router.navigate(['/campeonatos/detail/' + this.id]);
+                this.router.navigate(['/campeonatos/list/']);
                 this.toastrService.success("El campeonato se edito correctamente", 'Campeonato edition');
             });
     }

@@ -17,7 +17,7 @@ export class Post {
     * The editorial's id
     */
     nombre: string;
-    
+        
     id: number;
 
 }

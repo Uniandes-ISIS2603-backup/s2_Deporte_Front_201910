@@ -24,6 +24,21 @@ and open the template in the editor.
                         <div>Este campo es obligatorio</div>
                     </div>
                     <br>
+                    <label for="campeonatoDeporte"><b>Deporte jugado en el campeonato</b></label>
+                    <input type="text" name="campeonatoDeporte" class="form-control" id="campeonatoDeporte"
+                        [(ngModel)]="campeonato.deporte" #campeonatoDeporte="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && campeonatoDeporte.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                        <label for="campeonatorutaImagen"><b> Ruta de la imagen</b></label>
+                    <input type="text" name="campeonatorutaImagen" class="form-control" id="campeonatorutaImagen"
+                        [(ngModel)]="campeonato.rutaImagen" #campeonatorutaImagen="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && campeonatorutaImagen.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">

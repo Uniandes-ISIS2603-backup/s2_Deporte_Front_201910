@@ -28,6 +28,22 @@ and open the template in the editor.
                     <div>The campeonato's name is missing</div>
                 </div>
             </div>
+               <div class="form-group">
+                <label for="campeonatoDeporte"><b>Deporte</b></label>
+                <input type="text" name="campeonatoDeporte" class="form-control" id="campeonatoDeporte" [(ngModel)]="campeonato.deporte"
+                    #campeonatoDeporte="ngModel" [ngClass]="{ 'is-invalid': f.submitted && campeonatoDeporte.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The campeonato's name is missing</div>
+                </div>
+            </div>
+              <div class="form-group">
+                <label for="campeonatorutaImagen"><b>Ruta de la imagen</b></label>
+                <input type="text" name="campeonatorutaImagen" class="form-control" id="campeonatorutaImagen" [(ngModel)]="campeonato.rutaImagen"
+                    #campeonatorutaImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && campeonatorutaImagen.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The campeonato's name is missing</div>
+                </div>
+            </div>
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Create</button>
                 <div class="divider"></div>

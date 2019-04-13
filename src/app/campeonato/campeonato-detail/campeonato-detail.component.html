@@ -7,4 +7,14 @@ and open the template in the editor.
 <p class="h4 p-3">
 
 	Campeonato {{campeonatoDetail.nombre}}</p>
-<p> {{campeonatoDetail.descripcion}}</p>
+ <table class="table">
+                
+                    <tr>
+                        <td><img src={{campeonatoDetail.rutaImagen}} width=200 height=200></td>
+                    </tr>
+                    </table>
+                
+                <p><b> Id del campeonato: </b> {{campeonatoDetail.id}}</p>
+ 
+<p><b> Deporte jugado en este campeonato: </b> {{campeonatoDetail.deporte}}</p>
+<p> <b> Descripción de este campeonato: </b> {{campeonatoDetail.descripcion}}</p>

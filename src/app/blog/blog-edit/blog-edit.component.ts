@@ -50,7 +50,7 @@ export class BlogEditComponent implements OnInit {
     updateBlog(): void {
         this.blogService.updateBlog(this.blog)
             .subscribe(() => {
-                this.router.navigate(['/blogs/detail/' + this.id]);
+                this.router.navigate(['/blogs/list/']);
                 this.toastrService.success("El blog se edito correctamente", 'Blog edition');
             });
     }

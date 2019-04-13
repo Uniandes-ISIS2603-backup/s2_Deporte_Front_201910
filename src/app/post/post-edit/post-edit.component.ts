@@ -47,7 +47,7 @@ export class PostEditComponent implements OnInit {
     updatePost(): void {
         this.postService.updatePost(this.post)
             .subscribe(() => {
-                this.router.navigate(['/posts/detail/' + this.id]);
+                this.router.navigate(['/posts/list/']);
                 this.toastrService.success("El post se edito correctamente", 'Post edition');
             });
     }

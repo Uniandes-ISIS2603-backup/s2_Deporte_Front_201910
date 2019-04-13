@@ -4,8 +4,9 @@ import { Amistoso } from './amistoso';
 import { AmistosoDetail } from './amistoso-detail';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const amistosos= 'amistosos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const amistosos = '/amistosos';
 
 @Injectable()
 export class AmistosoService {
@@ -29,7 +30,7 @@ export class AmistosoService {
     */
     getAmistosoDetail(amistosoId): Observable<AmistosoDetail> {
 
-     return this.http.get<AmistosoDetail>(API_URL + "amistoso"+amistosoId+".json");
+     return this.http.get<AmistosoDetail>(API_URL + amistosos + '/' + amistosoId);
     }
 
     /**
@@ -42,7 +43,7 @@ export class AmistosoService {
     * Metodo que actualiza el amistoso dado
     */
     updateAmistoso(Amistoso): Observable<AmistosoDetail> {
-        return this.http.put<AmistosoDetail>(API_URL + '/' + amistosos, Amistoso);
+        return this.http.put<AmistosoDetail>(API_URL + amistosos + '/' + Amistoso.id, Amistoso);
     }
 
     /**

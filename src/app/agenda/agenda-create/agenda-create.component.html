@@ -1,0 +1,33 @@
+
+<div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <br>
+            <h2 class="text-center">Crear una agenda</h2>
+            <br>
+            <form name="agenda" (ngSubmit)="f.form.valid && createAgenda()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="agendaAnio"><b>Año</b></label>
+                    <input type="number" name="agendaAnio" class="form-control" id="agendaAnio" [(ngModel)]="agenda.anio"
+                        #agendaAnio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaAnio.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>The agenda's Año is missing</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="agendaMes"><b>Mes</b></label>
+                    <input type="number" name="agendaMes" class="form-control" id="agendaMes" [(ngModel)]="agenda.mes"
+                        #agendaMes="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaMes.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>The agenda's mes is missing</div>
+                    </div>
+                </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>

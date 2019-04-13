@@ -4,8 +4,9 @@ import { Reserva } from './reserva';
 import { ReservaDetail } from './reserva-detail';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const reservas= 'amistosos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const reservas = '/reservas';
 
 @Injectable()
 export class ReservaService {
@@ -17,7 +18,7 @@ export class ReservaService {
     constructor(private http: HttpClient) { }
 
     /**
-     * Metodo que retorna de manera observable la lista de reservas.
+     * Metodo que retorna de manera observable la lista de Reservas.
      */
     getReservas() : Observable<Reserva[]> {
         return this.http.get<Reserva[]>(API_URL+reservas);
@@ -25,28 +26,28 @@ export class ReservaService {
 
 
     /**
-    * metodo que retorna el observable del detalle de una reserva
+    * metodo que retorna el observable del detalle de un Reserva
     */
     getReservaDetail(reservaId): Observable<ReservaDetail> {
 
-     return this.http.get<ReservaDetail>(API_URL + "amistoso"+reservaId+".json");
+     return this.http.get<ReservaDetail>(API_URL + reservas + '/' + reservaId);
     }
 
     /**
-     * Metodo que elimina una reserva dado el id
+     * Metodo que elimina un Reserva dado el id
      */
     deleteReserva(reservaId): Observable<boolean> {
           return this.http.delete<boolean>(API_URL + '/' + reservaId);
     }
     /**
-    * Metodo que actualiza la reserva dado
+    * Metodo que actualiza el Reserva dado
     */
-    updateReserva(Reserva): Observable<ReservaDetail> {
-        return this.http.put<ReservaDetail>(API_URL + '/' + reservas, Reserva);
+    updateReserva(reserva): Observable<ReservaDetail> {
+        return this.http.put<ReservaDetail>(API_URL + reservas + '/' + reserva.id, Reserva);
     }
 
     /**
-     * Metodo que crea un reserva
+     * Metodo que crea un Reserva
      */
     createReserva(Reserva): Observable<Reserva> {
         return this.http.post<Reserva>(API_URL + reservas, Reserva);

@@ -4,42 +4,25 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-4">
-            <br>
+   <br>
             <div class="row justify-content-center align-self-center" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Create a blog</button>
+                    (click)="showHideCreate()">Crear un blog</button>
             </div>
             <br>
             <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="h4">Blogs</th>    
-                    </tr>
-                </thead>
-                <tbody>
-                                <tr *ngFor="let i of blogs">
-      <td>
-        <a class="figure-caption"
-        routerLink="/blogs/detail/{{i.id}}">
-        {{i.nombre}}</a>
-      </td>
-
-                                       <td >
-                    <button class="btn btn-primary" routerLink="/blogs/edit/{{i.id}}"><span class="fa fa-pencil"></span></button>
-                </td>
-                                </tr>
-                        </tbody>
-                </table>
+            <div class="card-columns">
+          <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let i of blogs">
+                             <img src="{{i.rutaImagen}}" class="card-img-top" height=250>
+  <div class="card-body">
+    <h5 class="card-title"> <a class="figure-caption"
+    routerLink="/blogs/detail/{{i.id}}">
+            <b> Blog# </b>{{i.id}}</a></h5>
+      <p class="card-text"><b> Nombre : </b>{{i.nombre}}</p>
+                <button type="button" class="btn btn-dark" routerLink="/blogs/edit/{{i.id}}">Editar</button>
+  </div>
+</div>
+</div>
             <div *ngIf="showCreate">
                 <app-blog-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-blog-create>
             </div>
-            
-           
-
-            
-        </div>
-</div>

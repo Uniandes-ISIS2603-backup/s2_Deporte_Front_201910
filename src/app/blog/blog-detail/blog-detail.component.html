@@ -7,6 +7,13 @@ and open the template in the editor.
 <div class="col-md-12">
     <div class="container-fluid">   
         <p class="h3 p-3">Blog {{blogDetail.nombre}}</p>
-        <p class="p-3">{{blogDetail.descripcion}}</p>
+         <table class="table">
+                
+                    <tr>
+                        <td><img src={{blogDetail.rutaImagen}} width=200 height=200></td>
+                    </tr>
+                    </table>
+        <p> <b>El id de este blog es: </b> {{blogDetail.id}}</p>
+        <p class="p-3"><b> La descripción de este blog es: </b>{{blogDetail.descripcion}}</p>
     </div>
 </div>

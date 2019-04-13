@@ -20,6 +20,7 @@ export class BlogDetailComponent implements OnInit {
   constructor(private blogService: BlogService,
     private route: ActivatedRoute) { }
 
+//Blog del detalle 
   blogDetail: BlogDetail;
 
 

@@ -17,6 +17,7 @@ import {AgendaDetailComponent} from './agenda-detail/agenda-detail.component';
 import {AgendaService} from './agenda.service';
 
 import {FranjaModule} from './../franja/franja.module';
+import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
 
 @NgModule({
     imports: [
@@ -31,7 +32,7 @@ import {FranjaModule} from './../franja/franja.module';
         FranjaModule
     ],
     declarations: [
-        AgendaListComponent, AgendaDetailComponent
+        AgendaListComponent, AgendaDetailComponent, AgendaCreateComponent //,AgendaEditComponent
     ],
     providers: [AgendaService],
     exports: [AgendaListComponent]

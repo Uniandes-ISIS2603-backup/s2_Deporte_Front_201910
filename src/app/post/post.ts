@@ -14,10 +14,10 @@
 */
 export class Post {
     /**
-    * The editorial's id
+    * The post's nombre
     */
     nombre: string;
-    
+        //id del post
     id: number;
 
 }

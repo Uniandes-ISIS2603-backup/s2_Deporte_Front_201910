@@ -44,7 +44,7 @@ export class CampeonatoDetailComponent implements OnInit {
   loader: any;
 
   /**
-  * The method which retrieves the books of an campeonato
+  * The method which retrieves the campeonatos of an campeonato
   */
   getCampeonatoDetail(): void {
     this.campeonatoService.getCampeonatoDetail(this.campeonato_id)

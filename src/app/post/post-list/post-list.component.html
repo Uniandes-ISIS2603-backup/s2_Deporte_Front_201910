@@ -5,9 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-4">
             <br>
             <div class="row justify-content-center align-self-center" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
@@ -15,26 +12,17 @@ and open the template in the editor.
             </div>
             <br>
             <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="h4">Posts</th>    
-                    </tr>
-                </thead>
-                <tbody>
-                                <tr *ngFor="let i of posts">
-      <td>
-        <a class="figure-caption"
-        routerLink="/posts/detail/{{i.id}}">
-        {{i.nombre}}</a>
-      </td>
-
-                                       <td >
-                    <button class="btn btn-primary" routerLink="/posts/edit/{{i.id}}"><span class="fa fa-pencil"></span></button>
-                </td>
-                                </tr>
-                        </tbody>
-                </table>
+            <div class="card-columns">
+          <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let i of posts">
+  <div class="card-body">
+    <h5 class="card-title"> <a class="figure-caption"
+    routerLink="/posts/detail/{{i.id}}">
+            <b> Post# </b> {{i.id}}</a></h5>
+      <p class="card-text"><b> Titulo del post </b>{{i.nombre}}</p>
+                <button type="button" class="btn btn-dark" routerLink="/posts/edit/{{i.id}}">Editar</button>
+  </div>
+</div>
+</div>
             <div *ngIf="showCreate">
                 <app-post-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-post-create>
             </div>
@@ -42,5 +30,5 @@ and open the template in the editor.
            
 
             
-        </div>
-</div>
+       
+        

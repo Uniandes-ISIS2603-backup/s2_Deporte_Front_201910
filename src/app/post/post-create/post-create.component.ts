@@ -20,7 +20,7 @@ export class PostCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param postService The editorials' services provider
+    * @param postService The posts' services provider
     * @param toastrService The toastr to show messages to the user 
     */
     constructor(
@@ -29,24 +29,24 @@ export class PostCreateComponent implements OnInit {
     ) { }
 
     /**
-    * The new editorial
+    * The new post
     */
     post: Post;
 
     /**
     * The output which tells the parent component
-    * that the user no longer wants to create an editorial
+    * that the user no longer wants to create an post
     */
     @Output() cancel = new EventEmitter();
 
     /**
     * The output which tells the parent component
-    * that the user created a new editorial
+    * that the user created a new post
     */
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a new editorial
+    * Creates a new post
     */
    createPost():Post {
     this.postService.createPost(this.post)
@@ -62,7 +62,7 @@ export class PostCreateComponent implements OnInit {
     
 
     /**
-    * Informs the parent component that the user no longer wants to create an editorial
+    * Informs the parent component that the user no longer wants to create an post
     */
    cancelCreation(): void {
     this.cancel.emit();

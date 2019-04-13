@@ -33,14 +33,26 @@ constructor(private http: HttpClient) {}
 getCampeonatos(): Observable<Campeonato[]> {
     return this.http.get<Campeonato[]>(API_URL + campeonatos);
 }
-
+/**
+    * Returns the Observable object containing the editorial retrieved from the API
+    * @returns The campeonato
+    */
 getCampeonatoDetail(campeonatoName): Observable<CampeonatoDetail> {
     return this.http.get<CampeonatoDetail>(API_URL + campeonatos + "/" + campeonatoName);
 }
-
+/**
+    * Creates an editorial
+    * @param campeonato The campeonato which will be created
+    * @returns The confirmation of the campeonato's creation
+    */
 createCampeonato(campeonato): Observable<Campeonato> {
     return this.http.post<Campeonato>(API_URL + campeonatos, campeonato);
 }
+    /**
+    * Updates an campeonato
+    * @param campeonato The campeonato which will be update
+    * @returns The confirmation of the editorial's update
+    */
 
  updateCampeonato(campeonato): Observable<CampeonatoDetail> {
         return this.http.put<CampeonatoDetail>(API_URL + campeonatos + '/' + campeonato.id, campeonato);

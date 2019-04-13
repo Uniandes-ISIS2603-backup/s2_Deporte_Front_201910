@@ -6,6 +6,7 @@
 import {Blog} from "./blog";
 export class BlogDetail extends Blog{
 
+//descripcion del blog
      descripcion: string;
 
 }

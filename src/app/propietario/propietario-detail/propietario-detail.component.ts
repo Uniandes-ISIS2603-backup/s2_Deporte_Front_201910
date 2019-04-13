@@ -32,6 +32,9 @@ export class PropietarioDetailComponent implements OnInit {
     */
    propietarioDetail: PropietarioDetail;
 
+   /**
+    * Canchas que le pertenecen al propietario
+    */
     canchas: Cancha[];
 
     /**
@@ -48,6 +51,9 @@ export class PropietarioDetailComponent implements OnInit {
             });
     }
 
+    /**
+     * Metodo que obtiene las canchas del propietario
+     */
     getCanchasPropietario(){
         
         this.canchaService.getCanchas()

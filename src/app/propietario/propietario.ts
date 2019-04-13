@@ -23,4 +23,9 @@ export class Propietario {
      * Url de la imagen de un usuario
      */
     imagen: string;
+
+    /**
+     * Contrasena del propietario
+     */
+    contrasena:string;
 }

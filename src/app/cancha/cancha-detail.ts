@@ -8,6 +8,4 @@ export class CanchaDetail extends Cancha {
 
     //reservas:Reserva[];
 
-    propietario:Propietario;
-
 }

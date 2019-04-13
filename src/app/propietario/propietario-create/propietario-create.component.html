@@ -1,14 +1,12 @@
+<br>
 <form name="cancha" (ngSubmit)="f.form.valid && createPropietatio()" #f="ngForm" novalidate>
     <div class="form-group">
         <div class="row">
             <div class="col">
-                <label for="canhcaNombre"><b>Nombre del propietario:</b></label>
-                <input type="text" name="canchaNombre" class="form-control" id="canchaNombre"
-                    [(ngModel)]="propietario.nombre" #authorName="ngModel"
-                    [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>Este campo es obligatorio</div>
-                </div>
+
+            </div>
+            <div class="col-5">
+                <h4>Crear propietario:</h4>
                 <br>
                 <label for="canhcaImagen"><b>Imagen del propietario:</b></label>
                 <input type="text" name="canchaImagen" class="form-control" id="canchaImagen"
@@ -18,7 +16,25 @@
                     <div>Este campo es obligatorio</div>
                 </div>
                 <br>
-                <label for="canhcaCiudad"><b>Ciudad:</b></label>
+                <label for="canhcaNombre"><b>Nombre del propietario:</b></label>
+                <input type="text" name="canchaNombre" class="form-control" id="canchaNombre"
+                    [(ngModel)]="propietario.nombre" #authorName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Este campo es obligatorio</div>
+                </div>
+                <br>
+                <label for="canhcaContrasena"><b>Contrasena del propietario:</b></label>
+                <input type="text" name="canhcaContrasena" class="form-control" id="canhcaContrasena"
+                    [(ngModel)]="propietario.contrasena" #authorName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Este campo es obligatorio</div>
+                </div>
+                <br>
+            </div>
+            <div class="col">
+
             </div>
         </div>
         <div class="row form-inline justify-content-center align-self-center">

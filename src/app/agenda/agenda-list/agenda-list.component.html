@@ -6,8 +6,9 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <ng-container *ngFor="let agenda of agendas">
-        <a class="nav-link dropdown-item" routerLink = "agendas/{{agenda.id}}">Agenda: {{agenda.id}}</a>
+        <a class="nav-link dropdown-item" routerLink = "../../agendas/{{agenda.id}}">Agenda: {{agenda.id}}</a>
       </ng-container>
+      <a class="nav-link dropdown-item" routerLink = "../../agendas/add/{{canchaId}}">Añadir Agenda +</a>
     </div>
   </div>
 </div>

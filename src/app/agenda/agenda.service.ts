@@ -27,6 +27,12 @@ export class AgendaService {
         return this.http.get<AgendaDetail[]>(API_URL + agendas+ '/filtroCancha/' + canchaId);
     }
 
+       /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
+   createAgenda(agenda){
+    return this.http.post<AgendaDetail>(API_URL + agendas, agenda);
+}
     /**
     * Returns the Observable object with the details of an agenda retrieved from the API
     * @returns The agenda details
@@ -34,4 +40,11 @@ export class AgendaService {
     getAgendaDetail(agendaId: number): Observable<AgendaDetail> {
         return this.http.get<AgendaDetail>(API_URL + agendas + '/' + agendaId);
     }
+
+       /**
+    * Returns the Observable object containing the editorial retrieved from the API
+    */
+   updateAgendaa(agenda){
+    return this.http.put<AgendaDetail>(API_URL + agendas + '/' + agenda.id, agenda);
+}
 }

@@ -9,7 +9,6 @@ import { PropietarioService } from '../../propietario/propietario.service';
 import { CanchaDetail } from '../cancha-detail';
 import { Propietario } from '../../propietario/propietario';
 
-
 @Component({
     selector: 'app-cancha-edit',
     templateUrl: './cancha-edit.component.html',

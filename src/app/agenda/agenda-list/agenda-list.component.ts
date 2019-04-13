@@ -110,7 +110,6 @@ export class AgendaListComponent implements OnInit {
 
                         }
                     })
-                console.log(agendasList);
             });
          };
             
@@ -122,6 +121,6 @@ export class AgendaListComponent implements OnInit {
     */
     ngOnInit() {
        this.canchaId = +this.route.snapshot.paramMap.get('id');
-       this.getAgendas(2);
+       this.getAgendas(this.canchaId);
     }
 }

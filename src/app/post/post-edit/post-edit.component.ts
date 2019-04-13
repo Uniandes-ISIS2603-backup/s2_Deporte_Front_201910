@@ -36,14 +36,14 @@ export class PostEditComponent implements OnInit {
     post:PostDetail;
 
     id:number;
-
+//Se obtiene el post a editar
     getPost(){
         this.postService.getPostDetail(this.id).subscribe(post => {
             
             this.post = post;
         });
     }
-
+//Se actualisa el post 
     updatePost(): void {
         this.postService.updatePost(this.post)
             .subscribe(() => {
@@ -51,7 +51,7 @@ export class PostEditComponent implements OnInit {
                 this.toastrService.success("El post se edito correctamente", 'Post edition');
             });
     }
-
+//Se cancela la vista del componente de editar
     cancelEdition(): void {
         this.toastrService.warning('El post no fue editado', 'Post edition');
         this.router.navigate(['/posts/list']);

@@ -38,6 +38,7 @@ export class PropietarioCreateComponent implements OnInit{
         console.log(this.propietario);
         this.propietarioService.createPropietario(this.propietario)
             .subscribe(propietario => {
+                console.log(propietario);
                 this.propietario.id = propietario.id;
                 this.router.navigate(['/propietarios/' + propietario.id]);
             }, err => {

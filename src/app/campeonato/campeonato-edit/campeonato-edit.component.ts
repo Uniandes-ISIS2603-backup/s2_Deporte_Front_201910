@@ -29,13 +29,14 @@ export class CampeonatoEditComponent implements OnInit {
 
     id:number;
 
+//Se obtienen los campeonatos
     getCampeonato(){
         this.campeonatoService.getCampeonatoDetail(this.id).subscribe(camp => {
             
             this.campeonato = camp;
         });
     }
-
+//Se actualizan los campeonatos
     updateCampeonato(): void {
         this.campeonatoService.updateCampeonato(this.campeonato)
             .subscribe(() => {
@@ -43,7 +44,7 @@ export class CampeonatoEditComponent implements OnInit {
                 this.toastrService.success("El campeonato se edito correctamente", 'Campeonato edition');
             });
     }
-
+//Se cancela la edicion del campeonato
     cancelEdition(): void {
         this.toastrService.warning('El campeonato no fue editado', 'Campeonato edition');
         this.router.navigate(['/campeonatos/list']);

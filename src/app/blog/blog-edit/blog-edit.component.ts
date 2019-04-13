@@ -35,11 +35,12 @@ export class BlogEditComponent implements OnInit {
         private route: ActivatedRoute
     ) {}
 
- 
+ //Blog a editar
     blog:BlogDetail;
-
+//id del blog
     id:number;
 
+//obtener el blog a editar
     getBlog(){
         this.blogService.getBlogDetail(this.id).subscribe(blog => {
             
@@ -47,6 +48,7 @@ export class BlogEditComponent implements OnInit {
         });
     }
 
+//Actualizar el blog
     updateBlog(): void {
         this.blogService.updateBlog(this.blog)
             .subscribe(() => {
@@ -55,6 +57,7 @@ export class BlogEditComponent implements OnInit {
             });
     }
 
+//Cancela la edicion del blog
     cancelEdition(): void {
         this.toastrService.warning('El blog no fue editado', 'Blog edition');
         this.router.navigate(['/blogs/list']);

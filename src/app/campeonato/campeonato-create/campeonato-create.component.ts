@@ -20,7 +20,7 @@ export class CampeonatoCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param campeonatoService The editorials' services provider
+    * @param campeonatoService The campeonatos' services provider
     * @param toastrService The toastr to show messages to the user 
     */
     constructor(
@@ -29,24 +29,24 @@ export class CampeonatoCreateComponent implements OnInit {
     ) { }
 
     /**
-    * The new editorial
+    * The new campeonato
     */
     campeonato: Campeonato;
 
     /**
     * The output which tells the parent component
-    * that the user no longer wants to create an editorial
+    * that the user no longer wants to create an campeonato
     */
     @Output() cancel = new EventEmitter();
 
     /**
     * The output which tells the parent component
-    * that the user created a new editorial
+    * that the user created a new campeonato
     */
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a new editorial
+    * Creates a new campeonato
     */
    createCampeonato(): Campeonato {
     this.campeonatoService.createCampeonato(this.campeonato)
@@ -62,7 +62,7 @@ export class CampeonatoCreateComponent implements OnInit {
     
 
     /**
-    * Informs the parent component that the user no longer wants to create an editorial
+    * Informs the parent component that the user no longer wants to create an campeonato
     */
    cancelCreation(): void {
     this.cancel.emit();

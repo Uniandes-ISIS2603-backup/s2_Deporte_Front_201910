@@ -13,7 +13,7 @@ import {CampeonatoDetail} from '../campeonato-detail';
 
 
 /**
- * The component for the list of editorials in the BookStore
+ * The component for the list of campeonatos in the BookStore
  */
 @Component({
     selector: 'app-campeonato',
@@ -24,13 +24,13 @@ export class CampeonatoListComponent implements OnInit {
 
     /**
      * Constructor for the component
-     * @param editorialService The author's services provider
+     * @param campeonatoService The author's services provider
      */
     constructor(private campeonatoService: CampeonatoService, private router: Router,private modalDialogService: ModalDialogService,private viewRef: ViewContainerRef,private toastrService: ToastrService
 ) {}
 
     /**
-     * The list of editorials wahich belong to the BookStore
+     * The list of campeonatos wahich belong to the BookStore
      */
     campeonatos: Campeonato[];
     
@@ -56,7 +56,7 @@ export class CampeonatoListComponent implements OnInit {
 
 
     /**
-     * Asks the service to update the list of editorials
+     * Asks the service to update the list of camponatos
      */
     getCampeonatos(): void {
         this.campeonatoService.getCampeonatos()
@@ -83,7 +83,7 @@ export class CampeonatoListComponent implements OnInit {
     }
 
     /**
-     * This will initialize the component by retrieving the list of editorials from the service
+     * This will initialize the component by retrieving the list of campeonatos from the service
      * This method will be called when the component is created
      */
      ngOnInit() {
@@ -91,6 +91,8 @@ export class CampeonatoListComponent implements OnInit {
         this.showEdit = false;
          this.getCampeonatos();
     }    
+    
+    //Muestra el componente de actualizar
     updateCampeonato(): void {
         this.showEdit = false;
     }

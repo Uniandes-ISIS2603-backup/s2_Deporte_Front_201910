@@ -13,14 +13,14 @@
 * It contains all the information relevant to the editorial.
 */
 export class Blog {
-    /**
-    * The editorial's id
-    */
-    
+   
+   //Nombre del blog 
     nombre: string;
     
+    //Ruta de la imagen del blog
     rutaImagen: string;
     
+    //id del blog
     id:number;
 
 

@@ -33,22 +33,39 @@ export class BlogService {
     constructor(private http: HttpClient) {}
 
     /**
-    * Returns the Observable object containing the list of editorials retrieved from the API
+    * Returns the Observable object containing the list of blogs retrieved from the API
     * @returns The list of books in real time
     */
     getBlogs(): Observable<Blog[]> {
         return this.http.get<Blog[]>(API_URL + blogs);
     }
-    
+    /**
+    * Returns the Observable object containing the blog retrieved from the API
+    * @returns The blog
+    */
      getBlogDetail(blogName): Observable<BlogDetail> {
         return this.http.get<BlogDetail>(API_URL + blogs + "/" + blogName);    }
-
+/**
+    * Creates a blog
+    * @param blog The blog which will be created
+    * @returns The confirmation of the blog's creation
+    */
         createBlog(blog): Observable<Blog> {
             return this.http.post<Blog>(API_URL + blogs, blog);
         }
+         /**
+    * Updates an blog
+    * @param blog The blog which will be update
+    * @returns The confirmation of the blog's update
+    */
     updateBlog(blog): Observable<BlogDetail> {
         return this.http.put<BlogDetail>(API_URL + blogs + '/' + blog.id, blog);
     }
+    /**
+    * Deletes an blog
+    * @param blogid The blog which will be deleted
+    * @returns True if the blog was deleted, false otherwise
+    */
     deleteBlog(blogId): Observable<BlogDetail> {
         return this.http.delete<BlogDetail>(API_URL + blogs + '/' + blogId);
     }

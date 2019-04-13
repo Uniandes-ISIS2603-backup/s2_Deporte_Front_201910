@@ -16,7 +16,7 @@ import {ToastrService} from 'ngx-toastr';
  import {Router} from '@angular/router';
 
 /**
- * The component for the list of editorials in the BookStore
+ * The component for the list of posts in the BookStore
  */
 @Component({
     selector: 'app-post',
@@ -27,12 +27,12 @@ export class PostListComponent implements OnInit {
 
     /**
      * Constructor for the component
-     * @param editorialService The author's services provider
+     * @param postService The author's services provider
      */
     constructor(private postService: PostService,private router: Router,private modalDialogService: ModalDialogService,private viewRef: ViewContainerRef,private toastrService: ToastrService) {}
 
     /**
-     * The list of editorials wahich belong to the BookStore
+     * The list of posts wahich belong to the BookStore
      */
     posts: Post[];
     
@@ -43,7 +43,7 @@ export class PostListComponent implements OnInit {
     post_edit_id: number;
 
     /**
-     * Asks the service to update the list of editorials
+     * Asks the service to update the list of posts
      */
     getPosts(): void {
         this.postService.getPosts()
@@ -51,7 +51,7 @@ export class PostListComponent implements OnInit {
     }
 
     /**
-     * This will initialize the component by retrieving the list of editorials from the service
+     * This will initialize the component by retrieving the list of posts from the service
      * This method will be called when the component is created
      */
      ngOnInit() {
@@ -66,11 +66,11 @@ export class PostListComponent implements OnInit {
         this.showEdit = false;
         this.showCreate = !this.showCreate!
     }
-     showHideEdit(editorial_id: number): void {
-         if (!this.showEdit || (this.showEdit && editorial_id != this.post_edit_id)) {
+     showHideEdit(post_id: number): void {
+         if (!this.showEdit || (this.showEdit && post_id != this.post_edit_id)) {
             this.showCreate = false;
             this.showEdit = true;
-            this.post_edit_id = editorial_id;
+            this.post_edit_id = post_id;
         }
         else {
             this.showEdit = false;

@@ -9,17 +9,15 @@
 */
 
 export class Campeonato {
-    /**
-    * The editorial's id
-    */
     
     
+    //El nombre del campeponato
     nombre: string;
-    
+    //Ruta de la imagen del campeonato
  rutaImagen: string;
-     
+     //Deporte a practicar en el campeonato
     deporte: string;
-
+//id del campeonato
     id: number;
 
 

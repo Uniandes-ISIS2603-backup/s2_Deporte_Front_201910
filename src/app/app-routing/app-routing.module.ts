@@ -16,8 +16,6 @@ import {BlogCreateComponent} from '../blog/blog-create/blog-create.component';
 import {CampeonatoDetailComponent} from '../campeonato/campeonato-detail/campeonato-detail.component';
 import { PropietarioDetailComponent } from '../propietario/propietario-detail/propietario-detail.component';
 import { CanchaCreateComponent } from '../cancha/cancha-create/cancha-create.component';
-import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
-import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
 import { CanchaEditComponent } from '../cancha/cancha-edit/cancha-edit.component';
 import { PropietarioCreateComponent } from '../propietario/propietario-create/propietario-create.component';
 import { PropietarioEditComponent } from '../propietario/propietario-edit/propietario-edit.component';
@@ -54,6 +52,10 @@ import {ReservaDetailComponent} from '../reserva/reserva-detail/reserva-detail.c
 import {EntrenamientoListComponent} from '../entrenamiento/entrenamiento-list/entrenamiento-list.component';
 import {EntrenamientoCreateComponent} from '../entrenamiento/entrenamiento-create/entrenamiento-create.component';
 import {EntrenamientoDetailComponent} from '../entrenamiento/entrenamiento-detail/entrenamiento-detail.component';
+
+import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
+import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
+import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.component';
 
 
 const routes: Routes = [
@@ -107,9 +109,15 @@ const routes: Routes = [
     {
         path: 'agendas',
         children:[
+            
             {
                 path: 'list',
                 component: AgendaListComponent
+            },
+            {
+                path: 'add/:id',
+                component: AgendaCreateComponent,
+                runGuardsAndResolvers: 'always'
             },
             {
                 path: ':id',

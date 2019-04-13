@@ -91,7 +91,6 @@ export class FranjaDetailComponent implements OnInit, OnDestroy {
         this.franja_id = +this.route.snapshot.paramMap.get('id');
         this.franjaDetail = new FranjaDetail();
         this.getFranjaDetail();
-        //this.getOtherAgendas();
     }
 
     /**

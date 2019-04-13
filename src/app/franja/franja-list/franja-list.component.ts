@@ -23,6 +23,11 @@ export class FranjaListComponent implements OnInit {
 
     agenda_id: number;
 
+    horaInicio : number;
+    minutoInicio: number;
+    horaFin : number;
+    minutoFin: number
+    
     /**
     * The component's constructor
     */
@@ -57,10 +62,14 @@ export class FranjaListComponent implements OnInit {
                 this.franjas.forEach(franja => { 
                     franja.fechaInicio = new Date();
                     franja.fechaFin = new Date();
+                    this.horaFin = franja.fechaFin.getHours();
+                    this.minutoFin = franja.fechaFin.getMinutes();
+                    this.horaInicio = franja.fechaInicio.getHours();
+                    this.minutoInicio = franja.fechaInicio.getMinutes();
                 });
             });
             
-            
+
             
     }
 

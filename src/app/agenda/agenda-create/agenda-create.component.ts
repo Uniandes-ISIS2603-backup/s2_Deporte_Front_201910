@@ -48,17 +48,7 @@ export class AgendaCreateComponent implements OnInit{
 
     createAgenda(): Agenda {
         this.getCancha();
-        this.agendaService.createAgenda(this.agenda)
-            .subscribe(agenda => {
-                this.agenda = agenda;
-                console.log("agenda que regreso:");
-                console.log(agenda);
-                this.create.emit();
-                this.toastrService.success("The agenda was created", "Agenda creation");
-                this.router.navigate(['/agendas/' + agenda.id]);
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
+        
         return this.agenda;
 
         
@@ -76,6 +66,18 @@ export class AgendaCreateComponent implements OnInit{
                 this.agenda.cancha = cancha;
                 console.log("Agenda con cancha:")
                 console.log(this.agenda);
+                console.log("a punto de mandar la agenda");
+                this.agendaService.createAgenda(this.agenda)
+                .subscribe(agenda => {
+                    this.agenda = agenda;
+                    console.log("agenda que regreso:");
+                    console.log(agenda);
+                    this.create.emit();
+                    this.toastrService.success("The agenda was created", "Agenda creation");
+                    this.router.navigate(['/agendas/' + agenda.id]);
+                }, err => {
+                    this.toastrService.error(err, 'Error');
+                });
             })
     }
 
@@ -83,7 +85,6 @@ export class AgendaCreateComponent implements OnInit{
         this.id_c = +this.route.snapshot.paramMap.get('id');
     agenda:Agenda:
         this.agenda = new Agenda();
-        this.getCancha();
     }
     
 }

@@ -4,11 +4,15 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
+<html>
             <br>
             <div class="row justify-content-center align-self-center" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Create a post</button>
+            </div>
+             <div *ngIf="showCreate">
+                <app-post-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-post-create>
+                
             </div>
             <br>
             <br>
@@ -23,9 +27,7 @@ and open the template in the editor.
   </div>
 </div>
 </div>
-            <div *ngIf="showCreate">
-                <app-post-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-post-create>
-            </div>
+</html>      
             
            
 

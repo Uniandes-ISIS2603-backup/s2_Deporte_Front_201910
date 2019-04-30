@@ -4,17 +4,22 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<html>
 <p class="h4 p-3">
 
 	Campeonato {{campeonatoDetail.nombre}}</p>
- <table class="table">
-                
-                    <tr>
-                        <td><img src={{campeonatoDetail.rutaImagen}} width=200 height=200></td>
-                    </tr>
-                    </table>
-                
-                <p><b> Id del campeonato: </b> {{campeonatoDetail.id}}</p>
- 
-<p><b> Deporte jugado en este campeonato: </b> {{campeonatoDetail.deporte}}</p>
-<p> <b> Descripción de este campeonato: </b> {{campeonatoDetail.descripcion}}</p>
+
+
+<div class="container">
+   
+    <div class = "img"><img src={{campeonatoDetail.rutaImagen}}  alt="Snow" style="width:100%;"></div>
+
+
+<div class="bg-text">
+  <h2>Campeonato {{campeonatoDetail.nombre}}</h2>
+  <h1 style="font-size:50px"><b> Id del campeonato: </b> {{campeonatoDetail.id}}</h1>
+  <h1 style="font-size:50px"> <b> Deporte jugado en este campeonato: </b> {{campeonatoDetail.deporte}}</h1>
+  <p><b> Descripción de este campeonato: </b> {{campeonatoDetail.descripcion}}</p>
+</div>
+</div>
+</html>

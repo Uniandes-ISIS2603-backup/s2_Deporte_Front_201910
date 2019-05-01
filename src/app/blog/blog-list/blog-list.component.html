@@ -16,17 +16,19 @@ and open the template in the editor.
             </div>
             <br>
             <br>
-            <div class="card-columns">
-          <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let i of blogs">
-                             <img src="{{i.rutaImagen}}" class="card-img-top" height=250>
-  <div class="card-body">
-    <h5 class="card-title"> <a class="figure-caption"
-    routerLink="/blogs/detail/{{i.id}}">
-            <b> Blog# </b>{{i.id}}</a></h5>
-      <p class="card-text"><b> Nombre : </b>{{i.nombre}}</p>
-                <button type="button" class="btn btn-dark" routerLink="/blogs/edit/{{i.id}}">Editar</button>
-  </div>
-</div>
+              <div class="container"*ngFor="let i of blogs">
+
+                 
+  <img src="{{i.rutaImagen}}" alt="Imagen del blog" class="image" style="width:100">
+  <div class="overlay">
+       <p class="title">{{i.nombre}}</p>
+       <div class="overlay"></div>
+       
+  <div class="button"><a href="/blogs/edit/{{i.id}}"> Editar </a></div>
+  <br>
+  <br>
+  <div class="button"><a href="/blogs/detail/{{i.id}}"> Detalle </a></div> 
+                 </div>
 </div>
             
 </html>

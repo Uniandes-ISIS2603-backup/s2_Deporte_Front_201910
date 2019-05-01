@@ -17,13 +17,13 @@ and open the template in the editor.
             <br>
             <br>
             <div class="card-columns">
-          <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let i of posts">
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;" *ngFor="let i of posts">
   <div class="card-body">
     <h5 class="card-title"> <a class="figure-caption"
     routerLink="/posts/detail/{{i.id}}">
             <b> Post# </b> {{i.id}}</a></h5>
       <p class="card-text"><b> Titulo del post </b>{{i.nombre}}</p>
-                <button type="button" class="btn btn-dark" routerLink="/posts/edit/{{i.id}}">Editar</button>
+                <button type="button" class="btn btn-light" routerLink="/posts/edit/{{i.id}}">Editar</button>
   </div>
 </div>
 </div>

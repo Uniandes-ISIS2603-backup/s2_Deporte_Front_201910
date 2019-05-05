@@ -47,7 +47,7 @@ export class FranjaDetailComponent implements OnInit, OnDestroy {
     /**
     * The book whose details are shown
     */
-    franjaDetail: FranjaDetail;
+    franja: Franja;
 
     /**
     * The other books shown in the sidebar
@@ -66,8 +66,8 @@ export class FranjaDetailComponent implements OnInit, OnDestroy {
     */
     getFranjaDetail(): void {
         this.franjaService.getFranjaDetail(this.franja_id)
-            .subscribe(franjaDetail => {
-                this.franjaDetail = franjaDetail;
+            .subscribe(franja => {
+                this.franja = franja;
             });
     }
 
@@ -89,7 +89,7 @@ export class FranjaDetailComponent implements OnInit, OnDestroy {
     */
     ngOnInit() {
         this.franja_id = +this.route.snapshot.paramMap.get('id');
-        this.franjaDetail = new FranjaDetail();
+        this.franja = new Franja();
         this.getFranjaDetail();
     }
 

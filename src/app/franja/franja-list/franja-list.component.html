@@ -1,15 +1,22 @@
+<table class="table">
+    <thead></thead>
+    <tbody>
 <tr>
-        <th>#</th>   
-        <th >Hora de Inicio</th>
-        <th>Hora de Fin</th>
-        <th  >Reservada</th>
+        <th class = "text-center">#</th>   
+        <th class = "text-center">Hora de Inicio</th>
+        <th class = "text-center">Hora de Fin</th>
+        <th class = "text-center" >Reservada</th>
       
-    </tr>
+</tr>
 <ng-container *ngFor="let franja of franjas">
-    <tr>
-        <th>1</th>
-        <th>{{horaInicio}}:{{minutoInicio}}</th>
-        <th >{{horaFin}}:{{minutoFin}}</th>
-        <th >{{franja.ocupada}}</th>
+    <tr >
+        <th class = "text-center">{{franja.id}}</th>
+        <th class = "text-center">{{franja.horaInicio}}:00</th>
+        <th class = "text-center">{{franja.horaFin}}:00</th>
+        <th class = "text-center">{{franja.ocupada}}</th>
+        <th class = "text-center"> <button type="button" class="btn btn-primary col-8">Reservar</button>  </th>
+        <th class = "text-center"> <button type="button" class="btn btn-danger col-8" (click)="eliminarFranja(franja.id)">Eliminar</button>  </th>
     </tr>
 </ng-container>
+</tbody>
+</table>

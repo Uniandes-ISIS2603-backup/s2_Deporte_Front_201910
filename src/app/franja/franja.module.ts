@@ -11,6 +11,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import {FranjaListComponent} from './franja-list/franja-list.component';
 import {FranjaDetailComponent} from './franja-detail/franja-detail.component';
 import {FranjaService} from './franja.service';
+import { FranjaCreateComponent } from './franja-create/franja-create.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import {FranjaService} from './franja.service';
         NgxPermissionsModule
     ],
     declarations: [
-        FranjaListComponent, FranjaDetailComponent
+        FranjaListComponent, FranjaDetailComponent, FranjaCreateComponent
     ],
     providers: [FranjaService],
     exports: [FranjaListComponent]

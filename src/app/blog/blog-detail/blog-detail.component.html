@@ -4,16 +4,22 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <p class="h3 p-3">Blog {{blogDetail.nombre}}</p>
-         <table class="table">
-                
-                    <tr>
-                        <td><img src={{blogDetail.rutaImagen}} width=200 height=200></td>
-                    </tr>
-                    </table>
-        <p> <b>El id de este blog es: </b> {{blogDetail.id}}</p>
-        <p class="p-3"><b> La descripción de este blog es: </b>{{blogDetail.descripcion}}</p>
-    </div>
+
+
+<p class="h4 p-3">
+
+	Blog {{blogDetail.nombre}}</p>
+
+
+<div class="container">
+   
+    <div class = "img"><img src={{blogDetail.rutaImagen}}  alt="Snow" style="width:100%;"></div>
+
+
+<div class="bg-text">
+  <h2>Blog {{blogDetail.nombre}}</h2>
+  <h1 style="font-size:50px">Blog #{{blogDetail.id}}</h1>
+  <p><b> Contenido de este blog </b> {{blogDetail.descripcion}}</p>
 </div>
+    
+    

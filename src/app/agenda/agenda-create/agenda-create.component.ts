@@ -1,4 +1,4 @@
-  import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
@@ -50,30 +50,18 @@ export class AgendaCreateComponent implements OnInit{
         this.getCancha();
         
         return this.agenda;
-
-        
     }
 
     getCancha(){
         
-        console.log("obteniendo Cancha:")
         this.canchaService.getCanchaDetail(this.id_c)
             .subscribe(cancha => {
-                
-                console.log("Cancha obtenida")
                 this.cancha = cancha;
-                console.log(cancha);
                 this.agenda.cancha = cancha;
-                console.log("Agenda con cancha:")
-                console.log(this.agenda);
-                console.log("a punto de mandar la agenda");
                 this.agendaService.createAgenda(this.agenda)
                 .subscribe(agenda => {
                     this.agenda = agenda;
-                    console.log("agenda que regreso:");
-                    console.log(agenda);
                     this.create.emit();
-                    this.toastrService.success("The agenda was created", "Agenda creation");
                     this.router.navigate(['/agendas/' + agenda.id]);
                 }, err => {
                     this.toastrService.error(err, 'Error');

@@ -10,8 +10,9 @@ and open the template in the editor.
         <br>
         <h2 class="text-center">Crear un post</h2>
         <br>
-        <form name="post" (ngSubmit)="f.form.valid && createPost()" #f="ngForm" novalidate>
+        <form class="box" name="post" (ngSubmit)="f.form.valid && createPost()" #f="ngForm" novalidate>
             <div class="form-group">
+
                 <label for="postNombre"><b>Nombre</b></label>
                 <input type="text" name="postNombre" class="form-control" id="postNombre" [(ngModel)]="post.nombre"
                     #postNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postNombre.invalid }" required>

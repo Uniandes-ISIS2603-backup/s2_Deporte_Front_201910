@@ -14,6 +14,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {AgendaListComponent} from './agenda-list/agenda-list.component';
 import {AgendaDetailComponent} from './agenda-detail/agenda-detail.component';
+import {AgendaEditComponent} from './agenda-edit/agenda-edit.component';
 import {AgendaService} from './agenda.service';
 
 import {FranjaModule} from './../franja/franja.module';
@@ -32,7 +33,7 @@ import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
         FranjaModule
     ],
     declarations: [
-        AgendaListComponent, AgendaDetailComponent, AgendaCreateComponent //,AgendaEditComponent
+        AgendaListComponent, AgendaDetailComponent, AgendaCreateComponent ,AgendaEditComponent
     ],
     providers: [AgendaService],
     exports: [AgendaListComponent]

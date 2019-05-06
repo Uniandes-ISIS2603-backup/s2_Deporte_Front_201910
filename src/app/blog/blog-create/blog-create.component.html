@@ -11,8 +11,9 @@ and open the template in the editor.
         <br>
         <h2 class="text-center">Crear un blog</h2>
         <br>
-        <form name="blog" (ngSubmit)="f.form.valid && createBlog()" #f="ngForm" novalidate>
+        <form class="box" name="blog" (ngSubmit)="f.form.valid && createBlog()" #f="ngForm" novalidate>
             <div class="form-group">
+
                 <label for="blogNombre"><b>Nombre</b></label>
                 <input type="text" name="blogNombre" class="form-control" id="blogNombre" [(ngModel)]="blog.nombre"
                     #blogNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && blogNombre.invalid }" required>

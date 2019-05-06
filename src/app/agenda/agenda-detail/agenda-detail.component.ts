@@ -45,11 +45,17 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     */
     agenda_id: number;
 
+    mesString: string;
+
+    dia: number;
+
+
+    anio: number;
+
     /**
     * The book whose details are shown
     */
     agendaDetail: AgendaDetail;
-
     
     /**
     * The suscription which helps to know when a new book
@@ -67,12 +73,94 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
         this.agendaService.getAgendaDetail(this.agenda_id)
             .subscribe(agendaDetail => {
                 this.agendaDetail = agendaDetail;
-                console.log(agendaDetail);
+                this.dia = agendaDetail.dia;
+                this.anio = agendaDetail.anio;
+                switch(agendaDetail.mes){
+                            case 1:{
+                                this.mesString = "Enero";
+                                break;
+                            }
+                            case 2: {
+                                this.mesString = "Febrero";
+                                break;
+                            }
+                            case 3: {
+                                this.mesString = "Marzo";
+                                break;
+                            }
+                            case 4: {
+                                this.mesString = "Abril";
+                                break;
+                            }
+                            case 5: {
+                                this.mesString = "Mayo";
+                                break;
+                            }
+                            case 6: {
+                                this.mesString = "Junio";
+                                break;
+                            }
+                            case 7: {
+                                this.mesString = "Julio";
+                                break;
+                            }
+                            case 8: {
+                                this.mesString = "Agosto";
+                                break;
+                            }
+                            case 9: {
+                                this.mesString = "Septiembre";
+                                break;
+                            }
+                            case 10: {
+                                this.mesString = "Octubre";
+                                break;
+                            }
+                            case 11: {
+                                this.mesString = "Noviembre";
+                                break;
+                            }
+                            case 12: {
+                                this.mesString = "Diciembre";
+                                break;
+                            }
+                        }
                 
             });
     }
 
 
+    eliminarAgenda(){
+        this.agendaService.eliminarAgenda(this.agenda_id, this.agendaDetail.cancha.id)
+        .subscribe(AgendaDetail => {
+            
+            this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
+        });
+    }
+
+    diaMas(){
+        if(this.agendaDetail.dia < 31)
+        {
+            this.agendaDetail.dia++;
+        }
+        this.agendaService.updateAgenda(this.agendaDetail)
+        .subscribe(a => {
+            
+            this.router.navigate(['/agendas/' + this.agendaDetail.id]);
+        })
+    }
+
+    diaMenos(){
+        if(this.agendaDetail.dia >1)
+        {
+            this.agendaDetail.dia--;
+        }
+        this.agendaService.updateAgenda(this.agendaDetail)
+        .subscribe(a => {
+            
+            this.router.navigate(['/agendas/' + this.agendaDetail.id]);
+        })
+    }
 
     /**
     * The method which initilizes the component

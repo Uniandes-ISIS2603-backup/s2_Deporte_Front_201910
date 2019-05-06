@@ -5,11 +5,11 @@
  */
  
 import { Franja } from './franja';
+import { Agenda } from '../agenda/agenda';
+import { Reserva } from '../reserva/reserva';
 
 
 export class FranjaDetail extends Franja {
     
-    //franjas:Franja[];
-
 
 }

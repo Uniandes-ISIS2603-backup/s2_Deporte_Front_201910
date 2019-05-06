@@ -4,27 +4,31 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<html>
+         
    <br>
             <div class="row justify-content-center align-self-center" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un campeonato</button>
             </div>
-            <br>
-            <br>
-            <div class="card-columns">
-          <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let i of campeonatos">
-              <img src="{{i.rutaImagen}}" class="card-img-top" height=250>
-  <div class="card-body">
-    <h5 class="card-title"> <a class="figure-caption"
-    routerLink="/campeonatos/detail/{{i.id}}">
-    {{i.nombre}}</a></h5>
-      <p class="card-text"> <b>Deporte jugado en este campeonato:</b> {{i.deporte}}</p>
-            
-
-                <button type="button" class="btn btn-dark" routerLink="/campeonatos/edit/{{i.id}}">Editar</button>
-  </div>
-</div>
-</div>
-            <div *ngIf="showCreate">
+   <div *ngIf="showCreate">
                 <app-campeonato-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-campeonato-create>
             </div>
+            <br>
+            <br>
+            
+             <div class="container"*ngFor="let i of campeonatos">
+
+                 
+  <img src="{{i.rutaImagen}}" alt="Imagen del campeonato" class="image" style="width:100">
+  <div class="overlay">
+       <p class="title">{{i.nombre}}</p>
+       <div class="overlay"></div>
+       
+  <div class="button"><a href="/campeonatos/edit/{{i.id}}"> Editar </a></div>
+  <br>
+  <br>
+  <div class="button"><a href="/campeonatos/detail/{{i.id}}"> Detalle </a></div> 
+                 </div>
+</div>
+</html>

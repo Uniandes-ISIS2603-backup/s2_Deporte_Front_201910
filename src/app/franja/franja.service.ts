@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Franja } from './franja';
-import { FranjaDetail } from './franja-detail';
+import {FranjaDetail} from'./franja-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -31,7 +31,15 @@ export class FranjaService {
     * Returns the Observable object with the details of an agenda retrieved from the API
     * @returns The agenda details
     */
-    getFranjaDetail(franjaId: number): Observable<FranjaDetail> {
-        return this.http.get<FranjaDetail>(API_URL + franjas + '/' + franjaId);
+    getFranjaDetail(franjaId: number): Observable<Franja> {
+        return this.http.get<Franja>(API_URL + franjas + '/' + franjaId);
+    }
+
+    createFranja(franja){
+        return this.http.post<FranjaDetail>(API_URL + "/franjas", franja);
+    }
+
+    eliminarFranja(id:number){
+        return this.http.delete(API_URL + "/franjas/" +id);
     }
 }

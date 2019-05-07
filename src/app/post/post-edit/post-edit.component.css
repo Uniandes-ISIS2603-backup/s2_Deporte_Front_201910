@@ -7,6 +7,14 @@ and open the template in the editor.
     Created on : 11-abr-2019, 7:41:19
     Author     : estudiante
 */
+h2{
+    color: white;
+    width: 200px;
+  padding: 14px 48px;
+  border: solid 2px white;
+  margin-left: 350px;
+  z-index: 1;
+}
 html{
     margin: 0;
     padding: 0;
@@ -21,7 +29,11 @@ html{
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #191919;
+background-image: 
+               linear-gradient(black, black),
+    url(https://neilpatel.com/wp-content/uploads/2016/05/writingposts.jpg);
+  background-blend-mode: saturation;
+
     text-align: center;
 }
 .box label{

@@ -16,16 +16,21 @@ html{
 
 h2{
     color: white;
-    background: black;
+    width: 400px;
+  padding: 14px 48px;
+  border: solid 2px white;
+  margin-left: 130px;
+  z-index: 1;
 }
+
 .box{
   
      width: 1390px;
    padding: 40px;
    right:52%;
     position: relative;
-    background: #191919;
-    text-align: center;
+
+text-align: center;
 }
 .box label{
     color:white;
@@ -51,3 +56,4 @@ h2{
     width: 280px;
     border-color: #2ecc71;
 }
+

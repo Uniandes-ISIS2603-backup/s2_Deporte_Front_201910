@@ -67,9 +67,4 @@ export class BlogEditComponent implements OnInit {
         this.id = +this.route.snapshot.paramMap.get('id');
         this.getBlog();
     }
-}
-
-
-
-
-
+} 

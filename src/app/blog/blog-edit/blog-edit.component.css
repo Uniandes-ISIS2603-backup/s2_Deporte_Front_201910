@@ -8,6 +8,16 @@ and open the template in the editor.
     Author     : estudiante
 */
 
+
+h1{
+     color:white;
+    width: 400px;
+  padding: 14px 48px;
+  text-align: center;
+  border: solid 2px white;
+  margin-left: 400px;
+  z-index: 1;
+}
 html{
     margin: 0;
     padding: 0;
@@ -17,16 +27,17 @@ html{
 
 .box{
     width: 1500px;
-    padding: 200px;
+    padding: 150px;
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #191919;
+    background-image:
+        url(https://conceptodefinicion.de/wp-content/uploads/2016/09/Deporte2.jpg);
     text-align: center;
 }
 .box label{
-    color:white;
+   color:white;
     text-transform: uppercase;
     font-size: 500;
 }
@@ -49,4 +60,3 @@ html{
     width: 280px;
     border-color: #2ecc71;
 }
-

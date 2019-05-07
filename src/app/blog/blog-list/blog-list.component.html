@@ -22,12 +22,14 @@ and open the template in the editor.
   <img src="{{i.rutaImagen}}" alt="Imagen del blog" class="image" style="width:100">
   <div class="overlay">
        <p class="title">{{i.nombre}}</p>
-       <div class="overlay"></div>
-       
+
+  <div class="button"><a href="/blogs/detail/{{i.id}}"> Detalle </a></div> 
+                           <br>
+                           <br>       
   <div class="button"><a href="/blogs/edit/{{i.id}}"> Editar </a></div>
   <br>
   <br>
-  <div class="button"><a href="/blogs/detail/{{i.id}}"> Detalle </a></div> 
+  <div class="button"><a   (click)="deleteBlog(i.id)">Borrar</a></div>
                  </div>
 </div>
             

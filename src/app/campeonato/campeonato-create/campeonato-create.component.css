@@ -7,6 +7,11 @@ and open the template in the editor.
     Created on : 08-abr-2019, 21:09:13
     Author     : estudiante
 */
+.container {
+  position: relative;
+  text-align: center;
+  
+}
 html{
     margin: 0;
     padding: 0;
@@ -15,8 +20,12 @@ html{
 }
 
 h2{
-    color: white;
-    background: black;
+    color: black;
+    width: 400px;
+  padding: 14px 48px;
+  border: solid 2px black;
+  margin-left: 130px;
+  z-index: 1;
 }
 .box{
   
@@ -24,12 +33,16 @@ h2{
    padding: 40px;
    right:52%;
     position: relative;
-    background: #191919;
+    
+    
     text-align: center;
+
+   
 }
 .box label{
-    color:white;
+    color:black;
     text-transform: uppercase;
+    background: white;
     font-size: 500;
 }
 .box input[type = "text"]{
@@ -42,7 +55,7 @@ h2{
     padding: 14px 10px;
     width: 200px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     transition: 0,25s;
 }

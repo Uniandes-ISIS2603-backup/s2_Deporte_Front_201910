@@ -11,7 +11,7 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {Blog} from '../blog';
 import {BlogService} from '../blog.service';
-import {ModalDialogService} from 'ngx-modal-dialog';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -83,6 +83,30 @@ showHideEdit(editorial_id: number): void {
     //Metodo para mostrar el blog
     updateBlog(): void {
         this.showEdit = false;
+    }
+    
+    deleteBlog(blogId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a blog',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this blog?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.blogService.deleteBlog(blogId).subscribe(() => {
+                            this.toastrService.error("The blog was successfully deleted", "Blog deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
 
 }

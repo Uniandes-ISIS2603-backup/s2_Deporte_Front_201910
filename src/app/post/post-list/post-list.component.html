@@ -24,6 +24,9 @@ and open the template in the editor.
             <b> Post# </b> {{i.id}}</a></h5>
       <p class="card-text"><b> Titulo del post </b>{{i.nombre}}</p>
                 <button type="button" class="btn btn-light" routerLink="/posts/edit/{{i.id}}">Editar</button>
+                
+                <button class="btn btn-danger" (click)="deletePost(i.id)"><span class="fa fa-trash"></span></button>
+
   </div>
 </div>
 </div>

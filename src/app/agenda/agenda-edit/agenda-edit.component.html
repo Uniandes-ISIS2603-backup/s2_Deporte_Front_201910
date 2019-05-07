@@ -3,12 +3,12 @@
         <div class="col-3"></div>
         <div class="col-6">
             <br>
-            <h2 class="text-center">Crear una agenda</h2>
+            <h2 class="text-center">Modificar agenda</h2>
             <br>
-            <form name="agenda" (ngSubmit)="f.form.valid && createAgenda()" #f="ngForm" novalidate>
+            <form name="agenda" (ngSubmit)="f.form.valid && updateAgenda()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="agendaAnio"><b>Año</b></label>
-                    <input type="number" min = "2000" max = "9999" name="agendaAnio" class="form-control" id="agendaAnio" [(ngModel)]="agenda.anio"
+                    <input type="number" min ="2000" max = "9999" name="agendaAnio" class="form-control" id="agendaAnio" [(ngModel)]="agenda.anio"
                         #agendaAnio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaAnio.invalid }" required>
                     <div class="invalid-feedback">
                         <div>The agenda's Año is missing</div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
                 </div>

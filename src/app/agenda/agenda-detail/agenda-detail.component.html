@@ -1,26 +1,36 @@
 
   <table class="table">
       <thead class="thead-dark">
-        <tr align = "center">
-          <th scope="col-1"  align = "center"><button type="button" class="btn btn-dark" >Previous Day</button></th>
-          <th scope="col-2"></th>
-          <th scope="col-3"></th>
-          <th scope="col-4"></th>
-          <th scope="col-5"  align = "center">DATE</th>
-          <th scope="col-6"></th>
-          <th scope="col-7"></th>
-          <th scope="col-8"></th>
-          <th scope="col-9"></th>
-          <th scope="col-10"></th>
-          <th scope="col-11"></th>
-          <th scope="col-12"><button type="button" class="btn btn-dark" >Next Day</button></th>
+        <tr >
+          <th scope = "col-1">
+          <th scope = "col-1" class = "text-center"> 
+            <button type="button" class="btn btn-dark" (click)="diaMenos()">Previous Day</button> 
+          </th>
+          <th scope =" col-2"></th>
+          <th scope = "col-4" class = "text-center">{{mesString}} {{dia}}, {{anio}}</th>
+          <th scope = "col-2"></th>
+          <th scope = "col-1" class = "text-center">
+              <button type="button" class="btn btn-dark" (click)="diaMas()">Next Day</button>
+          </th>
+          <th scope = "col-1"></th>
         </tr>
       </thead>
       <tbody>
-          <app-franja-list>
-
-            </app-franja-list>
-          
-        
       </tbody>
     </table>
+    <app-franja-list>
+      
+    </app-franja-list>
+<table class = "table">
+  <thead>
+    <tr>
+      <th scope = "col-1"></th>
+      <th scope = "col-2" class = "text-center"> <button type="button" class="btn btn-danger" (click)="eliminarAgenda()" >Eliminar Agenda</button>  </th>
+      <th scope = "col-1"></th>
+      <th scope = "col-2" class = "text-center"> <button type="button" class="btn btn-primary" routerLink = "../../agendas/edit/{{agenda_id}}">Modificar Agenda</button>  </th>
+      <th scope = "col-1"></th>
+      <th scope = "col-2" class = "text-center"> <button type="button" class="btn btn-success" routerLink = "../../franjas/add/{{agenda_id}}">Añadir Franja</button> </th>
+      <th scope = "col-1"></th>
+    </tr>
+  </thead>
+</table>

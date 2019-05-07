@@ -4,7 +4,6 @@ import 'rxjs/add/operator/filter';
 
 import {Agenda} from '../agenda';
 import {AgendaService} from '../agenda.service';
-//import { CanchaDetail } from 'src/app/cancha/cancha-detail';
 import { convertPropertyBindingBuiltins } from '@angular/compiler/src/compiler_util/expression_converter';
 import { AgendaDetail } from '../agenda-detail';
 import { ModalDialogService } from 'ngx-modal-dialog';
@@ -62,7 +61,7 @@ export class AgendaListComponent implements OnInit {
                             case 1:{
                                 agenda.mesString = "Enero";
                                 break;
-                                }
+                            }
                             case 2: {
                                 agenda.mesString = "Febrero";
                                 break;
@@ -107,7 +106,6 @@ export class AgendaListComponent implements OnInit {
                                 agenda.mesString = "Diciembre";
                                 break;
                             }
-
                         }
                     })
             });

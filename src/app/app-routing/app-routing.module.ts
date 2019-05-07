@@ -56,6 +56,9 @@ import {EntrenamientoDetailComponent} from '../entrenamiento/entrenamiento-detai
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
 import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.component';
+import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
+
+import { FranjaCreateComponent} from '../franja/franja-create/franja-create.component';
 
 
 const routes: Routes = [
@@ -115,6 +118,10 @@ const routes: Routes = [
                 component: AgendaListComponent
             },
             {
+                path: 'edit/:id',
+                component: AgendaEditComponent
+            },
+            {
                 path: 'add/:id',
                 component: AgendaCreateComponent,
                 runGuardsAndResolvers: 'always'
@@ -122,6 +129,16 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: AgendaDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'franjas',
+        children:[
+            
+            {
+                path: 'add/:id',
+                component: FranjaCreateComponent
             }
         ]
     },

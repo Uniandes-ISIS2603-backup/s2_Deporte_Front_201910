@@ -1,0 +1,33 @@
+
+<div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <br>
+            <h2 class="text-center">Crear una franja</h2>
+            <br>
+            <form name="franja" (ngSubmit)="f.form.valid && createFranja()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="franjaHoraInicio"><b>Hora de Inicio</b></label>
+                    <input type="number" min = "0" max = "23" name="franjaHoraInicio" class="form-control" id="franjaHoraInicio" [(ngModel)]="franja.horaInicio"
+                        #franjaHoraInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && franjaHoraInicio.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>The franjas's Hora Inicio is missing</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="franjaHoraFin"><b>Hora de Fin</b></label>
+                        <input type="number" min = "franjaHoraInicio" max = "23" name="franjaHoraFin" class="form-control" id="franjaHoraFin" [(ngModel)]="franja.horaFin"
+                            #franjaHoraFin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && franjaHoraFin.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>The franjas's Hora Fin is missing</div>
+                        </div>
+                    </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>

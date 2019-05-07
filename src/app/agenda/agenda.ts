@@ -22,6 +22,8 @@ export class Agenda {
      */
     mes: number;
 
+    dia: number;
+
     mesString: string;
 
     cancha: Cancha;

@@ -20,7 +20,8 @@ html{
 }
 
 h2{
-    color: black;
+    color: gold;
+    background: white;
     width: 400px;
   padding: 14px 48px;
   border: solid 2px black;
@@ -33,7 +34,8 @@ h2{
    padding: 40px;
    right:52%;
     position: relative;
-    
+     background-image:
+    url(http://hdtrophy.com/wp-content/uploads/2016/04/256975488.jpg);
     
     text-align: center;
 

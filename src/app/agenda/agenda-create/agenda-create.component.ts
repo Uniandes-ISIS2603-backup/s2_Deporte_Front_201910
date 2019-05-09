@@ -44,6 +44,8 @@ export class AgendaCreateComponent implements OnInit{
 
     cancelCreation(): void {
         this.cancel.emit();
+        
+        this.router.navigate(['/canchas/' + this.id_c]);
     }
 
     createAgenda(): Agenda {

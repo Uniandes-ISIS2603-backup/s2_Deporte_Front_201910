@@ -46,6 +46,7 @@ export class FranjaCreateComponent implements OnInit{
 
     cancelCreation(): void {
         this.cancel.emit();
+        this.router.navigate(['/agendas/' + this.id_c]);
     }
 
     createFranja(): Franja {

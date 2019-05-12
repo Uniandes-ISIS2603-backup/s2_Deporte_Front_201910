@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
@@ -23,6 +23,12 @@ constructor(
   reserva:Reserva;
   
   fecha: Date;
+  
+      @Output() cancel = new EventEmitter();
+      
+          @Output() create = new EventEmitter();
+
+
 
   cancelCreation(): void {
         this.toastrService.warning('The reserva wasn\'t created', 'reserva creation');

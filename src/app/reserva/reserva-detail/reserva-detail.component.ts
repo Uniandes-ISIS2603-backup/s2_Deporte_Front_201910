@@ -1,7 +1,7 @@
 
 
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { ReservaService } from '../reserva.service';
 import { Reserva } from '../reserva';
@@ -34,7 +34,10 @@ export class ReservaDetailComponent implements OnInit {
   /**
   * El id de la reserva
   */
-  reserva_id: number;
+   @Input() reserva_id: number;
+   
+     loader: any;
+
 
   /**
   * Metodo que le pide al servicio el detail de reserva
@@ -45,16 +48,26 @@ export class ReservaDetailComponent implements OnInit {
         this.reservaDetail = reservaDetail
       });
   }
+  
+  onLoad(params) {
+
+      this.reserva_id = parseInt(params['id']);
+      console.log(" en detail " + this.reserva_id);
+    this.reservaDetail = new ReservaDetail();
+    this.getReservaDetail();
+  }
 
   /**
   * metodo que inicializa el componente, en este caso se crea vacio la reserva en detalle
   */
   ngOnInit() {
-    this.reserva_id = +this.route.snapshot.paramMap.get('id');
-    if (this.reserva_id) {
-      this.reservaDetail = new ReservaDetail();
-      this.getReservaDetail();
-    }
+      this.reserva_id = +this.route.snapshot.paramMap.get('id');
 
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+
+  }
+  
+   ngOnDestroy() {
+    this.loader.unsubscribe();
   }
 }

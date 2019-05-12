@@ -46,6 +46,9 @@ html{
 .container:hover .overlay {
   display: block;
   background: rgba(0, 0, 0, .3);
+    margin-left: 1em;
+    margin-right: 1em;
+
 }
 
 img {

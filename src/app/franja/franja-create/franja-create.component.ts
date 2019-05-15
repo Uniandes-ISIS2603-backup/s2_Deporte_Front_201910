@@ -109,7 +109,6 @@ export class FranjaCreateComponent implements OnInit {
 
         this.franjaService.createFranjas(this.franjas)
         .subscribe(franjas1 => {
-            console.log(franjas1);
             for(let f of franjas1){
                 this.agenda.franjas.push(f);
             }
@@ -126,6 +125,7 @@ export class FranjaCreateComponent implements OnInit {
 
     getAgendaDetail() {
         this.agendaService.getAgendaDetail(this.id_c)
+        
             .subscribe(agenda => {
                 this.agenda = agenda;
                 this.franja.agenda = agenda;

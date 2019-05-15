@@ -15,7 +15,7 @@
             <ul class="list-unstyled" >
               <ng-container *ngFor="let agenda of agendas">
                 <div class = "fluid-container">
-                <li><a  class="nav-link dropdown-item" href="" title="" routerLink="../../agendas/{{agenda.id}}">{{agenda.mesString}}<span class="pull-right">{{agenda.anio}}</span></a></li>
+                <li><a  class="nav-link dropdown-item" routerLink="../../agendas/{{agenda.id}}">{{agenda.mesString}}<span class="pull-right">{{agenda.anio}}</span></a></li>
               </div>
               </ng-container>
 

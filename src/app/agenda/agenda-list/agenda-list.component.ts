@@ -121,6 +121,6 @@ export class AgendaListComponent implements OnInit {
     */
     ngOnInit() {
        this.canchaId = +this.route.snapshot.paramMap.get('id');
-       this.getAgendas(this.canchaId);
+      this.getAgendas(this.canchaId);
     }
 }

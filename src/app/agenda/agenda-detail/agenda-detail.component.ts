@@ -30,12 +30,13 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
         private router: Router,
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
+        
     ) {
         //This is added so we can refresh the view when one of the books in
         //the "Other books" list is clicked
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
-                this.ngOnInit();
+                this.ngOnInit();    
             }
         });
     }
@@ -69,8 +70,8 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     * The method which retrieves the details of the agendas that
     * we want to show
     */
-    getAgendaDetail(): void {
-        this.agendaService.getAgendaDetail(this.agenda_id)
+    getAgendaDetails(): void {
+         this.agendaService.getAgendaDetail(this.agenda_id)
             .subscribe(agendaDetail => {
                 this.agendaDetail = agendaDetail;
                 this.dia = agendaDetail.dia;
@@ -145,8 +146,9 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     eliminarAgenda(){
         this.agendaService.eliminarAgenda(this.agenda_id, this.agendaDetail.cancha.id)
         .subscribe(AgendaDetail => {
-        });
+            
         this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
+        });
     }
 
     diaMas(){
@@ -180,7 +182,7 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     */
     ngOnInit() {
         this.agenda_id = +this.route.snapshot.paramMap.get('id');
-        this.getAgendaDetail();
+        this.getAgendaDetails();
     }
 
     /**

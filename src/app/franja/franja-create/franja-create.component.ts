@@ -107,25 +107,14 @@ export class FranjaCreateComponent implements OnInit {
 
         }
 
-
-        for(let i = 0; i < this.franjas.length - 1; i++){
-            this.franjaService.createFranja(this.franjas[i])
-                .subscribe(fran => {
-                    this.franjas[i] = fran;
-                    this.agenda.franjas.push(this.franjas[i]);
-                }, err => {
-                    this.toastrService.error(err, 'Error');
-                });
-        }
-
-        this.franjaService.createFranja(this.franjas[this.franjas.length-1])
-        .subscribe(f => {
-            this.franjas[this.franjas.length-1] = f;
-            this.agenda.franjas.push(this.franjas[this.franjas.length-1]);
+        this.franjaService.createFranjas(this.franjas)
+        .subscribe(franjas1 => {
+            console.log(franjas1);
+            for(let f of franjas1){
+                this.agenda.franjas.push(f);
+            }
             this.agendaService.updateAgenda(this.agenda)
-            .subscribe( agenda1 => {
-                this.create.emit();
-                console.log(agenda1);
+            .subscribe(agenda => {
                 this.router.navigate(['/agendas/' + this.id_c]);
             })
         })
@@ -134,10 +123,6 @@ export class FranjaCreateComponent implements OnInit {
     showHideCreate(): void {
         this.showCreate = !this.showCreate!
     }
-
-
-
-
 
     getAgendaDetail() {
         this.agendaService.getAgendaDetail(this.id_c)

@@ -16,6 +16,9 @@ export class Franja{
     idReserva: number;
     agenda: Agenda;
    
+    setDia(d:number){
+        this.dia = d;
+    }
     
 }
 

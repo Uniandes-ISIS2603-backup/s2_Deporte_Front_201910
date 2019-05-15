@@ -48,7 +48,7 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     mesString: string;
 
     dia: number;
-
+    diaMax: number;
 
     anio: number;
 
@@ -78,50 +78,62 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
                 switch(agendaDetail.mes){
                             case 1:{
                                 this.mesString = "Enero";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 2: {
                                 this.mesString = "Febrero";
+                                this.diaMax = 28;
                                 break;
                             }
                             case 3: {
                                 this.mesString = "Marzo";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 4: {
                                 this.mesString = "Abril";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 5: {
                                 this.mesString = "Mayo";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 6: {
                                 this.mesString = "Junio";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 7: {
                                 this.mesString = "Julio";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 8: {
                                 this.mesString = "Agosto";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 9: {
                                 this.mesString = "Septiembre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 10: {
                                 this.mesString = "Octubre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 11: {
                                 this.mesString = "Noviembre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 12: {
                                 this.mesString = "Diciembre";
+                                this.diaMax = 31;
                                 break;
                             }
                         }
@@ -133,13 +145,12 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     eliminarAgenda(){
         this.agendaService.eliminarAgenda(this.agenda_id, this.agendaDetail.cancha.id)
         .subscribe(AgendaDetail => {
-            
-            this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
         });
+        this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
     }
 
     diaMas(){
-        if(this.agendaDetail.dia < 31)
+        if(this.agendaDetail.dia < this.diaMax)
         {
             this.agendaDetail.dia++;
         }

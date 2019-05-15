@@ -68,15 +68,15 @@ export class FranjaListComponent implements OnInit {
         this.franjaService.getFranjas(idAgenda)
             .subscribe(franjas => {
                 this.franjas = franjas;
+                this.getAgenda(this.agenda_id);
             });
-
-            
     }
-
+    
     getAgenda(idAgenda: number): void {
         this.agendaService.getAgendaDetail(idAgenda)
         .subscribe(agenda => {
             this.agenda = agenda;
+            this.updateFiltro();
         })
     }
 
@@ -97,12 +97,24 @@ export class FranjaListComponent implements OnInit {
         
     }
 
+    updateFiltro():void{
+        let dia: number = this.agenda.dia;
+
+        this.franjasFiltro = new Array();
+
+        for(let fr of this.franjas){
+            if(fr.dia == dia){
+                this.franjasFiltro.push(fr);
+            }
+        }
+        this.franjasFiltro.sort((a:Franja,b:Franja) => a.horaInicio - b.horaInicio);
+    }
+
     /**
     * The method which initializes the component
     */
     ngOnInit() {
         this.agenda_id = +this.route.snapshot.paramMap.get('id');
        this.geFranjas(this.agenda_id);
-       this.getAgenda(this.agenda_id);
     }
 }

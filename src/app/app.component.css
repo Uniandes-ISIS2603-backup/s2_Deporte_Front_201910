@@ -7,8 +7,7 @@ ul {
   }
   
   li {
-    float: left;
-    padding: 5px 5px 
+    float: left; 
   }
   
   li a {
@@ -21,7 +20,7 @@ ul {
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
-    background-color: #111;
+    /*background-color: #111;*/
   }
 
   

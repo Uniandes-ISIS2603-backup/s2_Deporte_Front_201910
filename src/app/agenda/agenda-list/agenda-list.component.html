@@ -1,14 +1,26 @@
 <div class="container-fluid">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      Agendas
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <ng-container *ngFor="let agenda of agendas">
-        <a class="nav-link dropdown-item" routerLink = "../../agendas/{{agenda.id}}">{{agenda.mesString}}, {{agenda.anio}}</a>
-      </ng-container>
-      <a class="nav-link dropdown-item" routerLink = "../../agendas/add/{{canchaId}}">Añadir Agenda +</a>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div class="fluid-container" >
+      <div class="row">
+        <div class="single category col-12">
+          
+            <h3 class="side-title">Agendas</h3>
+            <ul class="list-unstyled" >
+              <ng-container *ngFor="let agenda of agendas">
+                <div class = "fluid-container">
+                <li><a  class="nav-link dropdown-item" href="" title="" routerLink="../../agendas/{{agenda.id}}">{{agenda.mesString}}<span class="pull-right">{{agenda.anio}}</span></a></li>
+              </div>
+              </ng-container>
+
+              <li><a class="nav-link dropdown-item" routerLink="../../agendas/add/{{canchaId}}">Añadir Agenda +</a></li>
+            </ul>
+          </div>
+      </div>
     </div>
-  </div>
-</div>

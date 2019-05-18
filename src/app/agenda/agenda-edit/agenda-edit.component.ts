@@ -43,6 +43,7 @@ export class AgendaEditComponent implements OnInit {
      * Metodo en el que se llama al servicio para encontrar la cancha
      */
     getAgenda(){
+
         this.agendaService.getAgendaDetail(this.id).subscribe(agenda => {
             
             this.agenda = agenda;

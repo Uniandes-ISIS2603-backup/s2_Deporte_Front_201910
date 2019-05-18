@@ -8,7 +8,7 @@
             <form name="agenda" (ngSubmit)="f.form.valid && createAgenda()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="agendaAnio"><b>Año</b></label>
-                    <input type="number" min = "2000" max = "9999" name="agendaAnio" class="form-control" id="agendaAnio" [(ngModel)]="agenda.anio"
+                    <input type="number" min = "2019" max = "9999" name="agendaAnio" class="form-control" id="agendaAnio" [(ngModel)]="agenda.anio"
                         #agendaAnio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaAnio.invalid }" required>
                     <div class="invalid-feedback">
                         <div>The agenda's Año is missing</div>

@@ -30,12 +30,13 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
         private router: Router,
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
+        
     ) {
         //This is added so we can refresh the view when one of the books in
         //the "Other books" list is clicked
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
-                this.ngOnInit();
+                this.ngOnInit();    
             }
         });
     }
@@ -48,7 +49,7 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     mesString: string;
 
     dia: number;
-
+    diaMax: number;
 
     anio: number;
 
@@ -69,8 +70,8 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     * The method which retrieves the details of the agendas that
     * we want to show
     */
-    getAgendaDetail(): void {
-        this.agendaService.getAgendaDetail(this.agenda_id)
+    getAgendaDetails(): void {
+         this.agendaService.getAgendaDetail(this.agenda_id)
             .subscribe(agendaDetail => {
                 this.agendaDetail = agendaDetail;
                 this.dia = agendaDetail.dia;
@@ -78,50 +79,62 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
                 switch(agendaDetail.mes){
                             case 1:{
                                 this.mesString = "Enero";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 2: {
                                 this.mesString = "Febrero";
+                                this.diaMax = 28;
                                 break;
                             }
                             case 3: {
                                 this.mesString = "Marzo";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 4: {
                                 this.mesString = "Abril";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 5: {
                                 this.mesString = "Mayo";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 6: {
                                 this.mesString = "Junio";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 7: {
                                 this.mesString = "Julio";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 8: {
                                 this.mesString = "Agosto";
+                                this.diaMax = 31;
                                 break;
                             }
                             case 9: {
                                 this.mesString = "Septiembre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 10: {
                                 this.mesString = "Octubre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 11: {
                                 this.mesString = "Noviembre";
+                                this.diaMax = 30;
                                 break;
                             }
                             case 12: {
                                 this.mesString = "Diciembre";
+                                this.diaMax = 31;
                                 break;
                             }
                         }
@@ -134,12 +147,12 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
         this.agendaService.eliminarAgenda(this.agenda_id, this.agendaDetail.cancha.id)
         .subscribe(AgendaDetail => {
             
-            this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
+        this.router.navigate(['/canchas/' + this.agendaDetail.cancha.id]);
         });
     }
 
     diaMas(){
-        if(this.agendaDetail.dia < 31)
+        if(this.agendaDetail.dia < this.diaMax)
         {
             this.agendaDetail.dia++;
         }
@@ -169,7 +182,7 @@ export class AgendaDetailComponent implements OnInit, OnDestroy {
     */
     ngOnInit() {
         this.agenda_id = +this.route.snapshot.paramMap.get('id');
-        this.getAgendaDetail();
+        this.getAgendaDetails();
     }
 
     /**

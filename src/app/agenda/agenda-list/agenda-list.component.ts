@@ -56,7 +56,7 @@ export class AgendaListComponent implements OnInit {
             .subscribe(agendasList => {
                 this.agendas = agendasList;
                 this.agendas.forEach(agenda => 
-                    {                          
+                    {
                         switch(agenda.mes){
                             case 1:{
                                 agenda.mesString = "Enero";
@@ -108,6 +108,8 @@ export class AgendaListComponent implements OnInit {
                             }
                         }
                     })
+
+                    this.agendas.sort((a:Agenda, b:Agenda)=> a.mes-b.mes).sort((a:Agenda,b:Agenda)=> a.anio-b.anio);
             });
          };
             
@@ -119,6 +121,6 @@ export class AgendaListComponent implements OnInit {
     */
     ngOnInit() {
        this.canchaId = +this.route.snapshot.paramMap.get('id');
-       this.getAgendas(this.canchaId);
+      this.getAgendas(this.canchaId);
     }
 }

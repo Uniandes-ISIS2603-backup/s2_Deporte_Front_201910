@@ -76,6 +76,30 @@ export class PostListComponent implements OnInit {
             this.showEdit = false;
         }
     }
+    
+     deletePost(postId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a campeonato',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this post?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.postService.deletePost(postId).subscribe(() => {
+                            this.toastrService.error("The post was successfully deleted", "Post deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
 }
 
 

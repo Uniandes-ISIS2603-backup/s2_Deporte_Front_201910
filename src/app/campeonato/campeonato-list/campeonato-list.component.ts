@@ -67,19 +67,8 @@ export class CampeonatoListComponent implements OnInit {
         this.showEdit = false;
         this.showCreate = !this.showCreate!
     }
-     showHideEdit(author_id: number): void {
-        if (!this.showEdit || (this.showEdit && author_id != this.selectedCampeonato.id)) {
-           // this.showView = false;
-            this.showCreate = false;
-            this.showEdit = true;
-            this.campeonato_edit_id = author_id;
-            this.selectedCampeonato = new CampeonatoDetail();
-            //this.getAuthorDetail();
-        }
-        else {
-            this.showEdit = false;
-           // this.showView = true;
-        }
+     showHideEdit(): void {
+         this.showEdit = !this.showEdit!
     }
 
     /**

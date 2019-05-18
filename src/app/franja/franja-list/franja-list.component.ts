@@ -8,8 +8,8 @@ import {FranjaService} from '../franja.service';
 import { ModalDialogService } from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AgendaService } from '../../agenda/agenda.service';
-import { AgendaDetail } from 'src/app/agenda/agenda-detail';
-import { Agenda } from 'src/app/agenda/agenda';
+import { AgendaDetail } from '../../agenda/agenda-detail';
+import { Agenda } from '../../agenda/agenda';
 import { t } from '@angular/core/src/render3';
 
 @Component({
@@ -68,15 +68,15 @@ export class FranjaListComponent implements OnInit {
         this.franjaService.getFranjas(idAgenda)
             .subscribe(franjas => {
                 this.franjas = franjas;
+                this.getAgenda(this.agenda_id);
             });
-
-            
     }
-
+    
     getAgenda(idAgenda: number): void {
         this.agendaService.getAgendaDetail(idAgenda)
         .subscribe(agenda => {
             this.agenda = agenda;
+            this.updateFiltro();
         })
     }
 
@@ -97,12 +97,24 @@ export class FranjaListComponent implements OnInit {
         
     }
 
+    updateFiltro():void{
+        let dia: number = this.agenda.dia;
+
+        this.franjasFiltro = new Array();
+
+        for(let fr of this.franjas){
+            if(fr.dia == dia){
+                this.franjasFiltro.push(fr);
+            }
+        }
+        this.franjasFiltro.sort((a:Franja,b:Franja) => a.horaInicio - b.horaInicio);
+    }
+
     /**
     * The method which initializes the component
     */
     ngOnInit() {
         this.agenda_id = +this.route.snapshot.paramMap.get('id');
        this.geFranjas(this.agenda_id);
-       this.getAgenda(this.agenda_id);
     }
 }

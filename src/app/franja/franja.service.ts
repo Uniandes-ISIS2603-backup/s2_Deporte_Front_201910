@@ -36,7 +36,11 @@ export class FranjaService {
     }
 
     createFranja(franja){
-        return this.http.post<FranjaDetail>(API_URL + "/franjas", franja);
+        return this.http.post<FranjaDetail>(API_URL + "/franjas/simple", franja);
+    }
+
+    createFranjas(frnajas){
+        return this.http.post<FranjaDetail[]>(API_URL + "/franjas/multiple", frnajas);
     }
 
     eliminarFranja(id:number){

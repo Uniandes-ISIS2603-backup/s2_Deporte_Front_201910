@@ -21,11 +21,11 @@ html{
   
   /* This is what makes the background image rescale based
      on the container's size */
-  background-size: cover;
+background-size: cover;
     background-image:
     linear-gradient(black, black),
     url(https://conceptodefinicion.de/wp-content/uploads/2016/09/Deporte2.jpg);
-  background-blend-mode: saturation;
+  background-blend-mode: saturation;   
 }
 
 .container {
@@ -79,11 +79,14 @@ img {
   position: relative;
   width: 500px;
   left:0;
-  top: 180px;
+  top: 140px;
   text-align: center;
   opacity: 0;
   transition: opacity .35s ease;
 }
+
+
+
 
 .button a {
   width: 200px;
@@ -92,9 +95,17 @@ img {
   color: white;
   border: solid 2px white;
   z-index: 1;
+ 
 }
 
 
 .container:hover .button {
   opacity: 1;
 }
+
+.button a:hover{
+     text-decoration: underline;
+    cursor: pointer;
+}
+
+

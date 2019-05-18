@@ -2,13 +2,13 @@
     <thead></thead>
     <tbody>
 <tr>
-        <th class = "text-center">#</th>   
+        <th class = "text-center">id</th>   
         <th class = "text-center">Hora de Inicio</th>
         <th class = "text-center">Hora de Fin</th>
         <th class = "text-center" >Reservada</th>
       
 </tr>
-<ng-container *ngFor="let franja of franjas">
+<ng-container *ngFor="let franja of franjasFiltro">
     <tr >
         <th class = "text-center">{{franja.id}}</th>
         <th class = "text-center">{{franja.horaInicio}}:00</th>

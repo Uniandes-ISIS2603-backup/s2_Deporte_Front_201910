@@ -7,7 +7,15 @@ and open the template in the editor.
     Created on : 09-abr-2019, 15:38:23
     Author     : estudiante
 */
-
+h1{
+    color:black;
+    width: 400px;
+  padding: 14px 48px;
+  text-align: center;
+  border: solid 2px black;
+  margin-left: 410px;
+  z-index: 1;
+}
 html{
     margin: 0;
     padding: 0;
@@ -22,12 +30,16 @@ html{
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #191919;
-    text-align: center;
+     background-image:
+           linear-gradient(black, black),
+    url(http://hdtrophy.com/wp-content/uploads/2016/04/256975488.jpg);
+  background-blend-mode: saturation;
+         text-align: center;
 }
 .box label{
-    color:white;
+    color:black;
     text-transform: uppercase;
+    background: white;
     font-size: 500;
 }
 .box input[type = "text"]{
@@ -40,7 +52,7 @@ html{
     padding: 14px 10px;
     width: 200px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     transition: 0,25s;
 }

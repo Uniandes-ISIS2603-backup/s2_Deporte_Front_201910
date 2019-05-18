@@ -1,5 +1,5 @@
 import {Reserva} from "./reserva";
-export class ReservaDetail {
+export class ReservaDetail extends Reserva{
 
    /**
    * direccion del lugar de la Reserva

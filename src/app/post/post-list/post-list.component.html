@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
             <br>
-            <div class="row justify-content-center align-self-center" >
+            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Create a post</button>
             </div>
@@ -23,9 +23,9 @@ and open the template in the editor.
     routerLink="/posts/detail/{{i.id}}">
             <b> Post# </b> {{i.id}}</a></h5>
       <p class="card-text"><b> Titulo del post </b>{{i.nombre}}</p>
-                <button type="button" class="btn btn-light" routerLink="/posts/edit/{{i.id}}">Editar</button>
+                <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn btn-light" routerLink="/posts/edit/{{i.id}}">Editar</button>
                 
-                <button class="btn btn-danger" (click)="deletePost(i.id)"><span class="fa fa-trash"></span></button>
+                <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" (click)="deletePost(i.id)"><span class="fa fa-trash"></span></button>
 
   </div>
 </div>

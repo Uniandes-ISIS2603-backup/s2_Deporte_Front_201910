@@ -14,6 +14,8 @@ import {BlogService} from '../blog.service';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {NgxPermissionsGuard} from 'ngx-permissions';
+
 
 /**
  * The component for the list of editorials in the BookStore

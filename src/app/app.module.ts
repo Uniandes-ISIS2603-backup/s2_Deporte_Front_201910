@@ -10,6 +10,7 @@ import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service'
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
+
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
@@ -52,13 +53,13 @@ import {EntrenamientoModule} from './entrenamiento/entrenamiento.module';
         EntrenamientoModule,
         ReservaModule,
         FormsModule,
+        NgxPermissionsModule.forRoot(),
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
             preventDuplicates: true,
         }),
         NgxPaginationModule,
-        NgxPermissionsModule.forRoot(),
         NgbModule
     ],
     bootstrap: [AppComponent],

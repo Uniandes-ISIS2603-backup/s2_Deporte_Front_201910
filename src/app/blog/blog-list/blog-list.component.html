@@ -6,8 +6,8 @@ and open the template in the editor.
 -->
 <html>
    <br>
-            <div class="row justify-content-center align-self-center" >
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+ <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
+     <button  [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un blog</button>
             </div>
    <div *ngIf="showCreate">
@@ -23,14 +23,14 @@ and open the template in the editor.
   <div class="overlay">
        <p class="title">{{i.nombre}}</p>
 
-  <div class="button"><a href="/blogs/detail/{{i.id}}"> Detalle </a></div> 
+  <div  class="button" *ngxPermissionsOnly="['ADMIN']"><a   (click)="deleteBlog(i.id)">Borrar</a></div>
                            <br>
-                           <br>       
-  <div class="button"><a href="/blogs/edit/{{i.id}}"> Editar </a></div>
+                           <br>   
+                               <div class="button"><a href="/blogs/detail/{{i.id}}"> Detalle </a></div> 
+
   <br>
   <br>
-  <div class="button"><a   (click)="deleteBlog(i.id)">Borrar</a></div>
+  <div class="button"*ngxPermissionsOnly="['ADMIN']"><a href="/blogs/edit/{{i.id}}"> Editar </a></div>
                  </div>
 </div>
-            
-</html>
+</html>      

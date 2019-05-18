@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
          
    <br>
-            <div class="row justify-content-center align-self-center" >
+            <div class="row justify-content-center align-self-center"*ngxPermissionsOnly="['ADMIN']" >
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un campeonato</button>
             </div>
@@ -21,13 +21,13 @@ and open the template in the editor.
   <img src="{{i.rutaImagen}}" alt="Imagen del campeonato" class="image" style="width:100">
   <div class="overlay">
        <p class="title">{{i.nombre}}</p>
-         <div class="button"><a href="/campeonatos/detail/{{i.id}}"> Detalle </a></div> 
+  <div class="button" *ngxPermissionsOnly="['ADMIN']"><a href="/campeonatos/edit/{{i.id}}"> Editar </a></div>
                            <br>
                            <br>
-  <div class="button"><a href="/campeonatos/edit/{{i.id}}"> Editar </a></div>
+                                    <div class="button"><a href="/campeonatos/detail/{{i.id}}"> Detalle </a></div> 
   <br>
   <br>
-    <div class="button"><a   (click)="deleteCampeonato(i.id)">Borrar</a></div>            
+    <div class="button" *ngxPermissionsOnly="['ADMIN']"><a   (click)="deleteCampeonato(i.id)">Borrar</a></div>            
   </div>
 </div>
 </html>

@@ -1,5 +1,16 @@
 <h2>Canchas:</h2>
 <br>
+ <div class="row justify-content-center align-self-center" >
+                <button *ngxPermissionsOnly="['ADMIN']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un propietario</button>
+            </div>
+ <div *ngIf="showCreate">
+                <app-propietario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-propietario-create>
+                            </div>
+
+            <br>
+            <br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="card" style="width: 18rem;" *ngFor="let propietario of propietarios">
@@ -12,5 +23,4 @@
             </div>
         </div>
     </div>
-    <app-propietario-create></app-propietario-create>
 </div>

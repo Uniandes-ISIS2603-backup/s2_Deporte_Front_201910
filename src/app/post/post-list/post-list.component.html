@@ -10,6 +10,7 @@ and open the template in the editor.
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Create a post</button>
             </div>
+            <br>
              <div *ngIf="showCreate">
                 <app-post-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-post-create>
                 

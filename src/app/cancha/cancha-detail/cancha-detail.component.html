@@ -48,7 +48,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-dark" routerLink="/canchas/edit/{{canchaDetail.id}}">Editar</button>
+            <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-dark" routerLink="/canchas/edit/{{canchaDetail.id}}">Editar</button>
         </div>
         <div class="col">
             <h4>Reservas actuales:</h4>

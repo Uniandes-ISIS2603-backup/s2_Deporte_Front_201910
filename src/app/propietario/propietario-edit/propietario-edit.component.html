@@ -1,4 +1,4 @@
-<form name="cancha" (ngSubmit)="f.form.valid && updatePropietario()" #f="ngForm" novalidate>
+<form class = "box" name="cancha" (ngSubmit)="f.form.valid && updatePropietario()" #f="ngForm" novalidate>
         <div class="form-group">
             <div class="row">
                 <div class="col">
@@ -19,6 +19,9 @@
                     </div>
                     <br>
                     <label for="canhcaCiudad"><b>Ciudad:</b></label>
+                    <input type="text" name="canchaNombre" class="form-control" id="canchaNombre"
+                        [(ngModel)]="propietario.ciudad" #authorName="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">

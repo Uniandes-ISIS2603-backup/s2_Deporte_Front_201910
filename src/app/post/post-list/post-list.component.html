@@ -23,7 +23,7 @@ and open the template in the editor.
     <h5 class="card-title"> <a class="figure-caption"
     routerLink="/posts/detail/{{i.id}}">
             <b> Post# </b> {{i.id}}</a></h5>
-      <p class="card-text"><b> Titulo del post </b>{{i.nombre}}</p>
+      <p class="card-text"><b> Titulo:  </b>{{i.nombre}}</p>
                 <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn btn-light" routerLink="/posts/edit/{{i.id}}">Editar</button>
                 
                 <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" (click)="deletePost(i.id)"><span class="fa fa-trash"></span></button>

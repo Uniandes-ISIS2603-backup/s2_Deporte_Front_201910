@@ -1,19 +1,25 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let equipo of equipos">
+ <div class="row justify-content-center align-self-center"*ngxPermissionsOnly="['ADMIN']" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un equipo</button>
+            </div>
+   <div *ngIf="showCreate">
+                <app-equipo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-equipo-create>
+            </div>
+<br>
+<br>
+
+<div class="card" style="width: 18rem;" *ngFor="let cliente of clientes">
             <div class="card-body">
                 <h5 class="card-title">
-                    <p>
-                        Nombre: {{equipo.nombre}}
-                    </p>
-                    <p>
-                        Nombre Representante: {{equipo.representante.name}}
-                    </p>
+                    Nombre:{{cliente.name}}
                 </h5>
+                <h6 class="card-title">
+                    Representa:{{cliente.representa}}
+                </h6>                
             </div>
             <div class="card-body">
-                <button type="button" class="btn btn-dark" routerLink="/equipos/{{equipo.id}}">Detalles</button>
+                <button type="button" class="btn btn-dark" routerLink="/clientes/{{cliente.id}}">Detalles</button>
             </div>
         </div>
-    </div>
-</div>
+
+  <br>

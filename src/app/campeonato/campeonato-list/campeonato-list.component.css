@@ -46,9 +46,6 @@ and open the template in the editor.
 .container:hover .overlay {
   display: block;
   background: rgba(0, 0, 0, .3);
-    margin-left: 1em;
-    margin-right: 1em;
-
 }
 
 img {
@@ -86,6 +83,9 @@ img {
   transition: opacity .35s ease;
 }
 
+
+
+
 .button a {
   width: 200px;
   padding: 14px 48px;
@@ -93,6 +93,7 @@ img {
   color: white;
   border: solid 2px white;
   z-index: 1;
+ 
 }
 
 
@@ -104,3 +105,4 @@ img {
      text-decoration: underline;
     cursor: pointer;
 }
+

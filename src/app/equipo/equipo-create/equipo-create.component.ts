@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
@@ -20,26 +20,44 @@ export class EquipoCreateComponent implements OnInit {
 
   representante: Cliente;
   
+   /**
+    * The output which tells the parent component
+    * that the user no longer wants to create an campeonato
+    */
+    @Output() cancel = new EventEmitter();
+    
+      /**
+    * The output which tells the parent component
+    * that the user created a new campeonato
+    */
+    @Output() create = new EventEmitter();
+    
   cancelCreation(): void {
         this.toastrService.warning('The book wasn\'t created', 'Book creation');
         this.router.navigate(['/books/list']);
+            this.cancel.emit();
+
     }
 
-    createEquipo(): Equipo {
-        this.equipoService.createEquipo(this.equipo)
-            .subscribe(equipo => {
-                this.equipo.id = equipo.id;
-                this.equipo.nombre = equipo.nombre;
-                this.equipo.representante = equipo.representante;
-                this.router.navigate(['/equipos/' + equipo.id]);
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-        return this.equipo;
-    }
+   /**
+    * Creates a new campeonato
+    */
+   createEquipo(): Equipo {
+    this.equipoService.createEquipo(this.equipo)
+        .subscribe((campeonato) => {
+            this.equipo = campeonato;
+            this.create.emit();
+            this.toastrService.success("The campeonato was created", "Campeonato creation");
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
+    return this.equipo;
+}
 
+     /**
+    * This function will initialize the component
+    */
     ngOnInit() {
-        equipo:Equipo;
         this.equipo = new Equipo();
     }
 

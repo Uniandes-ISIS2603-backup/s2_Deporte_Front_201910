@@ -13,6 +13,10 @@ import {PartidoService} from '../../partido/partido.service';
 })
 export class PartidoListComponent implements OnInit {
     @Input() partidos: Partido[];
+       
+         showCreate: boolean;
+
+    
   constructor(
         private partidoService: PartidoService,
         private route:ActivatedRoute
@@ -24,7 +28,12 @@ export class PartidoListComponent implements OnInit {
                 this.partidos = partidos;
             });          
     }
+    
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate!
+    }
     ngOnInit() {
+                this.showCreate = false;
         this.getPartidos();
     }
 

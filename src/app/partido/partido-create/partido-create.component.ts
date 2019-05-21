@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {DatePipe} from '@angular/common';
@@ -25,27 +25,36 @@ constructor(
   equipos:Equipo[];
   
   fecha: Date;
+  
+   /** The output which tells the parent component
+    * that the user no longer wants to create an post
+    */
+    @Output() cancel = new EventEmitter();
+
+    /**
+    * The output which tells the parent component
+    * that the user created a new post
+    */
+    @Output() create = new EventEmitter();
 
   cancelCreation(): void {
-        this.toastrService.warning('The partido wasn\'t created', 'Partido creation');
-        this.router.navigate(['/partidos/list']);
+            this.cancel.emit();
+
     }
 
     createPartido(): Partido{
-        this.partidoService.createPartido(this.partido)
-            .subscribe(partido => {
-                this.partido.id = partido.id;
-                this.partido.fecha = partido.fecha;
-                this.partido.puntaje = partido.puntaje;
-                this.router.navigate(['/partidos/' + partido.id]);
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-        return this.partido;
+       this.partidoService.createPartido(this.partido)
+        .subscribe((post) => {
+            this.partido = post;
+            this.create.emit();
+            this.toastrService.success("The partido was created", "Partido creation");
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
+    return this.partido;
     }
 
     ngOnInit() {
-    partido:Partido;
         this.partido = new Partido();
     }
 }

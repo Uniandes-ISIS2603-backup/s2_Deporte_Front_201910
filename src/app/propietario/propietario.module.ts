@@ -21,7 +21,7 @@ import { CanchaModule } from '../cancha/cancha.module';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        CanchaModule
+        CanchaModule,
                                 NgxPermissionsModule.forRoot()
 
     ],

@@ -13,6 +13,8 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 import { BlogListComponent } from './blog-list/blog-list.component';
 import {BlogService} from './blog.service';
@@ -27,7 +29,9 @@ import {BlogEditComponent} from './blog-edit/blog-edit.component';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+                NgxPermissionsModule.forRoot()
+
     ],
     declarations: [BlogListComponent, BlogDetailComponent,BlogEditComponent,BlogCreateComponent],
     exports: [BlogListComponent],

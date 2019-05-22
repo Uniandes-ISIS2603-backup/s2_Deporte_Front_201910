@@ -1,3 +1,23 @@
-<p>
-partido-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form class="box" name="partido" (ngSubmit)="f.form.valid && createPartido()" #f="ngForm" novalidate>
+            <div class="form-group">
+
+                <label for="postNombre"><b>Fecha</b></label>
+                <input type="text" name="partidoNombre" class="form-control" id="partidoNombre" [(ngModel)]="partido.nombre"
+                    #partidoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && partidoNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The post's name is missing</div>
+                </div>
+            </div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

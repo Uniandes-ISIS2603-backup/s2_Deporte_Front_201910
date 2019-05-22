@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+
+import {Router, ActivatedRoute} from '@angular/router';
+import {EquipoService} from '../equipo.service';
+import {EquipoDetail} from '../equipo-detail';
 
 @Component({
   selector: 'app-equipo-edit',
@@ -7,9 +12,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipoEditComponent implements OnInit {
 
-  constructor() { }
+ constructor(
+        private equipoService: EquipoService,
+        private toastrService: ToastrService,
+         private router: Router,
+        private route: ActivatedRoute
+    ) {}
 
-  ngOnInit() {
-  }
+    equipo:EquipoDetail;
+    id:number;
+
+  getEquipo(){
+        this.equipoService.getEquipoDetail(this.id).subscribe(camp => {
+            
+            this.equipo = camp;
+        });
+    }
+    
+      updateEquipo(): void {
+        this.equipoService.updateEquipo(this.equipo)
+            .subscribe(() => {
+                this.router.navigate(['/equipos/list/']);
+                this.toastrService.success("El equipo se edito correctamente", 'Equipo edition');
+            });
+    }
+    
+     cancelEdition(): void {
+        this.toastrService.warning('El equipo no fue editado', 'Equipo edition');
+        this.router.navigate(['/equipos/list']);
+    }
+    
+     ngOnInit() {
+        this.id = +this.route.snapshot.paramMap.get('id');
+        this.getEquipo();
+    }
+  
 
 }

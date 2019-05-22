@@ -23,9 +23,7 @@ h2{
 }
 .box{
   
-     width: 1390px;
-   padding: 40px;
-   right:52%;
+  
     position: relative;
     text-align: center;
 }
@@ -36,7 +34,7 @@ h2{
 }
 .box input[type = "text"]{
     border:0;
-    background: none;
+    background: nonre;
     display:block;
     margin:20px auto;
     text-align: center;
@@ -44,7 +42,7 @@ h2{
     padding: 14px 10px;
     width: 200px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     transition: 0,25s;
 }

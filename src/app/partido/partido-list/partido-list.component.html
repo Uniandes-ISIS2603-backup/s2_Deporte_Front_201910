@@ -1,3 +1,13 @@
+ <div class="row justify-content-center align-self-center"  >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un partido</button>
+            </div>
+            <br>
+             <div *ngIf="showCreate">
+                <app-partido-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-partido-create>
+                
+            </div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="card" style="width: 18rem;" *ngFor="let partido of partidos">

@@ -22,6 +22,9 @@ export class PropietarioListComponent implements OnInit {
     * The list of editorials which belong to the BookStore
     */
     propietarios: Propietario[];
+    
+        showCreate: boolean;
+
 
     /**
     * Asks the service to update the list of editorials
@@ -33,6 +36,9 @@ export class PropietarioListComponent implements OnInit {
             });
     }
 
+ showHideCreate(): void {
+        this.showCreate = !this.showCreate!
+    }
     /**
     * This will initialize the component by retrieving the list of editorials from the service
     * This method will be called when the component is created

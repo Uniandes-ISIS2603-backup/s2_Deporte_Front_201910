@@ -43,7 +43,7 @@ export class CampeonatoListComponent implements OnInit {
     selectedCampeonato: Campeonato;
 
     /**
-    * Shows the author
+    * Shows the campeonato
     */
    onSelected(campeonato_id: number): void {
     this.showCreate = false;

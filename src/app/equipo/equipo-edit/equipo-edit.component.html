@@ -1,3 +1,22 @@
-<p>
-equipo-edit works!
-</p>
+<form class="box" name="campeonato" (ngSubmit)="f.form.valid && updateEquipo()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <h1> Editar Equipo</h1>
+                    <label for="campeonatoNombre"><b>Nombre del equipo</b></label>
+                    <input type="text" name="campeonatoNombre" class="form-control" id="campeonatoNombre"
+                        [(ngModel)]="campeonato.nombre" #campeonatoNombre="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && campeonatoNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>

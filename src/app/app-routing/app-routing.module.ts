@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
@@ -196,7 +197,12 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: BlogCreateComponent,
-                runGuardsAndResolvers: 'always'
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: 'detail/:id',
@@ -204,7 +210,13 @@ const routes: Routes = [
             },
            {
                 path: 'edit/:id',
-                component: BlogEditComponent
+                component: BlogEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
         ]
     },

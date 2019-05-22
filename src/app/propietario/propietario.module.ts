@@ -10,6 +10,7 @@ import { PropietarioDetailComponent } from './propietario-detail/propietario-det
 import { PropietarioListComponent } from './propietario-list/propietario-list.component';
 import { PropietarioCreateComponent } from './propietario-create/propietario-create.component';
 import { PropietarioEditComponent } from './propietario-edit/propietario-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { CanchaModule } from '../cancha/cancha.module';
 
@@ -20,7 +21,9 @@ import { CanchaModule } from '../cancha/cancha.module';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        CanchaModule
+        CanchaModule,
+                                NgxPermissionsModule.forRoot()
+
     ],
     declarations: [PropietarioListComponent, PropietarioDetailComponent, PropietarioCreateComponent, PropietarioEditComponent],
     providers: [PropietarioService]

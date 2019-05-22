@@ -30,12 +30,9 @@ h2{
 }
 .box{
   
-     width: 1390px;
-   padding: 40px;
-   right:52%;
+   
     position: relative;
-     background-image:
-    url(http://hdtrophy.com/wp-content/uploads/2016/04/256975488.jpg);
+    
     
     text-align: center;
 
@@ -44,7 +41,6 @@ h2{
 .box label{
     color:black;
     text-transform: uppercase;
-    background: white;
     font-size: 500;
 }
 .box input[type = "text"]{

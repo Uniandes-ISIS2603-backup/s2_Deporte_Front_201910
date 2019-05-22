@@ -20,6 +20,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {PostDetailComponent} from './post-detail/post-detail.component';
 import {PostCreateComponent} from './post-create/post-create.component';
 import {PostEditComponent} from './post-edit/post-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 @NgModule({
     imports: [
@@ -27,7 +29,9 @@ import {PostEditComponent} from './post-edit/post-edit.component';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+                        NgxPermissionsModule.forRoot()
+
     ],
     declarations: [PostListComponent,PostDetailComponent,PostCreateComponent,PostEditComponent],
     exports: [PostListComponent],

@@ -15,7 +15,7 @@ html{
 }
 
 h2{
-    color: white;
+    color: black;
     width: 400px;
   padding: 14px 48px;
   border: solid 2px white;
@@ -25,16 +25,14 @@ h2{
 
 .box{
   
-     width: 1390px;
-   padding: 40px;
-   right:52%;
+    
     position: relative;
 
 
 text-align: center;
 }
 .box label{
-    color:white;
+    color:black;
     text-transform: uppercase;
     font-size: 500;
 }

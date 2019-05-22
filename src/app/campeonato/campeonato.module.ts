@@ -15,6 +15,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { CampeonatoDetailComponent } from './campeonato-detail/campeonato-detail.component';
 import {CampeonatoCreateComponent} from './campeonato-create/campeonato-create.component';
 import {CampeonatoEditComponent} from './campeonato-edit/campeonato-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {CampeonatoEditComponent} from './campeonato-edit/campeonato-edit.compone
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+                        NgxPermissionsModule.forRoot()
     ],
     declarations: [CampeonatoListComponent, CampeonatoDetailComponent, CampeonatoCreateComponent, CampeonatoEditComponent],
     exports: [CampeonatoListComponent],

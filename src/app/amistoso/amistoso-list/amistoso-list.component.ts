@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { Amistoso } from '../amistoso';
 import { AmistosoDetail } from '../amistoso-detail';
 import { AmistosoService } from '../amistoso.service';
@@ -17,7 +18,7 @@ export class AmistosoListComponent implements OnInit {
    * Constructor delcomponent
    * @param amistosoService el servicio del amistoso
    */
-  constructor(private amistosoService: AmistosoService) { }
+  constructor(private amistosoService: AmistosoService,private route: ActivatedRoute) { }
   /**
    * Atributos sobre el amistoso seleccionado
    */

@@ -17,6 +17,8 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AgendaListComponent implements OnInit {
 
+    @Input() id: number;
+
     /**
     * The list of agendas to display
     */

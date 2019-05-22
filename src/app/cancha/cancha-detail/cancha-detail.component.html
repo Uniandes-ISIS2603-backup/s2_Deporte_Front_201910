@@ -51,7 +51,7 @@
             <button *ngxPermissionsOnly="['ADMIN']" type="button" class="btn btn-dark" routerLink="/canchas/edit/{{canchaDetail.id}}">Editar</button>
         </div>
         <div class="col-4">
-            <app-agenda-list>
+            <app-agenda-list [id]="{{canchaDetail.id}}">
 
             </app-agenda-list>
         </div>

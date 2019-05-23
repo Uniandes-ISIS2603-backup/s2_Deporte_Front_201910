@@ -38,6 +38,7 @@ export class PostService {
     */
     getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(API_URL + posts);
+
 }
 /**
     * Returns the Observable object containing the post retrieved from the API

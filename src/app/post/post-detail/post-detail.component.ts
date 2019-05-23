@@ -8,6 +8,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 import { PostDetail } from '../post-detail';
+import { Blog } from '../../blog/blog';
+
 
 @Component({
   selector: 'app-post-detail',
@@ -32,7 +34,7 @@ export class PostDetailComponent implements OnInit {
   */
    postDetail: PostDetail;
 
-
+blog:Blog;
 
   /**
   * The post's id retrieved from the address

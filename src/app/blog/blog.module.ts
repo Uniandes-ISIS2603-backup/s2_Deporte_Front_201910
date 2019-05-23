@@ -22,6 +22,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {BlogDetailComponent} from './blog-detail/blog-detail.component';
 import {BlogCreateComponent} from './blog-create/blog-create.component';
 import {BlogEditComponent} from './blog-edit/blog-edit.component';
+import {PostModule} from '../post/post.module';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import {BlogEditComponent} from './blog-edit/blog-edit.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-                NgxPermissionsModule.forRoot()
+                NgxPermissionsModule.forRoot(),
+                PostModule
 
     ],
     declarations: [BlogListComponent, BlogDetailComponent,BlogEditComponent,BlogCreateComponent],

@@ -12,6 +12,8 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
+import { Blog } from '../blog/blog';
+
 export class Post {
     /**
     * The post's nombre
@@ -19,6 +21,8 @@ export class Post {
     nombre: string;
         //id del post
     id: number;
+    
+    blog: Blog;
 
 }
 

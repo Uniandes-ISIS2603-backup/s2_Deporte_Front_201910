@@ -4,10 +4,13 @@
 * and open the template in the editor.
 */
 import {Blog} from "./blog";
+import {Post} from '../post/post';
 export class BlogDetail extends Blog{
 
 //descripcion del blog
      descripcion: string;
+     
+     posts: Post[];
 
 }
 

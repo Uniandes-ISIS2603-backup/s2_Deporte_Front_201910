@@ -8,7 +8,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, ViewContainerRef,Input} from '@angular/core';
 import {Post} from '../post';
 import {PostService} from '../post.service';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
@@ -34,7 +34,7 @@ export class PostListComponent implements OnInit {
     /**
      * The list of posts wahich belong to the BookStore
      */
-    posts: Post[];
+   @Input() posts: Post[];
     
     showCreate: boolean;
     

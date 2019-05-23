@@ -60,6 +60,7 @@ import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.com
 import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
 
 import { FranjaCreateComponent} from '../franja/franja-create/franja-create.component';
+import {HomeComponent} from '../campeonato/home/home.component';
 
 
 const routes: Routes = [
@@ -349,7 +350,7 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: AuthLoginComponent
+        component: HomeComponent
     },
     {
         path: '**',

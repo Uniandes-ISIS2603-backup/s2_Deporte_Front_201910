@@ -16,6 +16,7 @@ import { CampeonatoDetailComponent } from './campeonato-detail/campeonato-detail
 import {CampeonatoCreateComponent} from './campeonato-create/campeonato-create.component';
 import {CampeonatoEditComponent} from './campeonato-edit/campeonato-edit.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import {HomeComponent} from './home/home.component';
 
 
 
@@ -28,7 +29,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
         FormsModule,
                         NgxPermissionsModule.forRoot()
     ],
-    declarations: [CampeonatoListComponent, CampeonatoDetailComponent, CampeonatoCreateComponent, CampeonatoEditComponent],
+    declarations: [CampeonatoListComponent, CampeonatoDetailComponent, CampeonatoCreateComponent, CampeonatoEditComponent,HomeComponent],
     exports: [CampeonatoListComponent],
     providers: [CampeonatoService]
     

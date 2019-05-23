@@ -1,4 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22-may-2019, 22:35:47
+    Author     : estudiante
+*/
 
+* {
+  box-sizing: border-box;
+}
 
 html {
   margin: 0;
@@ -8,7 +20,7 @@ html {
 body{
   margin:0;
   padding: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://images.unsplash.com/photo-1544195522-04e7c58ba945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1958&q=80) no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://www.bbva.com/wp-content/uploads/2019/03/estadio-campo-futbol-bbva-1024x577.jpg) no-repeat;
   background-size: cover;
   color: black;
   font-family: "open sans";
@@ -51,7 +63,7 @@ nav ul li{
   display: inline;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
 }
 
 nav li a{
@@ -89,6 +101,8 @@ nav li a:hover{
 .titles p{
   letter-spacing: 3px;
   text-shadow: 1px 1px 0 black;
+    font-size: 30px;
+
 }
 
 /* ------------------------ BOT SECTION ----------------*/
@@ -195,6 +209,3 @@ nav li a:hover{
 
 
 
-
-
-  

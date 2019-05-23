@@ -3,7 +3,7 @@
         <br>
         <h2 class="text-center">Login</h2>
         <br>
-        <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <form class ="box" name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="username"><b>Name</b></label>
                 <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>

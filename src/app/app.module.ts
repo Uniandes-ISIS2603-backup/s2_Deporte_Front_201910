@@ -61,7 +61,7 @@ import {EntrenamientoModule} from './entrenamiento/entrenamiento.module';
         }),
         NgxPaginationModule,
         NgbModule
-    ],
+            ],
     bootstrap: [AppComponent],
     providers: [
         {

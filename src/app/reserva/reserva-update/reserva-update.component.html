@@ -1,3 +1,31 @@
-<p>
-reserva-update works!
-</p>
+<form class="box" name="reserva" (ngSubmit)="f.form.valid && updateReserva()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                                    <h2> Editar Reserva</h2>
+
+                    <label for="postNombre"><b>Fecha de inicio de la reserva</b></label>
+                    <input type="text" name="reservaFechaInicio" class="form-control" id="reservaFechaInicio"
+                        [(ngModel)]="reserva.fechaInicio" #reservaFechaInicio="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && reservaFechaInicio.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                    <label for="campeonatoDescripcion"><b>Fecha de finalización de la reserva</b></label>
+                    <input type="text" name="campeonatoDescripcion" class="form-control" id="campeonatoDescripcion"
+                        [(ngModel)]="reserva.fechaFin" #postContenido="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && postContenido.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Este campo es obligatorio</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </div>
+    </form>

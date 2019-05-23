@@ -30,16 +30,17 @@ constructor(
 
 
 
-  cancelCreation(): void {
-        this.toastrService.warning('The reserva wasn\'t created', 'reserva creation');
-        this.router.navigate(['/reserva/list']);
-    }
+   cancelCreation(): void {
+    this.cancel.emit();
+}
 
     createReserva(): Reserva{
         this.reservaService.createReserva(this.reserva)
             .subscribe(reserva => {
                 this.reserva.id = reserva.id;
-                this.reserva.fecha = reserva.fecha;
+                this.reserva.fechaInicio = reserva.fechaInicio;
+                this.reserva.fechaFin = reserva.fechaFin
+                            this.toastrService.success("The reserva was created", "Reserva creation");
                 this.router.navigate(['/reservas/' + reserva.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');
@@ -48,7 +49,6 @@ constructor(
     }
 
     ngOnInit() {
-    reserva: Reserva;
         this.reserva = new Reserva();
     }
 }

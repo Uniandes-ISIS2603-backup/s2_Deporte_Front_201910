@@ -36,8 +36,8 @@ export class ReservaService {
     /**
      * Metodo que elimina un Reserva dado el id
      */
-    deleteReserva(reservaId): Observable<boolean> {
-          return this.http.delete<boolean>(API_URL + '/' + reservaId);
+      deleteReserva(postId): Observable<Reserva> {
+        return this.http.delete<Reserva>(API_URL + reservas + '/' + postId);
     }
     /**
     * Metodo que actualiza el Reserva dado
@@ -52,4 +52,6 @@ export class ReservaService {
     createReserva(Reserva): Observable<Reserva> {
         return this.http.post<Reserva>(API_URL + reservas, Reserva);
     }
+    
+      
 }

@@ -49,6 +49,8 @@ import {AmistosoDetailComponent} from '../amistoso/amistoso-detail/amistoso-deta
 import {ReservaListComponent} from '../reserva/reserva-list/reserva-list.component';
 import {ReservaCreateComponent} from '../reserva/reserva-create/reserva-create.component';
 import {ReservaDetailComponent} from '../reserva/reserva-detail/reserva-detail.component';
+import {ReservaUpdateComponent} from '../reserva/reserva-update/reserva-update.component';
+
 
 import {EntrenamientoListComponent} from '../entrenamiento/entrenamiento-list/entrenamiento-list.component';
 import {EntrenamientoCreateComponent} from '../entrenamiento/entrenamiento-create/entrenamiento-create.component';
@@ -345,7 +347,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ReservaDetailComponent
-            }
+            },
+             {
+                path: 'edit/:id',
+                component: ReservaUpdateComponent
+            },
         ]
     },
     {

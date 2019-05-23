@@ -8,5 +8,7 @@ export class Reserva {
     /**
     * fecha de la reserva
     */
-    fecha:Date;
+    fechaInicio:Date;
+    
+    fechaFin:Date;
 }

@@ -26,6 +26,8 @@ export class ReservaListComponent implements OnInit {
   reserva_id: number;
   selectedReserva: Reserva;
   campeonato_edit_id: number;
+      showCreate: boolean;
+
 
   /**
    * La lista de reservas 
@@ -50,7 +52,9 @@ export class ReservaListComponent implements OnInit {
 //  this.reservaService.getReservaDetail(reserva_id).subscribe(o => this.selectedReserva = o);
 //  }
 
-
+ showHideCreate(): void {
+        this.showCreate = !this.showCreate!
+    }
 
   /**
    * Este es el metodo que se llama cuando se inicia el componente
@@ -58,5 +62,29 @@ export class ReservaListComponent implements OnInit {
   ngOnInit() {
   this.getReservas();
   }
+  
+   deleteReserva(postId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a campeonato',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this post?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.reservaService.deleteReserva(postId).subscribe(() => {
+                            this.toastrService.error("The post was successfully deleted", "Post deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
 
 }

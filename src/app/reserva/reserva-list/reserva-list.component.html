@@ -1,31 +1,26 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col">
-			<table class="table- table-stripped">
-				<thead class="thead-dark">
-					<tr>
-						<th> Reservas</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let i of reservas">
-						<td style="cursor: pointer;">
-							<a class="figure-caption" (click)="onSelected(i.id)">{{i.id}}</a>
-						</td>
-            <td style="cursor: pointer;">
-							<a class="figure-caption" (click)="onSelected(i.id)">{{i.fecha}}</a>
-						</td>
+   <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create a reserva</button>
+            </div>
+            <br>
+             <div *ngIf="showCreate">
+                <app-reservacreate (cancel)="showHideCreate()" (create)="ngOnInit()"></app-reservacreate>
+                
+            </div>
+            <br>
+            <br>
+            <div class="card-columns">
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;" *ngFor="let i of reservas">
+  <div class="card-body">
+    <h5 class="card-title"> <a class="figure-caption"
+    routerLink="/reservas/detail/{{i.id}}">
+            <b> ID de la reserva: </b> {{i.id}}</a></h5>
+      <p class="card-text"><b> Fecha de inicio:  </b>{{i.fechaInicio}}</p>
+      <p class="card-text"><b> Fecha de finalización  </b>{{i.fechaFin}}</p>
+                <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn btn-light" routerLink="/reservas/edit/{{i.id}}">Editar</button>
+                
+                <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" (click)="deleteReserva(i.id)"><span class="fa fa-trash"></span></button>
 
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-  	</div>
-  	<div class="border row">
-		<div class="col">
-			<div *ngIf="selectedReserva">
-				<app-reserva-detail [reservaDetail]="selectedReserva"> </app-reserva-detail>
-			</div>
-		</div>
-	</div>
+  </div>
+</div>
+</div>

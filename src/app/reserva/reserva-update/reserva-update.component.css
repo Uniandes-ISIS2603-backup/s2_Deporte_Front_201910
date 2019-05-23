@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11-abr-2019, 7:41:19
+    Author     : estudiante
+*/
+h2{
+    color: black;
+    width: 200px;
+  
+  border: solid 2px black;
+  margin-left: 600px;
+  text-align: center;
+  
+}
+html{
+   background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+background-size: cover;
+    background-image:
+    linear-gradient(black, black),
+    url(https://neilpatel.com/wp-content/uploads/2016/05/writingposts.jpg);
+  background-blend-mode: saturation;
+}
+
+.box{
+   
+    position: relative;
+
+
+text-align: center;
+}
+.box label{
+    color:black;
+    text-transform: uppercase;
+    font-size: 500;
+}
+.box input[type = "text"]{
+    border:0;
+    background: none;
+    display:block;
+    margin:20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0,25s;
+}
+
+.box input[type = "text"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}

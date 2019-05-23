@@ -14,7 +14,8 @@ import { ReservaDetail } from '../reserva-detail';
  */
 @Component({
     selector: 'app-reserva-update',
-    templateUrl: './reserva-update.component.html'
+    templateUrl: './reserva-update.component.html',
+    styleUrls: ['./reserva-update.component.css']
 
 })
 export class ReservaUpdateComponent implements OnInit {
@@ -49,7 +50,7 @@ export class ReservaUpdateComponent implements OnInit {
     /**
      * El metodo que cambia el reserva
      */
-    updatereserva(): void {
+    updateReserva(): void {
         this.reservaService.updateReserva(this.reserva)
             .subscribe(() => {
                 this.router.navigate(['/reservas/' + this.id]);

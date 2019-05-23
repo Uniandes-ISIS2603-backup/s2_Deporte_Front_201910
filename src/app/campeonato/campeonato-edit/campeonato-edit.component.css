@@ -4,17 +4,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 09-abr-2019, 15:38:23
+    Created on : 08-abr-2019, 21:09:13
     Author     : estudiante
 */
-h1{
-    color:black;
-    width: 400px;
-  padding: 14px 48px;
+.container {
+  position: relative;
   text-align: center;
-  border: solid 2px black;
-  margin-left: 410px;
-  z-index: 1;
+  
 }
 html{
     margin: 0;
@@ -23,23 +19,28 @@ html{
     background: #34495e;
 }
 
+h2{
+    color: gold;
+    background: white;
+    width: 400px;
+  padding: 14px 48px;
+  border: solid 2px black;
+  margin-left: 130px;
+  z-index: 1;
+}
 .box{
-    width: 1500px;
-    padding: 150px;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-     background-image:
-           linear-gradient(black, black),
-    url(http://hdtrophy.com/wp-content/uploads/2016/04/256975488.jpg);
-  background-blend-mode: saturation;
-         text-align: center;
+  
+   
+    position: relative;
+    
+    
+    text-align: center;
+
+   
 }
 .box label{
     color:black;
     text-transform: uppercase;
-    background: white;
     font-size: 500;
 }
 .box input[type = "text"]{
@@ -61,5 +62,3 @@ html{
     width: 280px;
     border-color: #2ecc71;
 }
-
-

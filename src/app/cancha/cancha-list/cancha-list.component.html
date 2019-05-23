@@ -12,6 +12,8 @@
             </ul>
             <div class="card-body">
                 <button type="button" class="btn btn-dark" routerLink="/canchas/{{cancha.id}}">Detalles</button>
+                <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" (click)="deleteCancha(cancha.id)"><span class="fa fa-trash"></span></button>
+
             </div>
         </div>
         <!--

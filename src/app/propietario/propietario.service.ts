@@ -48,4 +48,7 @@ export class PropietarioService {
     updatePropietario(propietario){
         return this.http.put<PropietarioDetail>(API_URL + propietarios + '/' + propietario.id, propietario);
     }
+     deletePropietario(postId): Observable<PropietarioDetail> {
+        return this.http.delete<PropietarioDetail>(API_URL + propietarios + '/' + postId);
+    }
 }

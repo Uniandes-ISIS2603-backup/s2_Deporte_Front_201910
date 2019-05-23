@@ -79,7 +79,7 @@ export class PostListComponent implements OnInit {
     
      deletePost(postId): void {
         this.modalDialogService.openDialog(this.viewRef, {
-            title: 'Delete a campeonato',
+            title: 'Delete a post',
             childComponent: SimpleModalComponent,
             data: {text: 'Are you sure your want to delete this post?'},
             actionButtons: [

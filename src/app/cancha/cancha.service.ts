@@ -47,4 +47,8 @@ export class CanchaService {
     updateCancha(cancha){
         return this.http.put<CanchaDetail>(API_URL + canchas + '/' + cancha.id, cancha);
     }
+    deleteCancha(campeonatoId): Observable<CanchaDetail> {
+        return this.http.delete<CanchaDetail>(API_URL + canchas + '/' + campeonatoId);
+    }
+    
 }

@@ -1,4 +1,4 @@
-<h2>Canchas:</h2>
+<h2>Propietarios:</h2>
 <br>
  <div class="row justify-content-center align-self-center" >
                 <button *ngxPermissionsOnly="['ADMIN']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
@@ -20,6 +20,8 @@
             </div>
             <div class="card-body">
                 <button type="button" class="btn btn-dark" routerLink="/propietarios/{{propietario.id}}">Detalles</button>
+                                <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" (click)="deletePropietario(propietario.id)"><span class="fa fa-trash"></span></button>
+
             </div>
         </div>
     </div>
